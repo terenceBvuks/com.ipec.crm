@@ -1,0 +1,96 @@
+{
+	"TileCollection" : [
+		{
+			"icon" : "sap-icon://account",
+			"number" : "1",
+			"title" : "Details Of Institution",
+			"info" : "Details",
+			"infoState" : "Error",
+			"tooltip" : "Details Of Institution",
+			"page" : "page2"
+		},
+		{
+			"icon" : "sap-icon://bbyd-dashboard",
+			"number" : "2",
+			"title" : "Officers Of Administration",
+			"info" : "Annex 2",
+			"infoState" : "Success",
+			"tooltip" : "OFFICERS OF ADMINISTRATION",
+			"page" : "page3"
+		},
+		{
+			"icon" : "sap-icon://monitor-payments",
+			"number" : "3",
+			"title" : "Funds Administered",
+			"info" : "Annex 3",
+			"infoState" : "Success",
+			"tooltip" : "FUNDS ADMINISTERED",
+			"page" : "page4"
+		},
+		{
+			"icon" : "sap-icon://business-card",
+			"number" : "4",
+			"title" : "Membership Data",
+			"info" : "Annex 4",
+			"infoState" : "Success",
+			"tooltip" : "Memebrship Data",
+			"page" : "page5"
+		},
+		{
+			"icon" : "sap-icon://money-bills",
+			"number" : "5",
+			"title" : "Income And Expenditure",
+			"info" : "Annex 5",
+			"infoState" : "Success",
+			"tooltip" : "INCOME AND EXPENDITURE",
+			"page" : "page6"
+		},
+		{
+			"icon" : "sap-icon://accounting-document-verification",
+			"number" : "6",
+			"title" : "Balance Sheet",
+			"info" : "Annex 6",
+			"infoState" : "Success",
+			"tooltip" : "BALANCE SHEET ",
+			"page" : "page7"
+		},
+		{
+			"icon" : "sap-icon://manager-insight",
+			"number" : "7",
+			"numberUnit" : "",
+			"title" : "Cashflow",
+			"info" : "Annex 7",
+			"infoState" : "Success",
+			"tooltip" : "CASHFLOW",
+			"page" : "page8"
+		},
+		{
+			"icon" : "sap-icon://opportunities",
+			"number" : "8",
+			"title" : "Debtors And Contributions",
+			"info" : "Annex 8",
+			"infoState" : "Success",
+			"tooltip" : "DEBTORS AND CONTRIBUTIONS",
+			"page" : "page9"
+		},
+		{
+			"icon" : "sap-icon://manager-insight",
+			"number" : "9",
+			"numberUnit" : "",
+			"title" : "Commutation",
+			"info" : "Annex 9",
+			"infoState" : "Success",
+			"tooltip" : "COMMUTATION",
+			"page" : "page10"
+		},
+		{
+			"icon" : "sap-icon://building",
+			"number" : "10",
+			"title" : "Insurance Company Schemes",
+			"info" : "Annex 10",
+			"infoState" : "Error",
+			"tooltip" : "ANALYSIS OF ASSETS AT MARKET VALUE ($) - INSURANCE COMPANY SCHEMES - Prescribed Assets",
+			"page" : "page11"
+		}
+	]
+}

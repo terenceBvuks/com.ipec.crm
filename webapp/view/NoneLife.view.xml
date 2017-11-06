@@ -1,0 +1,4559 @@
+<mvc:View controllerName="com.ipec.crm.controller.NoneLife" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:n="sap.tnt" >
+	<NavContainer
+		id="navNoneLife"
+		width="100%"
+		class="navContainerControl sapUiSmallMarginBottom">
+			<Page
+				id="pT1"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Fill in all your information on the summary page statement" showIcon="true"/>
+				<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4"
+					labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+					singleContainerFullSize="false">
+					<Label text="Name of Broker"/>
+					<Input value="{SupplierName}" id="brokername" type="Text" placeholder="Name of Broker" showSuggestion="true"
+						valueHelpRequest="handleValueHelp" showValueHelp="true"/>
+					<Label text="Name of Official Completing Form"/>
+					<Input value="{OfficialName}" id="officialname" type="Text" placeholder="Name of Official Completing Form" showSuggestion="true"
+						valueHelpRequest="handleValueHelp" showValueHelp="true"/>
+					<Label text="Date of submission"/>
+					<DatePicker placeholder="Enter date" value="{Date}" change="handleChange"/>
+					<Label text="Declaration"/><MessageStrip class="sapUiSmallMarginBottom" text="I declare that the information provided here is true and accurate" showIcon="false"
+						type="Success"/>
+					<CheckBox text="" id="declaration"/>
+				</f:SimpleForm>
+			</content>
+				<FlexBox backgroundDesign ="Solid"
+					height="50px"
+					alignItems="End"
+					justifyContent="Center">
+					<items>
+						<Button text="Next" type="Accept" press="handleFlowNav">
+							<customData>
+								<core:CustomData
+									key="target"
+									value="pT2" />
+							</customData>
+						</Button>
+					</items>
+				</FlexBox>
+			<!--<footer>-->
+			<!--	<Bar id="__bar1">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button1" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>				-->
+			</Page>
+			<Page
+				id="pT2"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Technical Income for the Period Ending" showIcon="true"/>
+				
+				<l:ResponsiveSplitter defaultPane="rdefault10">
+				<l:PaneContainer >
+					<l:SplitPane requiredParentWidth="400" id="sdefault10">
+						<Panel id="panel" height="100%">
+							<Button text="Toggle Collapse/Expand Menus"
+								icon="sap-icon://menu2"
+								press="onCollapseExpandPress" />
+							<n:NavigationList id="navigationList" width="320px" itemSelect="handleItemPress">
+								<n:NavigationListItem
+									text="CLASS BUSINESS"
+									icon="sap-icon://bbyd-dashboard">
+									<n:NavigationListItem text="Gross Premiums written"/>
+									<n:NavigationListItem text="Reinsurance Premiums"/>
+									<n:NavigationListItem text="Unearned Premium Reserve (UPR) brought forward (net of reinsurance)"/>
+									<n:NavigationListItem text="Unearned Premium Reserve (UPR) carried forward (net of reinsurance)"/>
+									<n:NavigationListItem text="Gross claims paid"/>
+									<n:NavigationListItem text="Reinsurance Claims and other recoveries"/>
+									<n:NavigationListItem text="O/S Claims Reserves brought forward (net of reinsurance) for Reported/Known Claims"/>
+									<n:NavigationListItem text="O/S Claims Reserves carried forward (net of reinsurance) for Reported/Known Claims"/>
+									<n:NavigationListItem text="IBNR Provisions brought forward (net of reinsurance)"/>
+									<n:NavigationListItem text="IBNR Provisions carried forward (net of reinsurance)"/>
+									<n:NavigationListItem text="Gross commission paid"/>
+									<n:NavigationListItem text="Reinsurance commission received"/>
+									<n:NavigationListItem text="Unearned commission reserve (UCR) or DAC brought forward (net of reinsurance)"/>
+									<n:NavigationListItem text="Unearned commission reserve (UCR) or DAC carried forward (net of reinsurance)"/>
+								</n:NavigationListItem>
+							</n:NavigationList>
+						</Panel>
+					</l:SplitPane>
+					<l:SplitPane >
+						<Panel height="100%">
+							<NavContainer
+								id="navCon"
+								width="98%"
+								height="40em"
+								class="navContainerControl sapUiSmallMarginBottom">
+								<Page
+									id="p1"  title="Gross Premiums written">
+									<!--<MessageStrip class="sapUiSmallMarginBottom" text="Gross Premiums written" showIcon="true"/>-->
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP1"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire"/>
+											<Input value="" placeholder="Local $" tooltip="Local $">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor"/>
+											<Input value="" placeholder="Local $" tooltip="Local $">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering"/>
+											<Input value="" placeholder="Local $" tooltip="Local $">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine"/>
+											<Input value="" placeholder="Local $" tooltip="Local $">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation"/>
+											<Input value="" placeholder="Local $" tooltip="Local $">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident"/>
+											<Input value="" placeholder="Local $" tooltip="Local $">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee"/>
+											<Input value="" placeholder="Local $" tooltip="Local $">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit"/>
+											<Input value="" placeholder="Local $" tooltip="Local $">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming"/>
+											<Input value="" placeholder="Local" tooltip="Local">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals"/>
+											<Input value="" placeholder="Local $" tooltip="Local $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals"/>
+											<Input value="" placeholder="Local $" tooltip="Local $">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change"/>
+											<Input value="" placeholder="Local" tooltip="Local" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change"/>
+											<Input value="" placeholder="Local $" tooltip="Local $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="U11" tooltip="U11"/>
+											<Input value="" placeholder="Local $" tooltip="Local $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+								<Page
+									id="p2"
+									title="Reinsurance Premiums" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP2"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="U13" tooltip="U13">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="U13 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="V13" tooltip="V13">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="V13 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>													
+								</Page>
+								<Page
+									id="p3"
+									title="Unearned Premium Reserve (UPR) brought forward (net of reinsurance)" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP3"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+								<Page
+									id="p4"
+									title="Unearned Premium Reserve (UPR) carried forward (net of reinsurance)" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP4"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="U15" tooltip="U15">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="U15 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Z15" tooltip="Z15">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Z15 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>	
+								</Page>
+								<Page
+									id="p5"
+									title="Gross claims paid" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP5"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+								<Page
+									id="p6"
+									title="Reinsurance Claims and other recoveries" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP6"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+								<Page
+									id="p7"
+									title="O/S Claims Reserves brought forward (net of reinsurance) for Reported/Known Claims" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP7"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+								<Page
+									id="p8"
+									title="O/S Claims Reserves carried forward (net of reinsurance) for Reported/Known Claims" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP8"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Z19" tooltip="Z19">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Z19 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<!--<Label text="Z15" tooltip="Z15">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="Z15 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+								<Page
+									id="p9"
+									title="IBNR Provisions brought forward (net of reinsurance)" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP9"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<!--<Label text="U15" tooltip="U15">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="U15 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+											<!--<Label text="Z15" tooltip="Z15">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="Z15 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+								<Page
+									id="p10"
+									title="IBNR Provisions carried forward (net of reinsurance)" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP10"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="U21" tooltip="U21">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="U21 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Z21" tooltip="Z21">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Z21 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="AA21" tooltip="AA21">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="AA21 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="AB21" tooltip="AB21">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="AB21 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+								<Page
+									id="p11"
+									title="Gross commission paid" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP11"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<!--<Label text="U21" tooltip="U21">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="U21 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+											<!--<Label text="Z21" tooltip="Z21">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="Z21 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+											<!--<Label text="AA21" tooltip="AA21">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="AA21 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+											<!--<Label text="AB21" tooltip="AB21">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="AB21 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+								<Page
+									id="p12"
+									title="Reinsurance commission received" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP12"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="U23" tooltip="U23">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="U23 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="V23" tooltip="V23">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="V23 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<!--<Label text="AA21" tooltip="AA21">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="AA21 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+											<!--<Label text="AB21" tooltip="AB21">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="AB21 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+								<Page
+									id="p13"
+									title="Unearned commission reserve (UCR) or DAC brought forward (net of reinsurance)" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP13"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<!--<Label text="U23" tooltip="U23">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="U23 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+											<!--<Label text="V23" tooltip="V23">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="V23 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+											<!--<Label text="AA21" tooltip="AA21">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="AA21 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+											<!--<Label text="AB21" tooltip="AB21">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="AB21 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+								<Page
+									id="p14"
+									title="Unearned commission reserve (UCR) or DAC carried forward (net of reinsurance)" >
+										<content>		
+											<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formP14"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title=""
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Fire" tooltip="Fire">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Fire $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Motor" tooltip="Motor">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Motor $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Engineering" tooltip="Engineering">
+														<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Engineering $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Marine" tooltip="Marine">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Marine $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Aviation" tooltip="Aviation">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Aviation $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="P/Accident" tooltip="P/Accident">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="P/Accident $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Bonds/Guarantee $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Credit" tooltip="Credit">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Credit $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Farming" tooltip="Farming">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Farming $">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Current Totals" tooltip="Current Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Current Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Previous Totals" tooltip="Previous Totals">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Previous Totals $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Change" tooltip="Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="% Change" tooltip="% Change">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="% Change $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<Label text="Z25" tooltip="Z25">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Label>
+											<Input value="" placeholder="$" tooltip="Z25 $" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S2" />
+												</layoutData>
+											</Input>
+											<!--<Label text="V23" tooltip="V23">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="V23 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+											<!--<Label text="AA21" tooltip="AA21">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="AA21 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+											<!--<Label text="AB21" tooltip="AB21">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Label>-->
+											<!--<Input value="" placeholder="$" tooltip="AB21 $" editable="false">-->
+											<!--		<layoutData>-->
+											<!--		<l:GridData span="XL2 L2 M6 S2" />-->
+											<!--	</layoutData>-->
+											<!--</Input>-->
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+										</content>
+								</Page>
+							</NavContainer>
+						</Panel>	
+					</l:SplitPane>
+				</l:PaneContainer>
+			</l:ResponsiveSplitter>
+			</content>
+				<FlexBox backgroundDesign ="Solid"
+					height="50px"
+					alignItems="End"
+					justifyContent="Center">
+					<items>
+						<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+							<customData>
+								<core:CustomData
+									key="target"
+									value="pT1" />
+							</customData>
+						</Button>
+						<Button text="Next" type="Accept" press="handleFlowNav">
+							<customData>
+								<core:CustomData
+									key="target"
+									value="pT3" />
+							</customData>
+						</Button>
+					</items>
+				</FlexBox>
+			<!--<footer>-->
+			<!--	<Bar id="__bar2">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button2" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>				-->
+		</Page>
+			<Page
+				id="pT3"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Balance Sheet" showIcon="true"/>
+				
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="balancesheet"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title="Equity And Liabilities"
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Shareholders Equity" tooltip="Shareholders Equity"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Share Capital" tooltip="Share Capital"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Share  Premium" tooltip="Share  Premium"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Revaluation and other Reserves" tooltip="Revaluation and other Reserves"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Retained Income" tooltip="Retained Income"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Minority Interest" tooltip="Minority Interest"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Shareholder's Equity Total" tooltip="Shareholder's Equity Total"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+								</content>
+									<FlexBox backgroundDesign ="Solid"
+										height="50px"
+										alignItems="End"
+										justifyContent="Center">
+										<items>
+											<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT2" />
+												</customData>
+											</Button>
+											<Button text="Next" type="Accept" press="handleFlowNav">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT4" />
+												</customData>
+											</Button>
+										</items>
+									</FlexBox>
+			<!--<footer>-->
+			<!--	<Bar id="__bar3">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button3" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>-->
+			</Page>
+			<Page
+				id="pT4"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Balance Sheet" showIcon="true"/>
+				
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="balancesheet2"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title="Equity And Liabilities"
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Non-current liabilities" tooltip="Non-current liabilities"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Deferred Taxation" tooltip="Deferred Taxation"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Long term Loan" tooltip="Long term Loan"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Total Non - Current Liabilities" tooltip="Total Non - Current Liabilities"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Current liabilities" tooltip="Current liabilities"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Provision for Taxation" tooltip="Provision for Taxation"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Current Provisions" tooltip="Current Provisions"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+				</content>
+									<FlexBox backgroundDesign ="Solid"
+										height="50px"
+										alignItems="End"
+										justifyContent="Center">
+										<items>
+											<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT3" />
+												</customData>
+											</Button>
+											<Button text="Next" type="Accept" press="handleFlowNav">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT5" />
+												</customData>
+											</Button>
+										</items>
+									</FlexBox>
+			<!--<footer>-->
+			<!--	<Bar id="__bar4">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button4" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>									-->
+			</Page>
+			<Page
+				id="pT5"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Balance Sheet" showIcon="true"/>
+				
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="balancesheet3"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title="Equity And Liabilities"
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Bank Overdrafts" tooltip="Bank Overdrafts"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Share Based Payment Reserve" tooltip="Share Based Payment Reserve"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Other payables" tooltip="Other payables"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Total Current Liabilities" tooltip="Total Current Liabilities"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Technical Liabilities" tooltip="Technical Liabilities"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Gross Reported Outstanding Claims" tooltip="Gross Reported Outstanding Claims"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Reinsurance creditors" tooltip="Reinsurance creditors"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+				</content>
+									<FlexBox backgroundDesign ="Solid"
+										height="50px"
+										alignItems="End"
+										justifyContent="Center">
+										<items>
+											<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT4" />
+												</customData>
+											</Button>
+											<Button text="Next" type="Accept" press="handleFlowNav">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT6" />
+												</customData>
+											</Button>
+										</items>
+									</FlexBox>
+			<!--<footer>-->
+			<!--	<Bar id="__bar5">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button5" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>									-->
+			</Page>
+			<Page
+				id="pT6"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Balance Sheet" showIcon="true"/>
+				
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="balancesheet4"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title="Equity And Liabilities"
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Incurred But Not Reported Claims" tooltip="Incurred But Not Reported Claims"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Unearned Premium Reserves" tooltip="Unearned Premium Reserves"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Total Technical Liabilities" tooltip="Total Technical Liabilities"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="TOTAL EQUITY AND LIBILITIES" tooltip="TOTAL EQUITY AND LIBILITIES"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+				</content>
+									<FlexBox backgroundDesign ="Solid"
+										height="50px"
+										alignItems="End"
+										justifyContent="Center">
+										<items>
+											<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT5" />
+												</customData>
+											</Button>
+											<Button text="Next" type="Accept" press="handleFlowNav">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT7" />
+												</customData>
+											</Button>
+										</items>
+									</FlexBox>	
+			<!--<footer>-->
+			<!--	<Bar id="__bar6">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button6" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>									-->
+			</Page>
+			<Page
+				id="pT7"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Balance Sheet" showIcon="true"/>
+				
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="balancesheet5"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title="ASSETS"
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Non - Current Assets" tooltip="Non - Current Assets"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Investments In Properties and Equipment" tooltip="Investments In Properties and Equipment"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Investment Property" tooltip="Investment Property"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Investments in Quoted Equities" tooltip="Investments in Quoted Equities"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Investments in Unquoted Equities" tooltip="Investments in Unquoted Equities"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Long term Fixed Deposits" tooltip="Long term Fixed Deposits"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Investment in Associated Companies" tooltip="Investment in Associated Companies"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+			</content>
+									<FlexBox backgroundDesign ="Solid"
+										height="50px"
+										alignItems="End"
+										justifyContent="Center">
+										<items>
+											<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT6" />
+												</customData>
+											</Button>
+											<Button text="Next" type="Accept" press="handleFlowNav">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT8" />
+												</customData>
+											</Button>
+										</items>
+									</FlexBox>	
+			<!--<footer>-->
+			<!--	<Bar id="__bar7">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button7" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>									-->
+			</Page>
+			<Page
+				id="pT8"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Balance Sheet" showIcon="true"/>
+				
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="balancesheet6"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title="ASSETS"
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Intangible Assets" tooltip="Intangible Assets"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Total Non- Current Assets" tooltip="Total Non- Current Assets"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Technical Assets" tooltip="Technical Assets"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Reinsurers` Share of Outstanding Claims" tooltip="Reinsurers` Share of Outstanding Claims"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="DAC or UCR" tooltip="DAC or UCR"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Total Technical Assets" tooltip="Total Technical Assets"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Current Assets" tooltip="Current Assets"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+			</content>
+									<FlexBox backgroundDesign ="Solid"
+										height="50px"
+										alignItems="End"
+										justifyContent="Center">
+										<items>
+											<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT7" />
+												</customData>
+											</Button>
+											<Button text="Next" type="Accept" press="handleFlowNav">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT9" />
+												</customData>
+											</Button>
+										</items>
+									</FlexBox>	
+			<!--<footer>-->
+			<!--	<Bar id="__bar8">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button8" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>									-->
+			</Page>
+			<Page
+				id="pT9"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Balance Sheet" showIcon="true"/>
+				
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="balancesheet7"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title="ASSETS"
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Investments in the Money Market" tooltip="Investments in the Money Market"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Cash And Cash Equivalents" tooltip="Cash And Cash Equivalents"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value" editable="true">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number" editable="true">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Premium Receivable ( Debtors)" tooltip="Premium Receivable ( Debtors)"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Investments in Prescribed Assets" tooltip="Investments in Prescribed Assets"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Accured Investment Income" tooltip="Accured Investment Income"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Other current assets" tooltip="Other current assets"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value" editable="true">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number" editable="true">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Current Tax Asset" tooltip="Current Tax Asset"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Total Current Assets" tooltip="Total Current Assets"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Label text="TOTAL ASSETS" tooltip="TOTAL ASSETS"/>
+											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L4 M12 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+			</content>
+									<FlexBox backgroundDesign ="Solid"
+										height="50px"
+										alignItems="End"
+										justifyContent="Center">
+										<items>
+											<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT8" />
+												</customData>
+											</Button>
+											<Button text="Next" type="Accept" press="handleFlowNav">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT10" />
+												</customData>
+											</Button>
+										</items>
+									</FlexBox>
+			<!--<footer>-->
+			<!--	<Bar id="__bar9">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button9" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>									-->
+			</Page>
+			<Page
+				id="pT10"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Income Statement" showIcon="true"/>
+				
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="incomestatement1"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title="INCOME"
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Gross premiums" tooltip="Gross premiums"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Reinsurance" tooltip="Reinsurance"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Premiums written less reinsurance" tooltip="Premiums written less reinsurance"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Transfer to/from unearned premiums" tooltip="Transfer to/from unearned premiums"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Earned premiums" tooltip="Earned premiums"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+			</content>
+									<FlexBox backgroundDesign ="Solid"
+										height="50px"
+										alignItems="End"
+										justifyContent="Center">
+										<items>
+											<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT9" />
+												</customData>
+											</Button>
+											<Button text="Next" type="Accept" press="handleFlowNav">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT11" />
+												</customData>
+											</Button>
+										</items>
+									</FlexBox>	
+			<!--<footer>-->
+			<!--	<Bar id="__bar10">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button10" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>									-->
+			</Page>
+			<Page
+				id="pT11"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Income Statement" showIcon="true"/>
+				
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="incomestatement2"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title="EXPENDITURE"
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Claims paid And outstanding claims mvt" tooltip="Claims paid And outstanding claims mvt"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Incurred but not reported claims mvt (IBNR)" tooltip="Incurred but not reported claims mvt (IBNR)"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Unearned premium reserve mvt (DAC)" tooltip="Unearned premium reserve mvt (DAC)"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Commissions" tooltip="Commissions"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Expenses" tooltip="Expenses"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Total Expenses" tooltip="Total Expenses"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Operating results" tooltip="Operating results"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+			</content>
+									<FlexBox backgroundDesign ="Solid"
+										height="50px"
+										alignItems="End"
+										justifyContent="Center">
+										<items>
+											<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT10" />
+												</customData>
+											</Button>
+											<Button text="Next" type="Accept" press="handleFlowNav">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT12" />
+												</customData>
+											</Button>
+										</items>
+									</FlexBox>
+			<!--<footer>-->
+			<!--	<Bar id="__bar11">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button11" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>									-->
+			</Page>
+			<Page
+				id="pT12"
+				title="{i18n>ntitle}" >
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Income Statement" showIcon="true"/>
+				
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="incomestatement3"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title="INVESTMENT INCOME AND OTHER INCOME"
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Sundry income/expenses" tooltip="Sundry income/expenses"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Investment income" tooltip="Investment income"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Unrealised movement arising from market valuation of equity" tooltip="Unrealised movement arising from market valuation of equity"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Unrealised movement arising from market valuation of investment property" tooltip="Unrealised movement arising from market valuation of investment property"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Foreign exchange gain/loss on financial assets" tooltip="Foreign exchange gain/loss on financial assets"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Monetary adjustment (IAS)" tooltip="Monetary adjustment (IAS)"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Total Investment and Other Income" tooltip="Total Investment and Other Income"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+			</content>
+									<FlexBox backgroundDesign ="Solid"
+										height="50px"
+										alignItems="End"
+										justifyContent="Center">
+										<items>
+											<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT11" />
+												</customData>
+											</Button>
+											<Button text="Next" type="Accept" press="handleFlowNav">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT13" />
+												</customData>
+											</Button>
+										</items>
+									</FlexBox>	
+			<!--<footer>-->
+			<!--	<Bar id="__bar12">-->
+			<!--		<contentRight>-->
+			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button12" activeIcon="" type="Accept"/>-->
+			<!--		</contentRight>-->
+			<!--	</Bar>-->
+			<!--</footer>									-->
+			</Page>
+			<Page
+				id="pT13"
+				title="{i18n>ntitle}"  floatingFooter="true">
+				<content>
+				<MessageStrip class="sapUiSmallMarginBottom" text="Income Statement" showIcon="true"/>
+				
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="incomestatement4"
+										editable="true"
+										layout="ResponsiveGridLayout"
+										title="INVESTMENT INCOME AND OTHER INCOME"
+										labelSpanXL="3"
+										labelSpanL="3"
+										labelSpanM="3"
+										labelSpanS="12"
+										adjustLabelSpan="false"
+										emptySpanXL="4"
+										emptySpanL="4"
+										emptySpanM="4"
+										emptySpanS="0"
+										columnsXL="1"
+										columnsL="1"
+										columnsM="1"
+										singleContainerFullSize="false" >
+										<sap.ui.layout.form:content>
+											<Label text="Profit before taxation" tooltip="Profit before taxation"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Taxation" tooltip="Taxation"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Profit after tax" tooltip="Profit after tax"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Dividends" tooltip="Dividendsy"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Retained profit for the year / quarter" tooltip="Retained profit for the year / quarter"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Retained income B/F" tooltip="Retained income B/F"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Label text="Retained Income C/F" tooltip="Retained Income C/F"/>
+											<Input value="" placeholder="Previous Year Market Value ZIMBABWE BUSINESS" tooltip="Previous Year Market Value ZIMBABWE BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value ZIMBABWE BUSINESS" tooltip="Current Year Market Value ZIMBABWE BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Previous Year Market Value OUTSIDE ZIMBABWE BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" tooltip="Current Year Market Value OUTSIDE ZIMBABWE BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L1 M4 S2" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Previous Year Market Value TOTAL BUSINESS" tooltip="Previous Year Market Value TOTAL BUSINESS" editable="false">
+													<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+											<Input value="" placeholder="Current Year Market Value TOTAL BUSINESS" tooltip="Current Year Market Value TOTAL BUSINESS" type="Number" editable="false">
+												<layoutData>
+													<l:GridData span="XL2 L2 M6 S4" />
+												</layoutData>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+		</content>
+									<FlexBox backgroundDesign ="Solid"
+										height="50px"
+										alignItems="End"
+										justifyContent="Center">
+										<items>
+											<Button text="Previous" type="Reject" press="handleFlowNav" class="sapUiSmallMarginEnd">
+												<customData>
+													<core:CustomData
+														key="target"
+														value="pT12" />
+												</customData>
+											</Button>
+										</items>
+									</FlexBox>		
+			<footer>
+				<Bar id="__bar13">
+					<contentRight>
+						<Button text="{i18n>submit}" width="100px" press="onSave" id="__buttons6" activeIcon="" type="Accept" icon="sap-icon://complete"/>
+					</contentRight>
+				</Bar>
+			</footer>
+		</Page>
+	</NavContainer>
+</mvc:View>

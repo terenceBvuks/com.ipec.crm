@@ -1,0 +1,60 @@
+<mvc:View controllerName="com.ipec.crm.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:tnt="sap.tnt">
+	<u:Shell id="myShell" icon="{/logo}">
+		<u:headItems>
+			<u:ShellHeadItem tooltip="Menu" icon="sap-icon://menu2" press="handlePressConfiguration"/>
+			<u:ShellHeadItem tooltip="Home" icon="sap-icon://home" visible="true" press="handlePressHome"/>
+		</u:headItems>
+		<u:headEndItems>
+		<!--	<u:ShellHeadItem icon="sap-icon://log" tooltip="Logoff" press="handleLogoffPress"/> -->
+		</u:headEndItems>
+		<u:user>
+		<!--	<u:ShellHeadUserItem image="sap-icon://person-placeholder" username="Guest" press="handleUserItemPressed"/> -->
+		</u:user>
+		<u:search>
+			<SearchField search="handleSearchPressed" placeholder="Search Applications"/>
+		</u:search>
+		<u:paneContent>
+			<tnt:SideNavigation id="_sideNav">
+				<tnt:item>
+					<tnt:NavigationList id="__navlist" itemSelect="handleItemPress" width="100%">
+						<tnt:NavigationListItem text="Account Creation" icon="sap-icon://account">
+							<tnt:NavigationListItem key="1" text="Individual Agent Account"/>
+							<tnt:NavigationListItem key="2" text="Corporate Account"/>
+						</tnt:NavigationListItem>
+						<tnt:NavigationListItem text="Application Submission" icon="sap-icon://approvals">
+							<tnt:NavigationListItem text="Individual Agent"/>
+							<tnt:NavigationListItem text="Corporate Agent"/>
+							<tnt:NavigationListItem text="Multiple Agent" />
+							<tnt:NavigationListItem text="Insurance Broker"/>
+							<tnt:NavigationListItem text="Insurance Company"/>
+							<tnt:NavigationListItem text="Mutual Society"/>
+							<tnt:NavigationListItem text="Intermediary License"/>
+							<tnt:NavigationListItem text="Pension Fund"/>
+							<tnt:NavigationListItem text="New Products Approval"/>
+							<tnt:NavigationListItem text="Prescribed Assets"/>
+							<tnt:NavigationListItem text="Name Change Request"/>
+						</tnt:NavigationListItem>
+						<tnt:NavigationListItem text="Quarterly Fiscal Year Returns" icon="sap-icon://time-account">
+							<tnt:NavigationListItem text="Agent Returns"/>
+							<tnt:NavigationListItem text="Company Returns"/>
+							<tnt:NavigationListItem text="Intermediaries Returns"/>
+							<tnt:NavigationListItem text="Mutual Society Returns"/>
+							<tnt:NavigationListItem text="Pension Fund Returns"/>
+							<tnt:NavigationListItem text="Funeral Returns"/>
+							<tnt:NavigationListItem text="Brokers Returns"/>
+							<tnt:NavigationListItem text="None Life Returns"/>
+							<tnt:NavigationListItem text="Life Returns"/>
+							<tnt:NavigationListItem text="Pension Report"/>
+							<!--<tnt:NavigationListItem text="OLD Pension Report"/>-->
+						</tnt:NavigationListItem>
+						<tnt:NavigationListItem text="Complaints Submission" icon="sap-icon://error"/>
+					</tnt:NavigationList>
+				</tnt:item>
+			</tnt:SideNavigation>
+		</u:paneContent>
+		<u:content>
+			<App id="app"/>
+		</u:content>
+	</u:Shell>
+</mvc:View>

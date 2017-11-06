@@ -1,0 +1,72 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.ipec.crm.controller.A1"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>agentAccount}" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<IconTabBar id="__tabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter text="Personal" icon="sap-icon://form" class="sapUiResponsiveContentPadding">
+						<content>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="false" layout="ResponsiveGridLayout" id="__form"
+								columnsM="2" columnsL="2">
+								<sap.ui.layout.form:content>
+									<core:Title text="Personal Information" id="__title1"/>
+									<Label text="Company Name"/>
+									<Input id="__companyName" placeholder="Company Name"/>
+									<Label text="Title"/>
+									<Select></Select>
+									<Label text="Name"/>
+									<Input id="__fname" placeholder="First Name"/>
+									<Input id="__sname" placeholder="Surname"/>
+									<Label text="BP Type"/>
+									<Select></Select>
+									<Label text="Address"/>
+									<Input id="__street" placeholder="Street"/>
+									<Input id="__hse" placeholder="House Number"/>
+									<Label text=" "/>
+									<Input id="__city" placeholder="City"/>
+									<Input id="__country" placeholder="Country"/>
+									<core:Title text="" id="__title2"/>
+									<Label text="ID Number"/>
+									<Input id="__id" placeholder="National ID Number"/>
+									<Label text="Tel/Ext"/>
+									<Input id="__tel" placeholder="Telephone Number" type="Number"/>
+									<Input id="__telext" placeholder="Extension" type="Number"/>
+									<Label text="Mobile"/>
+									<Input id="__mobile" placeholder="Mobile Number" type="Number"/>
+									<Label text="Fax/Ext"/>
+									<Input id="__fax" placeholder="Fax Number" type="Number"/>
+									<Input id="__faxext" placeholder="Extension Number" type="Number"/>
+									<Label text="E-Mail"/>
+									<Input id="__email" placeholder="Email Address"/>
+								</sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator/>
+					<IconTabFilter text="Login Details" icon="sap-icon://document-text" class="sapUiResponsiveContentPadding">
+						<content>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="false" layout="ResponsiveGridLayout" id="__form1"
+								columnsL="2">
+								<sap.ui.layout.form:content>
+									<core:Title text="Login Credentials" id="__title3"/>
+									<Label text="Username"/>
+									<Input id="__usr" placeholder="Username" visible="true"/>
+									<Label text="Password"/>
+									<Input id="__pwd" placeholder="Password" type="Password"/>
+									<Input id="__pwd2" placeholder="Confirm Password" type="Password"/>
+								</sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Bar id="__bar1">
+				<contentRight>
+					<Button text="Submit" width="100px" press="oHandleCheck" id="__button0" activeIcon="" type="Accept"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

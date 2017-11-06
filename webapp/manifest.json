@@ -1,0 +1,222 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "com.ipec.crm",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZIPEC_APP_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "com.ipec.crm.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.ipec.crm.i18n.i18n"
+				}
+			},
+			"pensionsModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "pensionTileService",
+				"settings": {}
+			},
+			"": {
+				"dataSource": "mainService",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.ipec.crm.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "home",
+					"target": "home"
+				},
+				{
+					"pattern": "A1",
+					"name": "A1",
+					"target": "A1",
+					"titleTarget": ""
+				},
+				{
+					"pattern": "A2",
+					"name": "A2",
+					"target": "A2",
+					"titleTarget": ""
+				},
+				{
+					"pattern": "Funeral Returns",
+					"name": "Funeral Returns",
+					"target": "FuneralReturns"
+				},
+				{
+					"pattern": "Brokers Returns",
+					"name": "Brokers Returns",
+					"target": "BrokersReturns"
+				},
+				{
+					"pattern": "None Life Returns",
+					"name": "None Life Returns",
+					"target": "NoneLife"
+				},
+				{
+					"pattern": "Life Returns",
+					"name": "Life Returns",
+					"target": "LifeReturns"
+				},
+				{
+					"pattern": "OLD Pension Report",
+					"name": "OLD Pension Report",
+					"target": "OLDPensionReport"
+				},
+				{
+					"pattern": "Pension Report",
+					"name": "Pension Report",
+					"target": "PensionReport"
+				},
+				{
+					"pattern": "D1",
+					"name": "D1",
+					"target": "D1"
+				},
+				{
+					"pattern": "BM",
+					"name": "BM",
+					"target": "BM"
+				}
+			],
+			"targets": {
+				"home": {
+					"viewName": "Overview",
+					"viewLevel": 1
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"transition": "show"
+				},
+				"FuneralReturns": {
+					"viewName": "FuneralReturns",
+					"transition": "slide"
+				},
+				"BrokersReturns": {
+					"viewName": "BrokersReturns",
+					"transition": "show"
+				},
+				"NoneLife": {
+					"viewName": "NoneLife",
+					"transition": "show"
+				},
+				"LifeReturns": {
+					"viewName": "LifeReturns",
+					"transition": "show"
+				},
+				"OLDPensionReport": {
+					"viewName": "OLDPensionReport",
+					"transition": "show"
+				},
+				"PensionReport": {
+					"viewName": "PensionReport",
+					"transition": "show"
+				},
+				"A1": {
+					"viewName": "A1",
+					"transition": "slide"
+				},
+				"A2": {
+					"viewName": "A2",
+					"transition": "slide"
+				},
+				"BM": {
+					"viewName": "BMaster",
+					"transition": "slide"
+				},
+				"D1": {
+					"viewName": "D1",
+					"transition": "slide"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zreturns1/webapp",
+		"_version": "1.1.0"
+	}
+}

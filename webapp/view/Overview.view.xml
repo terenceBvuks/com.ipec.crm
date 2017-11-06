@@ -1,0 +1,94 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.ipec.crm.controller.Overview"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout">
+	<Carousel class="sapUiContentPadding" loop="true">
+		<pages>
+			<l:VerticalLayout width="100%">
+				<Panel>
+					<headerToolbar>
+						<Toolbar>
+							<Title text="Welcome to IPEC Online Services"/>
+						</Toolbar>
+					</headerToolbar>
+					<content>
+						<IconTabBar>
+							<items>
+								<IconTabFilter text="Step 1" key="Step1">
+									<MessageStrip class="sapUiSmallMarginBottom" text="To start, click the hamburger in the top left corner to view the list of services"
+										showIcon="true"/>
+									<Image src="images/guide1.png" densityAware="false" width="100%" alt="Guide 1"/>
+								</IconTabFilter>
+								<IconTabSeparator icon="sap-icon://step"/>
+								<IconTabFilter text="Step 2" key="Step2">
+									<MessageStrip class="sapUiSmallMarginBottom" text="Select a service from the list that appears on the left" showIcon="true"/>
+									<Image src="images/guide2.png" densityAware="false" width="100%" alt="Guide 2"/>
+								</IconTabFilter>
+								<IconTabSeparator icon="sap-icon://step"/>
+								<IconTabFilter text="Step 3" key="Step3">
+									<MessageStrip class="sapUiSmallMarginBottom" text="You can now fill in your data for submission" showIcon="true"/>
+									<Image src="images/guide3.png" densityAware="false" width="100%" alt="Guide 3"/>
+								</IconTabFilter>
+							</items>
+						</IconTabBar>
+					</content>
+				</Panel>
+			</l:VerticalLayout>
+			<l:VerticalLayout width="100%">
+				<Panel>
+					<headerToolbar>
+						<Toolbar height="3rem">
+							<Title text="Profile"/>
+						</Toolbar>
+					</headerToolbar>
+					<content>
+						<Text class="sapUiSmallMargin"
+							text="The Insurance and Pensions Commission (IPEC), is the commission governing insurance and pensions in Zimbabwe. It is a result of the enactment of the Insurance and Pensions Commission Act of Zimbabwe. IPEC is a non-profit regulatory organisation. The major stakeholders at IPEC are insurance and pensions industry, members of public, board and commission, comprising management and staff."/>
+						<IconTabBar>
+							<items>
+								<IconTabFilter text="Functions" key="Functions" icon="sap-icon://process" iconColor="Positive">
+									<content>
+										<l:VerticalLayout>
+											<MessageStrip class="sapUiSmallMarginBottom" text="The summarised functions of IPEC in terms of Section 4(1) of the Act are as follows"
+												showIcon="true"/>
+											<Text class="sapUiSmallMargin" text="1.Register, regulate and monitor insurance industry players"/>
+											<Text class="sapUiSmallMargin" text="2.Register, regulate and monitor pension industry players"/>
+											<Text class="sapUiSmallMargin" text="3.Monitor and ensure compliance of (a) and (b) above to set standards as per the relevant Acts."/>
+											<Text class="sapUiSmallMargin"
+												text="4.To provide information to the public as well as, encourage and promote investment in insurance, pension and provident funds."/>
+											<Text class="sapUiSmallMargin" text="5.To advise the Minister on matters relating to insurance, pensions and provident funds."/>
+											<Text class="sapUiSmallMargin" text="6.To perform any other functions permissible in the Act."/>
+										</l:VerticalLayout>
+									</content>
+								</IconTabFilter>
+								<IconTabFilter text="Stakeholders" key="Players" icon="sap-icon://citizen-connect" iconColor="Critical">
+									<content>
+										<l:VerticalLayout>
+											<MessageStrip class="sapUiSmallMarginBottom" text="Players in the Insurance and Pensions Industry" showIcon="true"/>
+											<Text class="sapUiSmallMargin" text="• Pension funds"/>
+											<Text class="sapUiSmallMargin" text="• Insurance companies"/>
+											<Text class="sapUiSmallMargin" text="• Brokers"/>
+											<Text class="sapUiSmallMargin" text="• Multiple agents"/>
+											<Text class="sapUiSmallMargin" text="• Fund Administrators (Other than Life Companies)"/>
+											<Text class="sapUiSmallMargin" text="• Loss Assessors"/>
+										</l:VerticalLayout>
+									</content>
+								</IconTabFilter>
+								<IconTabFilter text="Compliance" key="Compliance" icon="sap-icon://accounting-document-verification" iconColor="Negative">
+									<content>
+										<l:VerticalLayout >
+											<Text class="sapUiSmallMargin" text="• Levies(SI 154 of 2009)"/>
+											<Text class="sapUiSmallMargin" text="• Returns-quarterly, monthly, annual(should include forms)"/>
+											<Text class="sapUiSmallMargin" text="• Financial statements"/>
+											<Text class="sapUiSmallMargin" text="• Unaudited Schedule of assets"/>
+											<Text class="sapUiSmallMargin" text="• Quarterly status of paying pension contributions"/>
+											<Text class="sapUiSmallMargin" text="• Annual and Service fees( SI 115 of 2009)"/>
+										</l:VerticalLayout>
+									</content>
+								</IconTabFilter>
+							</items>
+						</IconTabBar>
+					</content>
+				</Panel>
+			</l:VerticalLayout>
+		</pages>
+	</Carousel>
+</mvc:View>
