@@ -2,8 +2,8 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/MessageToast",
 	"sap/m/MessageBox",
-/*	"jquery.sap.global",
-	"sap/ui/model/json/JSONModel"*/
+	"jquery.sap.global",
+	"sap/ui/model/json/JSONModel"
 ], function(Controller,MessageToast,MessageBox) {
 	"use strict";
 
@@ -11,7 +11,7 @@ sap.ui.define([
 		onInit : function () {
 			// var sUrl2 = "#" + this.getOwnerComponent().getRouter().getURL("page2");
 			// this.byId("link2").setHref(sUrl2);
-			oModel = this.getView().getModel("ZIPEC_APP_SRV");
+			// oModel = this.getView().getModel("ZIPEC_APP_SRV");
 		},
 
 		// onToPage2 : function () {
@@ -67,386 +67,386 @@ sap.ui.define([
 		},
 		
 			//Method to send odata post request to backend server (save order)
-		_saveOrder: function() {
-			var that = this;
-			var 	oEntry = {};
-	///		var 	oModel = this.getView().getModel("ZIPEC_APP_SRV");
-			var 	bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
+	// 	_saveOrder: function() {
+	// 		var that = this;
+	// 		var 	oEntry = {};
+	// ///		var 	oModel = this.getView().getModel("ZIPEC_APP_SRV");
+	// 		var 	bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
 
-		//Bind data array to form fields
-			//Identifying details
-			oEntry.Institutionname = this.getView().byId("input_Institutionname").getValue();
-			oEntry.Periodended = this.getView().byId("input_Periodended").getValue();
-	//		oEntry.Principalname = this.getView().byId("input_Principalname").getValue();
-			oEntry.Compliancemanager = this.getView().byId("input_Compliancemanager").getValue();
-			oEntry.Financemanager = this.getView().byId("input_Financemanager").getValue();
+	// 	//Bind data array to form fields
+	// 		//Identifying details
+	// 		oEntry.Institutionname = this.getView().byId("input_Institutionname").getValue();
+	// 		oEntry.Periodended = this.getView().byId("input_Periodended").getValue();
+	// //		oEntry.Principalname = this.getView().byId("input_Principalname").getValue();
+	// 		oEntry.Compliancemanager = this.getView().byId("input_Compliancemanager").getValue();
+	// 		oEntry.Financemanager = this.getView().byId("input_Financemanager").getValue();
 
-		/*	//Bind data array to form fields
-			// BREAKDOWNTOTALASSETS Entity Fields
-			// naming convention is input_OdataAttributeName
-			oEntry.ReturnNo = this.getView().byId("input_ReturnNo").getValue();
-			oEntry.Zimgovsecurities = this.getView().byId("input_Zimgovsecurities").getValue();
-			oEntry.Municipal = this.getView().byId("input_Municipal").getValue();
-			oEntry.Amabonds = this.getView().byId("input_Amabonds").getValue();
-			oEntry.Nathousing = this.getView().byId("input_Nathousing").getValue();
-			oEntry.Otherprescribed = this.getView().byId("input_Otherprescribed").getValue();
-			oEntry.Mortage = this.getView().byId("input_Mortage").getValue();
-			oEntry.Loanpolicies = this.getView().byId("input_Loanpolicies").getValue();
-			oEntry.Fixedproperty = this.getView().byId("input_Fixedproperty").getValue();
-			oEntry.Equities = this.getView().byId("input_Equities").getValue();
-			oEntry.Moneymarket = this.getView().byId("input_Moneymarket").getValue();
-			oEntry.Cashbankmarket = this.getView().byId("input_Cashbankmarket").getValue();
-			oEntry.Otherinvestment = this.getView().byId("input_Otherinvestment").getValue();
-			oEntry.Subtotal= this.getView().byId("input_Subtotal").getValue();
-			oEntry.Totalassets = this.getView().byId("input_Totalassets").getValue();
-			oEntry.Prescribedassets= this.getView().byId("input_Prescribedassets").getValue();
-			oEntry.Minassetsratio = this.getView().byId("input_Minassetsratio").getValue();
-			oEntry.Requiredinvest = this.getView().byId("input_Requiredinvest").getValue();
+	// 	/*	//Bind data array to form fields
+	// 		// BREAKDOWNTOTALASSETS Entity Fields
+	// 		// naming convention is input_OdataAttributeName
+	// 		oEntry.ReturnNo = this.getView().byId("input_ReturnNo").getValue();
+	// 		oEntry.Zimgovsecurities = this.getView().byId("input_Zimgovsecurities").getValue();
+	// 		oEntry.Municipal = this.getView().byId("input_Municipal").getValue();
+	// 		oEntry.Amabonds = this.getView().byId("input_Amabonds").getValue();
+	// 		oEntry.Nathousing = this.getView().byId("input_Nathousing").getValue();
+	// 		oEntry.Otherprescribed = this.getView().byId("input_Otherprescribed").getValue();
+	// 		oEntry.Mortage = this.getView().byId("input_Mortage").getValue();
+	// 		oEntry.Loanpolicies = this.getView().byId("input_Loanpolicies").getValue();
+	// 		oEntry.Fixedproperty = this.getView().byId("input_Fixedproperty").getValue();
+	// 		oEntry.Equities = this.getView().byId("input_Equities").getValue();
+	// 		oEntry.Moneymarket = this.getView().byId("input_Moneymarket").getValue();
+	// 		oEntry.Cashbankmarket = this.getView().byId("input_Cashbankmarket").getValue();
+	// 		oEntry.Otherinvestment = this.getView().byId("input_Otherinvestment").getValue();
+	// 		oEntry.Subtotal= this.getView().byId("input_Subtotal").getValue();
+	// 		oEntry.Totalassets = this.getView().byId("input_Totalassets").getValue();
+	// 		oEntry.Prescribedassets= this.getView().byId("input_Prescribedassets").getValue();
+	// 		oEntry.Minassetsratio = this.getView().byId("input_Minassetsratio").getValue();
+	// 		oEntry.Requiredinvest = this.getView().byId("input_Requiredinvest").getValue();
 			
 			
 			
-			// Bind data array to form fields
-			// SUMMARY OF TOTAL BUSINESS PLACED BY BROKER INSIDE ZIMBABWE
-			oEntry.Grosspremium = this.getView().byId("input_Grosspremium").getValue();
-			oEntry.Outwardpremium = this.getView().byId("input_Outwardpremium").getValue();
-			oEntry.Unearnedpremium = this.getView().byId("input_Unearnedpremium").getValue();
-			oEntry.Netpremium = this.getView().byId("input_Netpremium").getValue();
-			oEntry.Claimspaid = this.getView().byId("input_Claimspaid").getValue();
-			oEntry.Claimsoutstanding = this.getView().byId("input_Claimsoutstanding").getValue();
-			oEntry.Claimsincurred = this.getView().byId("input_Claimsincurred").getValue();
-			oEntry.Unexpiredprovision = this.getView().byId("input_Unexpiredprovision").getValue();
-			oEntry.Netclaims = this.getView().byId("input_Netclaims").getValue();
-			oEntry.AdminExpenses = this.getView().byId("input_AdminExpenses").getValue();
-			oEntry.Netfeescommission = this.getView().byId("input_Netfeescommission").getValue();
-			oEntry.Underwritingpl = this.getView().byId("input_Underwritingpl").getValue();
-			oEntry.Investincome = this.getView().byId("input_Investincome").getValue();
-			oEntry.Otherincome1 = this.getView().byId("input_Otherincome1").getValue();
-			oEntry.Otherincome2 = this.getView().byId("input_Otherincome2").getValue();
-			oEntry.Otherincome3 = this.getView().byId("input_Otherincome3").getValue();
-			oEntry.Managementexpense = this.getView().byId("input_Managementexpense").getValue();
-			oEntry.Otherexpense = this.getView().byId("input_Otherexpense").getValue();
-			oEntry.Ebinteresttaxation = this.getView().byId("input_Ebinteresttaxation").getValue();
-			oEntry.Interest = this.getView().byId("input_Interest").getValue();
-			oEntry.Ebeforextax = this.getView().byId("input_Ebeforextax").getValue();
-			oEntry.Taxation = this.getView().byId("input_Taxation").getValue();
-			oEntry.Eaftertax = this.getView().byId("input_Eaftertax").getValue();
-			oEntry.Ocincome = this.getView().byId("input_Ocincome").getValue();
-			oEntry.Tcplforperiod = this.getView().byId("input_Tcplforperiod").getValue();
-			oEntry.Tpolicyfunds = this.getView().byId("input_Tpolicyfunds").getValue();
-			oEntry.Tcplshareholders = this.getView().byId("input_Tcplshareholders").getValue();
-			oEntry.Ncassets = this.getView().byId("input_Ncassets").getValue();
-			oEntry.Intangibleassets = this.getView().byId("input_Intangibleassets").getValue();
+	// 		// Bind data array to form fields
+	// 		// SUMMARY OF TOTAL BUSINESS PLACED BY BROKER INSIDE ZIMBABWE
+	// 		oEntry.Grosspremium = this.getView().byId("input_Grosspremium").getValue();
+	// 		oEntry.Outwardpremium = this.getView().byId("input_Outwardpremium").getValue();
+	// 		oEntry.Unearnedpremium = this.getView().byId("input_Unearnedpremium").getValue();
+	// 		oEntry.Netpremium = this.getView().byId("input_Netpremium").getValue();
+	// 		oEntry.Claimspaid = this.getView().byId("input_Claimspaid").getValue();
+	// 		oEntry.Claimsoutstanding = this.getView().byId("input_Claimsoutstanding").getValue();
+	// 		oEntry.Claimsincurred = this.getView().byId("input_Claimsincurred").getValue();
+	// 		oEntry.Unexpiredprovision = this.getView().byId("input_Unexpiredprovision").getValue();
+	// 		oEntry.Netclaims = this.getView().byId("input_Netclaims").getValue();
+	// 		oEntry.AdminExpenses = this.getView().byId("input_AdminExpenses").getValue();
+	// 		oEntry.Netfeescommission = this.getView().byId("input_Netfeescommission").getValue();
+	// 		oEntry.Underwritingpl = this.getView().byId("input_Underwritingpl").getValue();
+	// 		oEntry.Investincome = this.getView().byId("input_Investincome").getValue();
+	// 		oEntry.Otherincome1 = this.getView().byId("input_Otherincome1").getValue();
+	// 		oEntry.Otherincome2 = this.getView().byId("input_Otherincome2").getValue();
+	// 		oEntry.Otherincome3 = this.getView().byId("input_Otherincome3").getValue();
+	// 		oEntry.Managementexpense = this.getView().byId("input_Managementexpense").getValue();
+	// 		oEntry.Otherexpense = this.getView().byId("input_Otherexpense").getValue();
+	// 		oEntry.Ebinteresttaxation = this.getView().byId("input_Ebinteresttaxation").getValue();
+	// 		oEntry.Interest = this.getView().byId("input_Interest").getValue();
+	// 		oEntry.Ebeforextax = this.getView().byId("input_Ebeforextax").getValue();
+	// 		oEntry.Taxation = this.getView().byId("input_Taxation").getValue();
+	// 		oEntry.Eaftertax = this.getView().byId("input_Eaftertax").getValue();
+	// 		oEntry.Ocincome = this.getView().byId("input_Ocincome").getValue();
+	// 		oEntry.Tcplforperiod = this.getView().byId("input_Tcplforperiod").getValue();
+	// 		oEntry.Tpolicyfunds = this.getView().byId("input_Tpolicyfunds").getValue();
+	// 		oEntry.Tcplshareholders = this.getView().byId("input_Tcplshareholders").getValue();
+	// 		oEntry.Ncassets = this.getView().byId("input_Ncassets").getValue();
+	// 		oEntry.Intangibleassets = this.getView().byId("input_Intangibleassets").getValue();
 			
-			// Bind data array to form fields
-			// STATEMENT OF FINANCIAL POSITION
-			oEntry.Propertequip = this.getView().byId("input_Propertequip").getValue();
-			oEntry.Investmentproperty = this.getView().byId("input_Investmentproperty").getValue();
-			oEntry.Investmentsecurities = this.getView().byId("input_Payablesafraecurities").getValue();
-			oEntry.Investmentassets = this.getView().byId("input_Investmentassets").getValue();
-			oEntry.Otherncassets1 = this.getView().byId("input_Otherncassets1").getValue();
-			oEntry.Otherncassets2 = this.getView().byId("input_Otherncassets2").getValue();
-			oEntry.Otherncassets3 = this.getView().byId("input_Otherncassets3").getValue();
-			oEntry.Totalncassets = this.getView().byId("input_Totalncassets").getValue();
-			oEntry.Accreceivable = this.getView().byId("input_Accreceivable").getValue();
-			oEntry.Stinvestments = this.getView().byId("input_Stinvestments").getValue();
-			oEntry.Cbbalances = this.getView().byId("input_Cbbalances").getValue();
-			oEntry.Othercassets1 = this.getView().byId("input_Othercassets1").getValue();
-			oEntry.Othercassets2 = this.getView().byId("input_Othercassets2").getValue();
-			oEntry.Othercassets3 = this.getView().byId("input_Othercassets3").getValue();
-			oEntry.Totalcassets = this.getView().byId("input_Totalcassets").getValue();
-			oEntry.Longtermloans = this.getView().byId("input_Longtermloans").getValue();
-			oEntry.Outstandingclaims = this.getView().byId("input_Outstandingclaims").getValue();
-			oEntry.Claimsibnr = this.getView().byId("input_Claimsibnr").getValue();
-			oEntry.Futurepd = this.getView().byId("input_Futurepd").getValue();
-			oEntry.Unearnedpr = this.getView().byId("input_Unearnedpr").getValue();
-			oEntry.Amountsdtr = this.getView().byId("input_Amountsdtr").getValue();
-			oEntry.Payablesafra = this.getView().byId("input_Payablesafra").getValue();
-			oEntry.Deferredtaxation = this.getView().byId("input_Deferredtaxation").getValue();
-			oEntry.Otherliabilities1 = this.getView().byId("input_Otherliabilities1").getValue();
-			oEntry.Otherliabilities2 = this.getView().byId("input_Otherliabilities2").getValue();
-			oEntry.Otherliabilities3 = this.getView().byId("input_Otherliabilities3").getValue();
-			oEntry.Totalliabilities = this.getView().byId("input_Totalliabilities").getValue();
-			oEntry.Sharecapital = this.getView().byId("input_Sharecapital").getValue();
-			oEntry.Sharepremium = this.getView().byId("input_Sharepremium").getValue();
-			oEntry.Investmentreserve = this.getView().byId("input_Investmentreserve").getValue();
-			oEntry.Revaluationreserve = this.getView().byId("input_Revaluationreserve").getValue();
-			oEntry.Nondistreserve = this.getView().byId("input_Nondistreserve").getValue();
-			oEntry.Retainedepy = this.getView().byId("input_Retainedepy").getValue();
-			oEntry.Retainedcp = this.getView().byId("input_Retainedcp").getValue();
-			oEntry.Minorityinterest = this.getView().byId("input_Minorityinterest").getValue();
-			oEntry.Othercapitalreserves1 = this.getView().byId("input_Othercapitalreserves1").getValue();
-			oEntry.Otothercapitalreserves2 = this.getView().byId("input_Otothercapitalreserves2").getValue();
-			oEntry.Othercapitalreserves3 = this.getView().byId("input_Othercapitalreserves3").getValue();
-			oEntry.Shareholderequity = this.getView().byId("input_Shareholderequity").getValue();
-			oEntry.Totalequityliabilities = this.getView().byId("input_Totalequityliabilities").getValue();
+	// 		// Bind data array to form fields
+	// 		// STATEMENT OF FINANCIAL POSITION
+	// 		oEntry.Propertequip = this.getView().byId("input_Propertequip").getValue();
+	// 		oEntry.Investmentproperty = this.getView().byId("input_Investmentproperty").getValue();
+	// 		oEntry.Investmentsecurities = this.getView().byId("input_Payablesafraecurities").getValue();
+	// 		oEntry.Investmentassets = this.getView().byId("input_Investmentassets").getValue();
+	// 		oEntry.Otherncassets1 = this.getView().byId("input_Otherncassets1").getValue();
+	// 		oEntry.Otherncassets2 = this.getView().byId("input_Otherncassets2").getValue();
+	// 		oEntry.Otherncassets3 = this.getView().byId("input_Otherncassets3").getValue();
+	// 		oEntry.Totalncassets = this.getView().byId("input_Totalncassets").getValue();
+	// 		oEntry.Accreceivable = this.getView().byId("input_Accreceivable").getValue();
+	// 		oEntry.Stinvestments = this.getView().byId("input_Stinvestments").getValue();
+	// 		oEntry.Cbbalances = this.getView().byId("input_Cbbalances").getValue();
+	// 		oEntry.Othercassets1 = this.getView().byId("input_Othercassets1").getValue();
+	// 		oEntry.Othercassets2 = this.getView().byId("input_Othercassets2").getValue();
+	// 		oEntry.Othercassets3 = this.getView().byId("input_Othercassets3").getValue();
+	// 		oEntry.Totalcassets = this.getView().byId("input_Totalcassets").getValue();
+	// 		oEntry.Longtermloans = this.getView().byId("input_Longtermloans").getValue();
+	// 		oEntry.Outstandingclaims = this.getView().byId("input_Outstandingclaims").getValue();
+	// 		oEntry.Claimsibnr = this.getView().byId("input_Claimsibnr").getValue();
+	// 		oEntry.Futurepd = this.getView().byId("input_Futurepd").getValue();
+	// 		oEntry.Unearnedpr = this.getView().byId("input_Unearnedpr").getValue();
+	// 		oEntry.Amountsdtr = this.getView().byId("input_Amountsdtr").getValue();
+	// 		oEntry.Payablesafra = this.getView().byId("input_Payablesafra").getValue();
+	// 		oEntry.Deferredtaxation = this.getView().byId("input_Deferredtaxation").getValue();
+	// 		oEntry.Otherliabilities1 = this.getView().byId("input_Otherliabilities1").getValue();
+	// 		oEntry.Otherliabilities2 = this.getView().byId("input_Otherliabilities2").getValue();
+	// 		oEntry.Otherliabilities3 = this.getView().byId("input_Otherliabilities3").getValue();
+	// 		oEntry.Totalliabilities = this.getView().byId("input_Totalliabilities").getValue();
+	// 		oEntry.Sharecapital = this.getView().byId("input_Sharecapital").getValue();
+	// 		oEntry.Sharepremium = this.getView().byId("input_Sharepremium").getValue();
+	// 		oEntry.Investmentreserve = this.getView().byId("input_Investmentreserve").getValue();
+	// 		oEntry.Revaluationreserve = this.getView().byId("input_Revaluationreserve").getValue();
+	// 		oEntry.Nondistreserve = this.getView().byId("input_Nondistreserve").getValue();
+	// 		oEntry.Retainedepy = this.getView().byId("input_Retainedepy").getValue();
+	// 		oEntry.Retainedcp = this.getView().byId("input_Retainedcp").getValue();
+	// 		oEntry.Minorityinterest = this.getView().byId("input_Minorityinterest").getValue();
+	// 		oEntry.Othercapitalreserves1 = this.getView().byId("input_Othercapitalreserves1").getValue();
+	// 		oEntry.Otothercapitalreserves2 = this.getView().byId("input_Otothercapitalreserves2").getValue();
+	// 		oEntry.Othercapitalreserves3 = this.getView().byId("input_Othercapitalreserves3").getValue();
+	// 		oEntry.Shareholderequity = this.getView().byId("input_Shareholderequity").getValue();
+	// 		oEntry.Totalequityliabilities = this.getView().byId("input_Totalequityliabilities").getValue();
 			
-			//Bind data array to form fields
-			// SOLVENCY REPORT
-			oEntry.Totalassets = this.getView().byId("input_Totalassets").getValue();
-			oEntry.Lessiassets = this.getView().byId("input_Lessiassets").getValue();
-			oEntry.Lesseassets = this.getView().byId("input_Lesseassets").getValue();
-			oEntry.Othernonpassets = this.getView().byId("input_Othernonpassets").getValue();
-			oEntry.Netadjustedassets = this.getView().byId("input_Netadjustedassets").getValue();
-			oEntry.Totalliabilities1 = this.getView().byId("input_Totalliabilities1").getValue();
-			oEntry.Excessaoliabilities = this.getView().byId("input_Excessaoliabilities").getValue();
-			oEntry.Grosspw = this.getView().byId("input_Grosspw").getValue();
-			oEntry.Reassurance = this.getView().byId("input_Reassurance").getValue();
-			oEntry.Netpincome = this.getView().byId("input_Netpincome").getValue();
-			oEntry.Shareholderfund = this.getView().byId("input_Shareholderfund").getValue();
-			oEntry.Safetymargin = this.getView().byId("input_Safetymargin").getValue();
-			oEntry.Solvencymargin = this.getView().byId("input_Solvencymargin").getValue();
+	// 		//Bind data array to form fields
+	// 		// SOLVENCY REPORT
+	// 		oEntry.Totalassets = this.getView().byId("input_Totalassets").getValue();
+	// 		oEntry.Lessiassets = this.getView().byId("input_Lessiassets").getValue();
+	// 		oEntry.Lesseassets = this.getView().byId("input_Lesseassets").getValue();
+	// 		oEntry.Othernonpassets = this.getView().byId("input_Othernonpassets").getValue();
+	// 		oEntry.Netadjustedassets = this.getView().byId("input_Netadjustedassets").getValue();
+	// 		oEntry.Totalliabilities1 = this.getView().byId("input_Totalliabilities1").getValue();
+	// 		oEntry.Excessaoliabilities = this.getView().byId("input_Excessaoliabilities").getValue();
+	// 		oEntry.Grosspw = this.getView().byId("input_Grosspw").getValue();
+	// 		oEntry.Reassurance = this.getView().byId("input_Reassurance").getValue();
+	// 		oEntry.Netpincome = this.getView().byId("input_Netpincome").getValue();
+	// 		oEntry.Shareholderfund = this.getView().byId("input_Shareholderfund").getValue();
+	// 		oEntry.Safetymargin = this.getView().byId("input_Safetymargin").getValue();
+	// 		oEntry.Solvencymargin = this.getView().byId("input_Solvencymargin").getValue();
 			
-			// Bind data array to form fields
-			// Breakdown by Class of Business (Individual Life)
-			oEntry.Iindividualbnp = this.getView().byId("input_Iindividualbnp").getValue();
-			oEntry.Iindividualbgp = this.getView().byId("input_Iindividualbgp").getValue();
-			oEntry.Iindividualanp = this.getView().byId("input_Iindividualanp").getValue();
-			oEntry.Iindividualagp = this.getView().byId("input_Iindividualagp").getValue();
-			oEntry.Iindividualdcnp = this.getView().byId("input_Iindividualdcnp").getValue();
-			oEntry.Iindividualdcgp = this.getView().byId("input_Iindividualdcgp").getValue();
-			oEntry.Iindividualtnp = this.getView().byId("input_Iindividualtnp").getValue();
-			oEntry.Iindividualtgp = this.getView().byId("input_Iindividualtgp").getValue();
-			// binded variables are the ones below
-			oEntry.Inewbusinessbnp = this.getView().byId("input_Inewbusinessbnp").getValue();
-			oEntry.Inewbusinessbgp = this.getView().byId("input_Inewbusinessbgp").getValue();
-			oEntry.Inewbusinessanp = this.getView().byId("input_Inewbusinessanp").getValue();
-			oEntry.Inewbusinessagp = this.getView().byId("input_Inewbusinessagp").getValue();
-			oEntry.Inewbusinessdcnp = this.getView().byId("input_Inewbusinessdcnp").getValue();
-			oEntry.Inewbusinessdcgp = this.getView().byId("input_Inewbusinessdcgp").getValue();
-			oEntry.Inewbusinesstnp = this.getView().byId("input_Inewbusinesstnp").getValue();
-			oEntry.Inewbusinesstgp = this.getView().byId("input_Inewbusinesstgp").getValue();
-			oEntry.Ireccuringbnp = this.getView().byId("input_Ireccuringbnp").getValue();
-			oEntry.Ireccuringbgp = this.getView().byId("input_Ireccuringbgp").getValue();
-			oEntry.Ireccuringanp = this.getView().byId("input_Ireccuringanp").getValue();
-			oEntry.Ireccuringagp = this.getView().byId("input_Ireccuringagp").getValue();
-			oEntry.Ireccuringdcnp = this.getView().byId("input_Ireccuringdcnp").getValue();
-			oEntry.Ireccuringdcgp = this.getView().byId("input_Ireccuringdcgp").getValue();
-			oEntry.Ireccuringtnp = this.getView().byId("input_Ireccuringtnp").getValue();
-			oEntry.Ireccuringtgp = this.getView().byId("input_Ireccuringtgp").getValue();
-			oEntry.Isubtotalbnp = this.getView().byId("input_Isubtotalbnp").getValue();
-			oEntry.Isubtotalbgp = this.getView().byId("input_Isubtotalbgp").getValue();
-			oEntry.Isubtotalanp = this.getView().byId("input_Isubtotalanp").getValue();
-			oEntry.Isubtotalagp = this.getView().byId("input_Isubtotalagp").getValue();
-			oEntry.Isubtotaldcnp = this.getView().byId("input_Isubtotaldcnp").getValue();
-			oEntry.Isubtotaldcgp = this.getView().byId("input_Isubtotaldcgp").getValue();
-			oEntry.Isubtotaltnp = this.getView().byId("input_Isubtotaltnp").getValue();
-			oEntry.Isubtotaltgp = this.getView().byId("input_Isubtotaltgp").getValue();
+	// 		// Bind data array to form fields
+	// 		// Breakdown by Class of Business (Individual Life)
+	// 		oEntry.Iindividualbnp = this.getView().byId("input_Iindividualbnp").getValue();
+	// 		oEntry.Iindividualbgp = this.getView().byId("input_Iindividualbgp").getValue();
+	// 		oEntry.Iindividualanp = this.getView().byId("input_Iindividualanp").getValue();
+	// 		oEntry.Iindividualagp = this.getView().byId("input_Iindividualagp").getValue();
+	// 		oEntry.Iindividualdcnp = this.getView().byId("input_Iindividualdcnp").getValue();
+	// 		oEntry.Iindividualdcgp = this.getView().byId("input_Iindividualdcgp").getValue();
+	// 		oEntry.Iindividualtnp = this.getView().byId("input_Iindividualtnp").getValue();
+	// 		oEntry.Iindividualtgp = this.getView().byId("input_Iindividualtgp").getValue();
+	// 		// binded variables are the ones below
+	// 		oEntry.Inewbusinessbnp = this.getView().byId("input_Inewbusinessbnp").getValue();
+	// 		oEntry.Inewbusinessbgp = this.getView().byId("input_Inewbusinessbgp").getValue();
+	// 		oEntry.Inewbusinessanp = this.getView().byId("input_Inewbusinessanp").getValue();
+	// 		oEntry.Inewbusinessagp = this.getView().byId("input_Inewbusinessagp").getValue();
+	// 		oEntry.Inewbusinessdcnp = this.getView().byId("input_Inewbusinessdcnp").getValue();
+	// 		oEntry.Inewbusinessdcgp = this.getView().byId("input_Inewbusinessdcgp").getValue();
+	// 		oEntry.Inewbusinesstnp = this.getView().byId("input_Inewbusinesstnp").getValue();
+	// 		oEntry.Inewbusinesstgp = this.getView().byId("input_Inewbusinesstgp").getValue();
+	// 		oEntry.Ireccuringbnp = this.getView().byId("input_Ireccuringbnp").getValue();
+	// 		oEntry.Ireccuringbgp = this.getView().byId("input_Ireccuringbgp").getValue();
+	// 		oEntry.Ireccuringanp = this.getView().byId("input_Ireccuringanp").getValue();
+	// 		oEntry.Ireccuringagp = this.getView().byId("input_Ireccuringagp").getValue();
+	// 		oEntry.Ireccuringdcnp = this.getView().byId("input_Ireccuringdcnp").getValue();
+	// 		oEntry.Ireccuringdcgp = this.getView().byId("input_Ireccuringdcgp").getValue();
+	// 		oEntry.Ireccuringtnp = this.getView().byId("input_Ireccuringtnp").getValue();
+	// 		oEntry.Ireccuringtgp = this.getView().byId("input_Ireccuringtgp").getValue();
+	// 		oEntry.Isubtotalbnp = this.getView().byId("input_Isubtotalbnp").getValue();
+	// 		oEntry.Isubtotalbgp = this.getView().byId("input_Isubtotalbgp").getValue();
+	// 		oEntry.Isubtotalanp = this.getView().byId("input_Isubtotalanp").getValue();
+	// 		oEntry.Isubtotalagp = this.getView().byId("input_Isubtotalagp").getValue();
+	// 		oEntry.Isubtotaldcnp = this.getView().byId("input_Isubtotaldcnp").getValue();
+	// 		oEntry.Isubtotaldcgp = this.getView().byId("input_Isubtotaldcgp").getValue();
+	// 		oEntry.Isubtotaltnp = this.getView().byId("input_Isubtotaltnp").getValue();
+	// 		oEntry.Isubtotaltgp = this.getView().byId("input_Isubtotaltgp").getValue();
 			
-			// Bind data array to form fields
-			// Breakdown by Class of Business (Employee Benefits/Corporates/Group Life Assurance)
-			oEntry.Enewbusinessbnp = this.getView().byId("input_Enewbusinessbnp").getValue();
-			oEntry.Enewbusinessbgp = this.getView().byId("input_Enewbusinessbgp").getValue();
-			oEntry.Enewbusinessanp = this.getView().byId("input_Enewbusinessanp").getValue();
-			oEntry.Enewbusinessagp = this.getView().byId("input_Enewbusinessagp").getValue();
-			oEntry.Enewbusinessdcnp = this.getView().byId("input_Enewbusinessdcnp").getValue();
-			oEntry.Enewbusinessdcgp = this.getView().byId("input_Enewbusinessdcgp").getValue();
-			oEntry.Enewbusinesstnp = this.getView().byId("input_Enewbusinesstnp").getValue();
-			oEntry.Enewbusinesstgp = this.getView().byId("input_Enewbusinesstgp").getValue();
-			oEntry.Ereccuringbnp = this.getView().byId("input_Ereccuringbnp").getValue();
-			oEntry.Ereccuringbgp = this.getView().byId("input_Ereccuringbgp").getValue();
-			oEntry.Ereccuringanp = this.getView().byId("input_Ereccuringanp").getValue();
-			oEntry.Ereccuringagp = this.getView().byId("input_Ereccuringagp").getValue();
-			oEntry.Ereccuringdcnp = this.getView().byId("input_Ereccuringdcnp").getValue();
-			oEntry.Ereccuringdcgp = this.getView().byId("input_Ereccuringdcgp").getValue();
-			oEntry.Ereccuringtnp = this.getView().byId("input_Ereccuringtnp").getValue();
-			oEntry.Ereccuringtgp = this.getView().byId("input_Ereccuringtgp").getValue();
-			oEntry.Esubtotalbnp = this.getView().byId("input_Esubtotalbnp").getValue();
-			oEntry.Esubtotalbgp = this.getView().byId("input_Esubtotalbgp").getValue();
-			oEntry.Esubtotalanp = this.getView().byId("input_Esubtotalanp").getValue();
-			oEntry.Esubtotalagp = this.getView().byId("input_Esubtotalagp").getValue();
-			oEntry.Esubtotaldcnp = this.getView().byId("input_Esubtotaldcnp").getValue();
-			oEntry.Esubtotaldcgp = this.getView().byId("input_Esubtotaldcgp").getValue();
-			oEntry.Esubtotaltnp = this.getView().byId("input_Esubtotaltnp").getValue();
-			oEntry.Esubtotaltgp = this.getView().byId("input_Esubtotaltgp").getValue();
+	// 		// Bind data array to form fields
+	// 		// Breakdown by Class of Business (Employee Benefits/Corporates/Group Life Assurance)
+	// 		oEntry.Enewbusinessbnp = this.getView().byId("input_Enewbusinessbnp").getValue();
+	// 		oEntry.Enewbusinessbgp = this.getView().byId("input_Enewbusinessbgp").getValue();
+	// 		oEntry.Enewbusinessanp = this.getView().byId("input_Enewbusinessanp").getValue();
+	// 		oEntry.Enewbusinessagp = this.getView().byId("input_Enewbusinessagp").getValue();
+	// 		oEntry.Enewbusinessdcnp = this.getView().byId("input_Enewbusinessdcnp").getValue();
+	// 		oEntry.Enewbusinessdcgp = this.getView().byId("input_Enewbusinessdcgp").getValue();
+	// 		oEntry.Enewbusinesstnp = this.getView().byId("input_Enewbusinesstnp").getValue();
+	// 		oEntry.Enewbusinesstgp = this.getView().byId("input_Enewbusinesstgp").getValue();
+	// 		oEntry.Ereccuringbnp = this.getView().byId("input_Ereccuringbnp").getValue();
+	// 		oEntry.Ereccuringbgp = this.getView().byId("input_Ereccuringbgp").getValue();
+	// 		oEntry.Ereccuringanp = this.getView().byId("input_Ereccuringanp").getValue();
+	// 		oEntry.Ereccuringagp = this.getView().byId("input_Ereccuringagp").getValue();
+	// 		oEntry.Ereccuringdcnp = this.getView().byId("input_Ereccuringdcnp").getValue();
+	// 		oEntry.Ereccuringdcgp = this.getView().byId("input_Ereccuringdcgp").getValue();
+	// 		oEntry.Ereccuringtnp = this.getView().byId("input_Ereccuringtnp").getValue();
+	// 		oEntry.Ereccuringtgp = this.getView().byId("input_Ereccuringtgp").getValue();
+	// 		oEntry.Esubtotalbnp = this.getView().byId("input_Esubtotalbnp").getValue();
+	// 		oEntry.Esubtotalbgp = this.getView().byId("input_Esubtotalbgp").getValue();
+	// 		oEntry.Esubtotalanp = this.getView().byId("input_Esubtotalanp").getValue();
+	// 		oEntry.Esubtotalagp = this.getView().byId("input_Esubtotalagp").getValue();
+	// 		oEntry.Esubtotaldcnp = this.getView().byId("input_Esubtotaldcnp").getValue();
+	// 		oEntry.Esubtotaldcgp = this.getView().byId("input_Esubtotaldcgp").getValue();
+	// 		oEntry.Esubtotaltnp = this.getView().byId("input_Esubtotaltnp").getValue();
+	// 		oEntry.Esubtotaltgp = this.getView().byId("input_Esubtotaltgp").getValue();
 			
-			// Bind data array to form fields
-			// Breakdown by Class of Business (Breakdown by Insurance Type)
-			oEntry.Bannuitiesbnp = this.getView().byId("input_Bannuitiesbnp").getValue();
-			oEntry.Bannuitiesbgp = this.getView().byId("input_Bannuitiesbgp").getValue();
-			oEntry.Bannuitiesanp = this.getView().byId("input_Bannuitiesanp").getValue();
-			oEntry.Bannuitiesagp = this.getView().byId("input_Bannuitiesagp").getValue();
-			oEntry.Bannuitiesdcnp = this.getView().byId("input_Bannuitiesdcnp").getValue();
-			oEntry.Bannuitiesdcgp = this.getView().byId("input_Bannuitiesdcgp").getValue();
-			oEntry.Bannuitiestnp = this.getView().byId("input_Bannuitiestnp").getValue();
-			oEntry.Bannuitiestgp = this.getView().byId("input_Bannuitiestgp").getValue();
-			oEntry.Bterminsurancebnp = this.getView().byId("input_Bterminsurancebnp").getValue();
-			oEntry.Bterminsurancebgp = this.getView().byId("input_Bterminsurancebgp").getValue();
-			oEntry.Bterminsuranceanp = this.getView().byId("input_Bterminsuranceanp").getValue();
-			oEntry.Bterminsuranceagp = this.getView().byId("input_Bterminsuranceagp").getValue();
-			oEntry.Bterminsurancedcnp = this.getView().byId("input_Bterminsurancedcnp").getValue();
-			oEntry.Bterminsurancedcgp = this.getView().byId("input_Bterminsurancedcgp").getValue();
-			oEntry.Bterminsurancetnp = this.getView().byId("input_Bterminsurancetnp").getValue();
-			oEntry.Bterminsurancetgp = this.getView().byId("input_Bterminsurancetgp").getValue();
-			oEntry.Bendowementbnp = this.getView().byId("input_Bendowementbnp").getValue();
-			oEntry.Bendowementbgp = this.getView().byId("input_Bendowementbgp").getValue();
-			oEntry.Bendowementanp = this.getView().byId("input_Bendowementanp").getValue();
-			oEntry.Bendowementagp = this.getView().byId("input_Bendowementagp").getValue();
-			oEntry.Bendowementdcnp = this.getView().byId("input_Bendowementdcnp").getValue();
-			oEntry.Bendowementdcgp = this.getView().byId("input_Bendowementdcgp").getValue();
-			oEntry.Bendowementtnp = this.getView().byId("input_Bendowementtnp").getValue();
-			oEntry.Bendowementtgp = this.getView().byId("input_Bendowementtgp").getValue();
-			oEntry.Bpureendowementbnp = this.getView().byId("input_Bpureendowementbnp").getValue();
-			oEntry.Bpureendowementbgp = this.getView().byId("input_Bpureendowementbgp").getValue();
-			oEntry.Bpureendowementanp = this.getView().byId("input_Bpureendowementanp").getValue();
-			oEntry.Bpureendowementagp = this.getView().byId("input_Bpureendowementagp").getValue();
-			oEntry.Bpureendowementdcnp = this.getView().byId("input_Bpureendowementdcnp").getValue();
-			oEntry.Bpureendowementdcgp = this.getView().byId("input_Bpureendowementdcgp").getValue();
-			oEntry.Bpureendowementtnp = this.getView().byId("input_Bpureendowementtnp").getValue();
-			oEntry.Bpureendowementtgp = this.getView().byId("input_Bpureendowementtgp").getValue();
-			oEntry.Bwholebnp = this.getView().byId("input_Bwholebnp").getValue();
-			oEntry.Bwholebgp = this.getView().byId("input_Bwholebgp").getValue();
-			oEntry.Bwholeanp = this.getView().byId("input_Bwholeanp").getValue();
-			oEntry.Bwholeagp = this.getView().byId("input_Bwholeagp").getValue();
-			oEntry.Bwholedcnp = this.getView().byId("input_Bwholedcnp").getValue();
-			oEntry.Bwholedcgp = this.getView().byId("input_Bwholedcgp").getValue();
-			oEntry.Bwholetnp = this.getView().byId("input_Bwholetnp").getValue();
-			oEntry.Bwholetgp = this.getView().byId("input_Bwholetgp").getValue();
-			oEntry.Bfuneralbnp = this.getView().byId("input_Bfuneralbnp").getValue();
-			oEntry.Bfuneralbgp = this.getView().byId("input_Bfuneralbgp").getValue();
-			oEntry.Bfuneralanp = this.getView().byId("input_Bfuneralanp").getValue();
-			oEntry.Bfuneralagp = this.getView().byId("input_Bfuneralagp").getValue();
-			oEntry.Bfuneraldcnp = this.getView().byId("input_Bfuneraldcnp").getValue();
-			oEntry.Bfuneraldcgp = this.getView().byId("input_Bfuneraldcgp").getValue();
-			oEntry.Bfuneraltnp = this.getView().byId("input_Bfuneraltnp").getValue();
-			oEntry.Bfuneraltgp = this.getView().byId("input_Bfuneraltgp").getValue();
-			oEntry.Btotalbnp = this.getView().byId("input_Btotalbnp").getValue();
-			oEntry.Btotalbgp = this.getView().byId("input_Btotalbgp").getValue();
-			oEntry.Btotalanp = this.getView().byId("input_Btotalanp").getValue();
-			oEntry.Btotalagp = this.getView().byId("input_Btotalagp").getValue();
-			oEntry.Btotaldcnp = this.getView().byId("input_Btotaldcnp").getValue();
-			oEntry.Btotaldcgp = this.getView().byId("input_Btotaldcgp").getValue();
-			oEntry.Btotaltnp = this.getView().byId("input_Btotaltnp").getValue();
-			oEntry.Btotaltgp = this.getView().byId("input_Btotaltgp").getValue();
+	// 		// Bind data array to form fields
+	// 		// Breakdown by Class of Business (Breakdown by Insurance Type)
+	// 		oEntry.Bannuitiesbnp = this.getView().byId("input_Bannuitiesbnp").getValue();
+	// 		oEntry.Bannuitiesbgp = this.getView().byId("input_Bannuitiesbgp").getValue();
+	// 		oEntry.Bannuitiesanp = this.getView().byId("input_Bannuitiesanp").getValue();
+	// 		oEntry.Bannuitiesagp = this.getView().byId("input_Bannuitiesagp").getValue();
+	// 		oEntry.Bannuitiesdcnp = this.getView().byId("input_Bannuitiesdcnp").getValue();
+	// 		oEntry.Bannuitiesdcgp = this.getView().byId("input_Bannuitiesdcgp").getValue();
+	// 		oEntry.Bannuitiestnp = this.getView().byId("input_Bannuitiestnp").getValue();
+	// 		oEntry.Bannuitiestgp = this.getView().byId("input_Bannuitiestgp").getValue();
+	// 		oEntry.Bterminsurancebnp = this.getView().byId("input_Bterminsurancebnp").getValue();
+	// 		oEntry.Bterminsurancebgp = this.getView().byId("input_Bterminsurancebgp").getValue();
+	// 		oEntry.Bterminsuranceanp = this.getView().byId("input_Bterminsuranceanp").getValue();
+	// 		oEntry.Bterminsuranceagp = this.getView().byId("input_Bterminsuranceagp").getValue();
+	// 		oEntry.Bterminsurancedcnp = this.getView().byId("input_Bterminsurancedcnp").getValue();
+	// 		oEntry.Bterminsurancedcgp = this.getView().byId("input_Bterminsurancedcgp").getValue();
+	// 		oEntry.Bterminsurancetnp = this.getView().byId("input_Bterminsurancetnp").getValue();
+	// 		oEntry.Bterminsurancetgp = this.getView().byId("input_Bterminsurancetgp").getValue();
+	// 		oEntry.Bendowementbnp = this.getView().byId("input_Bendowementbnp").getValue();
+	// 		oEntry.Bendowementbgp = this.getView().byId("input_Bendowementbgp").getValue();
+	// 		oEntry.Bendowementanp = this.getView().byId("input_Bendowementanp").getValue();
+	// 		oEntry.Bendowementagp = this.getView().byId("input_Bendowementagp").getValue();
+	// 		oEntry.Bendowementdcnp = this.getView().byId("input_Bendowementdcnp").getValue();
+	// 		oEntry.Bendowementdcgp = this.getView().byId("input_Bendowementdcgp").getValue();
+	// 		oEntry.Bendowementtnp = this.getView().byId("input_Bendowementtnp").getValue();
+	// 		oEntry.Bendowementtgp = this.getView().byId("input_Bendowementtgp").getValue();
+	// 		oEntry.Bpureendowementbnp = this.getView().byId("input_Bpureendowementbnp").getValue();
+	// 		oEntry.Bpureendowementbgp = this.getView().byId("input_Bpureendowementbgp").getValue();
+	// 		oEntry.Bpureendowementanp = this.getView().byId("input_Bpureendowementanp").getValue();
+	// 		oEntry.Bpureendowementagp = this.getView().byId("input_Bpureendowementagp").getValue();
+	// 		oEntry.Bpureendowementdcnp = this.getView().byId("input_Bpureendowementdcnp").getValue();
+	// 		oEntry.Bpureendowementdcgp = this.getView().byId("input_Bpureendowementdcgp").getValue();
+	// 		oEntry.Bpureendowementtnp = this.getView().byId("input_Bpureendowementtnp").getValue();
+	// 		oEntry.Bpureendowementtgp = this.getView().byId("input_Bpureendowementtgp").getValue();
+	// 		oEntry.Bwholebnp = this.getView().byId("input_Bwholebnp").getValue();
+	// 		oEntry.Bwholebgp = this.getView().byId("input_Bwholebgp").getValue();
+	// 		oEntry.Bwholeanp = this.getView().byId("input_Bwholeanp").getValue();
+	// 		oEntry.Bwholeagp = this.getView().byId("input_Bwholeagp").getValue();
+	// 		oEntry.Bwholedcnp = this.getView().byId("input_Bwholedcnp").getValue();
+	// 		oEntry.Bwholedcgp = this.getView().byId("input_Bwholedcgp").getValue();
+	// 		oEntry.Bwholetnp = this.getView().byId("input_Bwholetnp").getValue();
+	// 		oEntry.Bwholetgp = this.getView().byId("input_Bwholetgp").getValue();
+	// 		oEntry.Bfuneralbnp = this.getView().byId("input_Bfuneralbnp").getValue();
+	// 		oEntry.Bfuneralbgp = this.getView().byId("input_Bfuneralbgp").getValue();
+	// 		oEntry.Bfuneralanp = this.getView().byId("input_Bfuneralanp").getValue();
+	// 		oEntry.Bfuneralagp = this.getView().byId("input_Bfuneralagp").getValue();
+	// 		oEntry.Bfuneraldcnp = this.getView().byId("input_Bfuneraldcnp").getValue();
+	// 		oEntry.Bfuneraldcgp = this.getView().byId("input_Bfuneraldcgp").getValue();
+	// 		oEntry.Bfuneraltnp = this.getView().byId("input_Bfuneraltnp").getValue();
+	// 		oEntry.Bfuneraltgp = this.getView().byId("input_Bfuneraltgp").getValue();
+	// 		oEntry.Btotalbnp = this.getView().byId("input_Btotalbnp").getValue();
+	// 		oEntry.Btotalbgp = this.getView().byId("input_Btotalbgp").getValue();
+	// 		oEntry.Btotalanp = this.getView().byId("input_Btotalanp").getValue();
+	// 		oEntry.Btotalagp = this.getView().byId("input_Btotalagp").getValue();
+	// 		oEntry.Btotaldcnp = this.getView().byId("input_Btotaldcnp").getValue();
+	// 		oEntry.Btotaldcgp = this.getView().byId("input_Btotaldcgp").getValue();
+	// 		oEntry.Btotaltnp = this.getView().byId("input_Btotaltnp").getValue();
+	// 		oEntry.Btotaltgp = this.getView().byId("input_Btotaltgp").getValue();
 			
-			// Bind data array to form fields
-			// BREAKDOWN OF TOTAL ASSETS
-			oEntry.Nameinstizgd = this.getView().byId("input_Nameinstizgd").getValue();
-			oEntry.Nameinstimos = this.getView().byId("input_Nameinstimos").getValue();
-			oEntry.Nameinstiamabonds = this.getView().byId("input_Nameinstiamabonds").getValue();
-			oEntry.Nameinstinhf = this.getView().byId("input_Nameinstinhf").getValue();
-			oEntry.Nameinstiopa = this.getView().byId("input_Nameinstiopa").getValue();
-			oEntry.Nameinstitpa = this.getView().byId("input_Nameinstitpa").getValue();
-			oEntry.Nameinstimop = this.getView().byId("input_Nameinstimop").getValue();
-			oEntry.Nameinstilop = this.getView().byId("input_Nameinstilop").getValue();
-			oEntry.Nameinstifp = this.getView().byId("input_Nameinstifp").getValue();
-			oEntry.Nameinstiequities = this.getView().byId("input_Nameinstiequities").getValue();
-			oEntry.Nameinstimoneym = this.getView().byId("input_Nameinstimoneym").getValue();
-			oEntry.Nameinsticbbalances = this.getView().byId("input_Nameinsticbbalances").getValue();
-			oEntry.Nameinstiotherinvest = this.getView().byId("input_Nameinstiotherinvest").getValue();
-			oEntry.Nameinstisubtotal = this.getView().byId("input_Nameinstisubtotal").getValue();
-			oEntry.Nameinstitotalassets = this.getView().byId("input_Nameinstitotalassets").getValue();
-			oEntry.Nameinstipata = this.getView().byId("input_Nameinstipata").getValue();
-			oEntry.Nameinstimrpar = this.getView().byId("input_Nameinstimrpar").getValue();
-			oEntry.Nameinstiripa = this.getView().byId("input_Nameinstiripa").getValue();
-			oEntry.Nameinstizgd1 = this.getView().byId("input_Nameinstizgd1").getValue();
-			oEntry.Nameinstimos1 = this.getView().byId("input_Nameinstimos1").getValue();
-			oEntry.Nameinstiamabonds1 = this.getView().byId("input_Nameinstiamabonds1").getValue();
-			oEntry.Nameinstinhf1 = this.getView().byId("input_Nameinstinhf1").getValue();
-			oEntry.Nameinstiopa1 = this.getView().byId("input_Nameinstiopa1").getValue();
-			oEntry.Nameinstitpa1 = this.getView().byId("input_Nameinstitpa1").getValue();
-			oEntry.Nameinstimop1 = this.getView().byId("input_Nameinstimop1").getValue();
-			oEntry.Nameinstilop1 = this.getView().byId("input_Nameinstilop1").getValue();
-			oEntry.Nameinstifp1 = this.getView().byId("input_Nameinstifp1").getValue();
-			oEntry.Nameinstiequities1 = this.getView().byId("input_Nameinstiequities1").getValue();
-			oEntry.Nameinstimoneym1 = this.getView().byId("input_Nameinstimoneym1").getValue();
-			oEntry.Nameinsticbbalances1 = this.getView().byId("input_Nameinsticbbalances1").getValue();
-			oEntry.Nameinstiotherinvest1 = this.getView().byId("input_Nameinstiotherinvest1").getValue();
-			oEntry.Nameinstisubtotal1 = this.getView().byId("input_Nameinstisubtotal1").getValue();
-			oEntry.Nameinstitotalassets1 = this.getView().byId("input_Nameinstitotalassets1").getValue();
-			oEntry.Nameinstipata1 = this.getView().byId("input_Nameinstipata1").getValue();
-			oEntry.Nameinstimrpar1 = this.getView().byId("input_Nameinstimrpar1").getValue();
-			oEntry.Nameinstiripa11 = this.getView().byId("input_Nameinstiripa11").getValue();
+	// 		// Bind data array to form fields
+	// 		// BREAKDOWN OF TOTAL ASSETS
+	// 		oEntry.Nameinstizgd = this.getView().byId("input_Nameinstizgd").getValue();
+	// 		oEntry.Nameinstimos = this.getView().byId("input_Nameinstimos").getValue();
+	// 		oEntry.Nameinstiamabonds = this.getView().byId("input_Nameinstiamabonds").getValue();
+	// 		oEntry.Nameinstinhf = this.getView().byId("input_Nameinstinhf").getValue();
+	// 		oEntry.Nameinstiopa = this.getView().byId("input_Nameinstiopa").getValue();
+	// 		oEntry.Nameinstitpa = this.getView().byId("input_Nameinstitpa").getValue();
+	// 		oEntry.Nameinstimop = this.getView().byId("input_Nameinstimop").getValue();
+	// 		oEntry.Nameinstilop = this.getView().byId("input_Nameinstilop").getValue();
+	// 		oEntry.Nameinstifp = this.getView().byId("input_Nameinstifp").getValue();
+	// 		oEntry.Nameinstiequities = this.getView().byId("input_Nameinstiequities").getValue();
+	// 		oEntry.Nameinstimoneym = this.getView().byId("input_Nameinstimoneym").getValue();
+	// 		oEntry.Nameinsticbbalances = this.getView().byId("input_Nameinsticbbalances").getValue();
+	// 		oEntry.Nameinstiotherinvest = this.getView().byId("input_Nameinstiotherinvest").getValue();
+	// 		oEntry.Nameinstisubtotal = this.getView().byId("input_Nameinstisubtotal").getValue();
+	// 		oEntry.Nameinstitotalassets = this.getView().byId("input_Nameinstitotalassets").getValue();
+	// 		oEntry.Nameinstipata = this.getView().byId("input_Nameinstipata").getValue();
+	// 		oEntry.Nameinstimrpar = this.getView().byId("input_Nameinstimrpar").getValue();
+	// 		oEntry.Nameinstiripa = this.getView().byId("input_Nameinstiripa").getValue();
+	// 		oEntry.Nameinstizgd1 = this.getView().byId("input_Nameinstizgd1").getValue();
+	// 		oEntry.Nameinstimos1 = this.getView().byId("input_Nameinstimos1").getValue();
+	// 		oEntry.Nameinstiamabonds1 = this.getView().byId("input_Nameinstiamabonds1").getValue();
+	// 		oEntry.Nameinstinhf1 = this.getView().byId("input_Nameinstinhf1").getValue();
+	// 		oEntry.Nameinstiopa1 = this.getView().byId("input_Nameinstiopa1").getValue();
+	// 		oEntry.Nameinstitpa1 = this.getView().byId("input_Nameinstitpa1").getValue();
+	// 		oEntry.Nameinstimop1 = this.getView().byId("input_Nameinstimop1").getValue();
+	// 		oEntry.Nameinstilop1 = this.getView().byId("input_Nameinstilop1").getValue();
+	// 		oEntry.Nameinstifp1 = this.getView().byId("input_Nameinstifp1").getValue();
+	// 		oEntry.Nameinstiequities1 = this.getView().byId("input_Nameinstiequities1").getValue();
+	// 		oEntry.Nameinstimoneym1 = this.getView().byId("input_Nameinstimoneym1").getValue();
+	// 		oEntry.Nameinsticbbalances1 = this.getView().byId("input_Nameinsticbbalances1").getValue();
+	// 		oEntry.Nameinstiotherinvest1 = this.getView().byId("input_Nameinstiotherinvest1").getValue();
+	// 		oEntry.Nameinstisubtotal1 = this.getView().byId("input_Nameinstisubtotal1").getValue();
+	// 		oEntry.Nameinstitotalassets1 = this.getView().byId("input_Nameinstitotalassets1").getValue();
+	// 		oEntry.Nameinstipata1 = this.getView().byId("input_Nameinstipata1").getValue();
+	// 		oEntry.Nameinstimrpar1 = this.getView().byId("input_Nameinstimrpar1").getValue();
+	// 		oEntry.Nameinstiripa11 = this.getView().byId("input_Nameinstiripa11").getValue();
 			
-			//Bind data array to form fields
-			//Claims Report
-			oEntry.Claimsbydeathindiv = this.getView().byId("input_Claimsbydeathindiv").getValue();
-			oEntry.Claimsbydeathgroup = this.getView().byId("input_Claimsbydeathgroup").getValue();
-			oEntry.Claimsbymaturityindiv = this.getView().byId("input_Claimsbymaturityindiv").getValue();
-			oEntry.Claimsbymaturitygroup = this.getView().byId("input_Claimsbymaturitygroup").getValue();
-			oEntry.Claimssurrenderindiv = this.getView().byId("input_Claimssurrenderindiv").getValue();
-			oEntry.Claimssurrendergroup = this.getView().byId("input_Claimssurrendergroup").getValue();
-			oEntry.Claimscashbonusindiv = this.getView().byId("input_Claimscashbonusindiv").getValue();
-			oEntry.Claimscashbonusgroup = this.getView().byId("input_Claimscashbonusgroup").getValue();
-			oEntry.Claimsgrossindiv = this.getView().byId("input_Claimsgrossindiv").getValue();
-			oEntry.Claimsgrossgroup = this.getView().byId("input_Claimsgrossgroup").getValue();
-			oEntry.Claimsnetreinsuranceindiv = this.getView().byId("input_Claimsnetreinsuranceindiv").getValue();
-			oEntry.Claimsnetreinsurancegroup = this.getView().byId("input_Claimsnetreinsurancegroup").getValue();
-			oEntry.Netclaimsindiv = this.getView().byId("input_Netclaimsindiv").getValue();
-			oEntry.Netclaimsgroup = this.getView().byId("input_Netclaimsgroup").getValue();
-			oEntry.Toptenclaimsindiv = this.getView().byId("input_Toptenclaimsindiv").getValue();
-			oEntry.Toptenclaimsgroup = this.getView().byId("input_Toptenclaimsgroup").getValue();
-			oEntry.Nameinsured = this.getView().byId("input_Nameinsured").getValue();
-			oEntry.Amountclaim = this.getView().byId("input_Amountclaim").getValue();
-			oEntry.Typepolicy = this.getView().byId("input_Typepolicy").getValue();
-			oEntry.Settledrepudiated = this.getView().byId("input_Settledrepudiated").getValue();
-			oEntry.Nameinsured1 = this.getView().byId("input_Nameinsured1").getValue();
-			oEntry.Amountclaim1 = this.getView().byId("input_Amountclaim1").getValue();
-			oEntry.Typepolicy1 = this.getView().byId("input_Typepolicy1").getValue();
-			oEntry.Settledrepudiated1 = this.getView().byId("input_Settledrepudiated1").getValue();
-			oEntry.Nameinsured2 = this.getView().byId("input_Nameinsured2").getValue();
-			oEntry.Amountclaim2 = this.getView().byId("input_Amountclaim2").getValue();
-			oEntry.Typepolicy2 = this.getView().byId("input_Typepolicy2").getValue();
-			oEntry.Settledrepudiated2 = this.getView().byId("input_Settledrepudiated2").getValue();
-			oEntry.Claimage30ip = this.getView().byId("input_Claimage30ip").getValue();
-			oEntry.Claimage30group = this.getView().byId("input_Claimage30group").getValue();
-			oEntry.Claimage30total = this.getView().byId("input_Claimage30total").getValue();
-			oEntry.Claimage60ip = this.getView().byId("input_Claimage60ip").getValue();
-			oEntry.Claimage60group = this.getView().byId("input_Claimage60group").getValue();
-			oEntry.Claimage60total = this.getView().byId("input_Claimage60total").getValue();
-			oEntry.Claimage90ip = this.getView().byId("input_Claimage90ip").getValue();
-			oEntry.Claimage90group = this.getView().byId("input_Claimage90group").getValue();
-			oEntry.Claimage90total = this.getView().byId("input_Claimage90total").getValue();
-			oEntry.Claimage120ip = this.getView().byId("input_Claimage120ip").getValue();
-			oEntry.Claimage120group = this.getView().byId("input_Claimage120group").getValue();
-			oEntry.Claimage120total = this.getView().byId("input_Claimage120total").getValue();
-			oEntry.Claimage121ip = this.getView().byId("input_Claimage121ip").getValue();
-			oEntry.Claimage121group = this.getView().byId("input_Claimage121group").getValue();
-			oEntry.Claimage121total = this.getView().byId("input_Claimage121total").getValue();
-			oEntry.Claimagetotalip = this.getView().byId("input_Claimagetotalip").getValue();
-			oEntry.Claimagetotalgroup = this.getView().byId("input_Claimagetotalgroup").getValue();
-			oEntry.Claimagetotalt = this.getView().byId("input_Claimagetotalt").getValue();
+	// 		//Bind data array to form fields
+	// 		//Claims Report
+	// 		oEntry.Claimsbydeathindiv = this.getView().byId("input_Claimsbydeathindiv").getValue();
+	// 		oEntry.Claimsbydeathgroup = this.getView().byId("input_Claimsbydeathgroup").getValue();
+	// 		oEntry.Claimsbymaturityindiv = this.getView().byId("input_Claimsbymaturityindiv").getValue();
+	// 		oEntry.Claimsbymaturitygroup = this.getView().byId("input_Claimsbymaturitygroup").getValue();
+	// 		oEntry.Claimssurrenderindiv = this.getView().byId("input_Claimssurrenderindiv").getValue();
+	// 		oEntry.Claimssurrendergroup = this.getView().byId("input_Claimssurrendergroup").getValue();
+	// 		oEntry.Claimscashbonusindiv = this.getView().byId("input_Claimscashbonusindiv").getValue();
+	// 		oEntry.Claimscashbonusgroup = this.getView().byId("input_Claimscashbonusgroup").getValue();
+	// 		oEntry.Claimsgrossindiv = this.getView().byId("input_Claimsgrossindiv").getValue();
+	// 		oEntry.Claimsgrossgroup = this.getView().byId("input_Claimsgrossgroup").getValue();
+	// 		oEntry.Claimsnetreinsuranceindiv = this.getView().byId("input_Claimsnetreinsuranceindiv").getValue();
+	// 		oEntry.Claimsnetreinsurancegroup = this.getView().byId("input_Claimsnetreinsurancegroup").getValue();
+	// 		oEntry.Netclaimsindiv = this.getView().byId("input_Netclaimsindiv").getValue();
+	// 		oEntry.Netclaimsgroup = this.getView().byId("input_Netclaimsgroup").getValue();
+	// 		oEntry.Toptenclaimsindiv = this.getView().byId("input_Toptenclaimsindiv").getValue();
+	// 		oEntry.Toptenclaimsgroup = this.getView().byId("input_Toptenclaimsgroup").getValue();
+	// 		oEntry.Nameinsured = this.getView().byId("input_Nameinsured").getValue();
+	// 		oEntry.Amountclaim = this.getView().byId("input_Amountclaim").getValue();
+	// 		oEntry.Typepolicy = this.getView().byId("input_Typepolicy").getValue();
+	// 		oEntry.Settledrepudiated = this.getView().byId("input_Settledrepudiated").getValue();
+	// 		oEntry.Nameinsured1 = this.getView().byId("input_Nameinsured1").getValue();
+	// 		oEntry.Amountclaim1 = this.getView().byId("input_Amountclaim1").getValue();
+	// 		oEntry.Typepolicy1 = this.getView().byId("input_Typepolicy1").getValue();
+	// 		oEntry.Settledrepudiated1 = this.getView().byId("input_Settledrepudiated1").getValue();
+	// 		oEntry.Nameinsured2 = this.getView().byId("input_Nameinsured2").getValue();
+	// 		oEntry.Amountclaim2 = this.getView().byId("input_Amountclaim2").getValue();
+	// 		oEntry.Typepolicy2 = this.getView().byId("input_Typepolicy2").getValue();
+	// 		oEntry.Settledrepudiated2 = this.getView().byId("input_Settledrepudiated2").getValue();
+	// 		oEntry.Claimage30ip = this.getView().byId("input_Claimage30ip").getValue();
+	// 		oEntry.Claimage30group = this.getView().byId("input_Claimage30group").getValue();
+	// 		oEntry.Claimage30total = this.getView().byId("input_Claimage30total").getValue();
+	// 		oEntry.Claimage60ip = this.getView().byId("input_Claimage60ip").getValue();
+	// 		oEntry.Claimage60group = this.getView().byId("input_Claimage60group").getValue();
+	// 		oEntry.Claimage60total = this.getView().byId("input_Claimage60total").getValue();
+	// 		oEntry.Claimage90ip = this.getView().byId("input_Claimage90ip").getValue();
+	// 		oEntry.Claimage90group = this.getView().byId("input_Claimage90group").getValue();
+	// 		oEntry.Claimage90total = this.getView().byId("input_Claimage90total").getValue();
+	// 		oEntry.Claimage120ip = this.getView().byId("input_Claimage120ip").getValue();
+	// 		oEntry.Claimage120group = this.getView().byId("input_Claimage120group").getValue();
+	// 		oEntry.Claimage120total = this.getView().byId("input_Claimage120total").getValue();
+	// 		oEntry.Claimage121ip = this.getView().byId("input_Claimage121ip").getValue();
+	// 		oEntry.Claimage121group = this.getView().byId("input_Claimage121group").getValue();
+	// 		oEntry.Claimage121total = this.getView().byId("input_Claimage121total").getValue();
+	// 		oEntry.Claimagetotalip = this.getView().byId("input_Claimagetotalip").getValue();
+	// 		oEntry.Claimagetotalgroup = this.getView().byId("input_Claimagetotalgroup").getValue();
+	// 		oEntry.Claimagetotalt = this.getView().byId("input_Claimagetotalt").getValue();
 			
-			//Bind data array to form fields
-			// CORPORATE STRUCTURE AND GOVERNANCE : Shareholder Structure
-			oEntry.Nameofshareholder = this.getView().byId("input_Nameofshareholder").getValue();
-			oEntry.Beneficiaries = this.getView().byId("input_Beneficiaries").getValue();
-			oEntry.Percentageshare = this.getView().byId("input_Percentageshare").getValue();*/
+	// 		//Bind data array to form fields
+	// 		// CORPORATE STRUCTURE AND GOVERNANCE : Shareholder Structure
+	// 		oEntry.Nameofshareholder = this.getView().byId("input_Nameofshareholder").getValue();
+	// 		oEntry.Beneficiaries = this.getView().byId("input_Beneficiaries").getValue();
+	// 		oEntry.Percentageshare = this.getView().byId("input_Percentageshare").getValue();*/
 			
-			this.oModel.setUseBatch(true);
+	// 		this.oModel.setUseBatch(true);
 
-			this.oModel.create("/ZLFO_RETURNSSet", oEntry, {
-				success: function(data) {
-					sap.ui.core.BusyIndicator.hide();
-					MessageBox.show(
-						that._oResourceBundle.getText("saveSuccess") + "" + data.ReturnNo, {
-							icon: MessageBox.Icon.SUCCESS,
-							title: "Success",
-							actions: [MessageBox.Action.OK],
-							id: "msgBox2",
-							styleClass: bCompact ? "sapUiSizeCompact" : ""
-						}
-					);
+	// 		this.oModel.create("/ZLFO_RETURNSSet", oEntry, {
+	// 			success: function(data) {
+	// 				sap.ui.core.BusyIndicator.hide();
+	// 				MessageBox.show(
+	// 					that._oResourceBundle.getText("saveSuccess") + "" + data.ReturnNo, {
+	// 						icon: MessageBox.Icon.SUCCESS,
+	// 						title: "Success",
+	// 						actions: [MessageBox.Action.OK],
+	// 						id: "msgBox2",
+	// 						styleClass: bCompact ? "sapUiSizeCompact" : ""
+	// 					}
+	// 				);
 
-					that._afterSave();
-				},
-				error: function(err) {
-					sap.ui.core.BusyIndicator.hide();
-					MessageBox.show(
+	// 				that._afterSave();
+	// 			},
+	// 			error: function(err) {
+	// 				sap.ui.core.BusyIndicator.hide();
+	// 				MessageBox.show(
 
-						that._oResourceBundle.getText("saveFailed"), {
-							icon: MessageBox.Icon.ERROR,
-							title: "Error",
-							actions: [MessageBox.Action.OK],
-							id: "msgBox3",
-							details: err,
-							styleClass: bCompact ? "sapUiSizeCompact" : ""
-						}
-					);
+	// 					that._oResourceBundle.getText("saveFailed"), {
+	// 						icon: MessageBox.Icon.ERROR,
+	// 						title: "Error",
+	// 						actions: [MessageBox.Action.OK],
+	// 						id: "msgBox3",
+	// 						details: err,
+	// 						styleClass: bCompact ? "sapUiSizeCompact" : ""
+	// 					}
+	// 				);
 
-				}
-			});
+	// 			}
+	// 		});
 
-		},
+	// 	},
 		
 			//Method to check for changes in mandatory fields
 		_noChanges: function() {
@@ -1913,9 +1913,457 @@ sap.ui.define([
 			this._calOtherTotalGrossPremiumInsuranceType();			
 			this._calGrossTotalPoliciesInsuranceType();
 			this._calGrossTotalGrossPremiumInsuranceType();
-		}
+		},
 		
 		//*****************************************************calculations end*******************************************************************************************
 	
+	// *******************************************************Dynamic input*************************************************
+		addInput: function(){
+			var oLabel = new sap.m.Label({text:"2"});
+		    var oInput1 = new sap.m.Input();
+		    var oInput2 = new sap.m.Input();
+		    var oInput3 = new sap.m.Input();
+		     var delIcon = new sap.ui.core.Icon({
+		      src:"sap-icon://delete",
+		      press:this.onDeleteCcMail
+		     });
+		    var _oCcLayout = new sap.m.FlexBox({
+		    			alignItems:"Center",
+							justifyContent:"Start",
+		          items:[oLabel,oInput1,oInput2,oInput3,delIcon]
+		    });
+		     this._oPnl.addContent(_oCcLayout);
+		    },
+		// getValue: function(){
+		//      debugger;
+		//      var values = "";
+		//      var pnlDom = this._oPnl.getDomRef()
+		//       $(pnlDom).find('input').each(function(index, elem) {
+		//           debugger;
+		//           values += ", " + $(elem)[0].value;          
+		//       });
+		//       alert(values);
+		//     },
+		onDeleteCcMail: function(oEvent){
+		    	var rowItemContainer = oEvent.getSource().getParent();
+		      rowItemContainer.destroy();
+		    },
+		
+		onButton2pressed: function () {
+
+        // some composite ui -> 
+        // can be put into some (xml) fragment for better separation
+        // here use layoutdata aggregation to span the 12 columns always
+        var oUIBlock = new sap.ui.layout.HorizontalLayout({
+            content: [
+            new sap.m.Label({
+                text: "Some Label"
+            }), new sap.m.ComboBox({}), new sap.m.Input()]
+        }).setLayoutData(new sap.ui.layout.GridData({
+            span: "L12 M12 S12"
+        })).addStyleClass("myHLayout");
+        // end some composite ui
+
+        // this.oGrid.addContent(oUIBlock);
+		this._oPnl.addContent(oUIBlock);
+    	},
+    	
+    	onButton2pressed2: function () {
+
+        // some composite ui -> 
+        // can be put into some (xml) fragment for better separation
+        // here use layoutdata aggregation to span the 12 columns always
+        var oUIBlock = new sap.ui.layout.HorizontalLayout({
+            content: [
+            new sap.m.Label({
+                text: "2"
+            }), new sap.m.Input().setLayoutData(new sap.ui.layout.GridData({
+            span: "XL2 L3 M3 S4"
+        })), new sap.m.Input(), new sap.m.Input().setLayoutData(new sap.ui.layout.GridData({
+            span: "XL2 L3 M3 S4"
+        }))]
+        });
+        // end some composite ui
+
+        // this.oGrid.addContent(oUIBlock);
+		this._oPnl.addContent(oUIBlock);
+    	},
+    	
+    	// Method to send odata post request to backend server (save order)
+    	_saveOrder: function() {
+			var that = this;
+			var 	oEntry = {};
+	///		var 	oModel = this.getView().getModel("ZIPEC_APP_SRV");
+			var 	bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
+
+		//Bind data array to form fields
+			//Identifying details
+			oEntry.ReturnNo = this.getView().byId("input_Institutionname").getValue();
+			oEntry.Nameinstitution = this.getView().byId("input_Periodended").getValue();
+			oEntry.Periodended = this.getView().byId("input_Principalname").getValue();
+			oEntry.Nameprincipal = this.getView().byId("input_Compliancemanager").getValue();
+			oEntry.Namecompliance = this.getView().byId("input_Financemanager").getValue();
+
+		//Bind data array to form fields
+			// BREAKDOWNTOTALASSETS Entity Fields
+			// naming convention is input_OdataAttributeName
+			oEntry.Namedirector = this.getView().byId("input_ReturnNo").getValue();
+			oEntry.Grosspremium = this.getView().byId("input_Zimgovsecurities").getValue();
+			oEntry.Reassurancepremu = this.getView().byId("input_Municipal").getValue();
+			oEntry.Netpremium = this.getView().byId("input_Amabonds").getValue();
+			oEntry.Unearnedpremium1 = this.getView().byId("input_Nathousing").getValue();
+			oEntry.Netearnedpremium = this.getView().byId("input_Otherprescribed").getValue();
+			oEntry.Claimspaid = this.getView().byId("input_Mortage").getValue();
+			oEntry.Claimsoutstandin = this.getView().byId("input_Loanpolicies").getValue();
+			oEntry.Unexpiredprovisi = this.getView().byId("input_Fixedproperty").getValue();
+			oEntry.Newclaims = this.getView().byId("input_Equities").getValue();
+			oEntry.Adminexpenses = this.getView().byId("input_Moneymarket").getValue();
+			oEntry.Netfeespaid = this.getView().byId("input_Cashbankmarket").getValue();
+			oEntry.Investincome = this.getView().byId("input_Otherinvestment").getValue();
+			oEntry.Otherincome1= this.getView().byId("input_Subtotal").getValue();
+			oEntry.Otherincome2 = this.getView().byId("input_Totalassets").getValue();
+			oEntry.Otherincome3= this.getView().byId("input_Prescribedassets").getValue();
+			oEntry.Manageexpense = this.getView().byId("input_Minassetsratio").getValue();
+			oEntry.Otherexpenses = this.getView().byId("input_Requiredinvest").getValue();
+			
+			// Bind data array to form fields
+			oEntry.Ebtinterest = this.getView().byId("input_Grosspremium").getValue();
+			oEntry.Ebt = this.getView().byId("input_Outwardpremium").getValue();
+			oEntry.Taxation = this.getView().byId("input_Unearnedpremium").getValue();
+			oEntry.Eatincome = this.getView().byId("input_Netpremium").getValue();
+			oEntry.Eatprofitloss = this.getView().byId("input_Claimspaid").getValue();
+			oEntry.Eatpolicyholder = this.getView().byId("input_Claimsoutstanding").getValue();
+			oEntry.Ncintagibleasset = this.getView().byId("input_Claimsincurred").getValue();
+			oEntry.Ncpropertyequip = this.getView().byId("input_Unexpiredprovision").getValue();
+			oEntry.Ncinvestproperty = this.getView().byId("input_Netclaims").getValue();
+			oEntry.Ncinvestsecurity = this.getView().byId("input_AdminExpenses").getValue();
+			oEntry.Ncinvestassets = this.getView().byId("input_Netfeescommission").getValue();
+			oEntry.Ncassets1 = this.getView().byId("input_Underwritingpl").getValue();
+			oEntry.Ncassets2 = this.getView().byId("input_Investincome").getValue();
+			oEntry.Ncassets3 = this.getView().byId("input_Otherincome1").getValue();
+			oEntry.Totalnc = this.getView().byId("input_Otherincome2").getValue();
+			oEntry.Caccountsreceiva = this.getView().byId("input_Otherincome3").getValue();
+			oEntry.Castinvestment = this.getView().byId("input_Managementexpense").getValue();
+			oEntry.Cacashbank = this.getView().byId("input_Otherexpense").getValue();
+			oEntry.Caassets1 = this.getView().byId("input_Ebinteresttaxation").getValue();
+			oEntry.Caassets2 = this.getView().byId("input_Interest").getValue();
+			oEntry.Caassets3 = this.getView().byId("input_Ebeforextax").getValue();
+			oEntry.Totalca = this.getView().byId("input_Taxation").getValue();
+			oEntry.Totalassets = this.getView().byId("input_Eaftertax").getValue();
+			oEntry.Longtermloans = this.getView().byId("input_Ocincome").getValue();
+			oEntry.Outstandclaims = this.getView().byId("input_Tcplforperiod").getValue();
+			oEntry.Futurepolicyhold = this.getView().byId("input_Tpolicyfunds").getValue();
+			oEntry.Unearnedpremium = this.getView().byId("input_Tcplshareholders").getValue();
+			oEntry.Amountsdue = this.getView().byId("input_Ncassets").getValue();
+			oEntry.Payablesarising = this.getView().byId("input_Intangibleassets").getValue();
+			
+			// Bind data array to form fields
+			oEntry.Deferedtaxation = this.getView().byId("input_Propertequip").getValue();
+			oEntry.Otherliability1 = this.getView().byId("input_Investmentproperty").getValue();
+			oEntry.Otherliability2 = this.getView().byId("input_Payablesafraecurities").getValue();
+			oEntry.Otherliability3 = this.getView().byId("input_Investmentassets").getValue();
+			oEntry.Sharecapital = this.getView().byId("input_Otherncassets1").getValue();
+			oEntry.Sharepremium = this.getView().byId("input_Otherncassets2").getValue();
+			oEntry.Investreserve = this.getView().byId("input_Otherncassets3").getValue();
+			oEntry.Revaluationreser = this.getView().byId("input_Totalncassets").getValue();
+			oEntry.Nondistributable = this.getView().byId("input_Accreceivable").getValue();
+			oEntry.Returnearningpy = this.getView().byId("input_Stinvestments").getValue();
+			oEntry.Returnearningcp = this.getView().byId("input_Cbbalances").getValue();
+			oEntry.Minorityinterest = this.getView().byId("input_Othercassets1").getValue();
+			oEntry.Other1 = this.getView().byId("input_Othercassets2").getValue();
+			oEntry.Other2 = this.getView().byId("input_Othercassets3").getValue();
+			oEntry.Other3 = this.getView().byId("input_Totalcassets").getValue();
+			oEntry.Shareholderequit = this.getView().byId("input_Longtermloans").getValue();
+			oEntry.Totalassets1 = this.getView().byId("input_Outstandingclaims").getValue();
+			oEntry.Intangibleassets = this.getView().byId("input_Claimsibnr").getValue();
+			oEntry.Encumburedassets = this.getView().byId("input_Futurepd").getValue();
+			oEntry.Nonpermissable = this.getView().byId("input_Unearnedpr").getValue();
+			oEntry.Netadjustedasset = this.getView().byId("input_Amountsdtr").getValue();
+			oEntry.Totalliabilities = this.getView().byId("input_Payablesafra").getValue();
+			oEntry.Excessassets = this.getView().byId("input_Deferredtaxation").getValue();
+			oEntry.Grosspremium1 = this.getView().byId("input_Otherliabilities1").getValue();
+			oEntry.Reassurance = this.getView().byId("input_Otherliabilities2").getValue();
+			oEntry.Netpremium1 = this.getView().byId("input_Otherliabilities3").getValue();
+			oEntry.Netpremium25 = this.getView().byId("input_Totalliabilities").getValue();
+			oEntry.Shareholderfund = this.getView().byId("input_Sharecapital").getValue();
+			oEntry.Safetymargin = this.getView().byId("input_Sharepremium").getValue();
+			oEntry.Solvencymargin = this.getView().byId("input_Investmentreserve").getValue();
+			oEntry.Nonpermisassets = this.getView().byId("input_Revaluationreserve").getValue();
+			oEntry.Inewbusinessbnp = this.getView().byId("input_Nondistreserve").getValue();
+			oEntry.Inewbusinessbgp = this.getView().byId("input_Retainedepy").getValue();
+			oEntry.Inewbusinessanp = this.getView().byId("input_Retainedcp").getValue();
+			oEntry.Inewbusinessagp = this.getView().byId("input_Minorityinterest").getValue();
+			oEntry.Inewbusinessdcnp = this.getView().byId("input_Othercapitalreserves1").getValue();
+			oEntry.Inewbusinessdcgp = this.getView().byId("input_Otothercapitalreserves2").getValue();
+			oEntry.Inewbusinesstnp = this.getView().byId("input_Othercapitalreserves3").getValue();
+			oEntry.Inewbusinesstgp = this.getView().byId("input_Shareholderequity").getValue();
+			oEntry.Irecurringbnp = this.getView().byId("input_Totalequityliabilities").getValue();
+			
+			//Bind data array to form fields
+			oEntry.Irecurringbgp = this.getView().byId("input_Totalassets").getValue();
+			oEntry.Irecurringanp = this.getView().byId("input_Lessiassets").getValue();
+			oEntry.Irecurringagp = this.getView().byId("input_Lesseassets").getValue();
+			oEntry.Irecurringdcnp = this.getView().byId("input_Othernonpassets").getValue();
+			oEntry.Irecurringdcgp = this.getView().byId("input_Netadjustedassets").getValue();
+			oEntry.Irecurringtnp = this.getView().byId("input_Totalliabilities1").getValue();
+			oEntry.Irecurringtgp = this.getView().byId("input_Excessaoliabilities").getValue();
+			oEntry.Isubtotalbnp = this.getView().byId("input_Grosspw").getValue();
+			oEntry.Isubtotalbgp = this.getView().byId("input_Reassurance").getValue();
+			oEntry.Isubtotalanp = this.getView().byId("input_Netpincome").getValue();
+			oEntry.Isubtotalagp = this.getView().byId("input_Shareholderfund").getValue();
+			oEntry.Isubtotaldcnp = this.getView().byId("input_Safetymargin").getValue();
+			oEntry.Isubtotaldcgp = this.getView().byId("input_Solvencymargin").getValue();
+			
+			// Bind data array to form fields
+			oEntry.Isubtotaltnp = this.getView().byId("input_Iindividualbnp").getValue();
+			oEntry.Isubtotaltgp = this.getView().byId("input_Iindividualbgp").getValue();
+			
+			// Bind data array to form fields
+			// Breakdown by Class of Business (Employee Benefits/Corporates/Group Life Assurance)
+			oEntry.Enewbusinessbnp = this.getView().byId("input_Enewbusinessbnp").getValue();
+			oEntry.Enewbusinessbgp = this.getView().byId("input_Enewbusinessbgp").getValue();
+			oEntry.Enewbusinessanp = this.getView().byId("input_Enewbusinessanp").getValue();
+			oEntry.Enewbusinessagp = this.getView().byId("input_Enewbusinessagp").getValue();
+			oEntry.Enewbusinessdcnp = this.getView().byId("input_Enewbusinessdcnp").getValue();
+			oEntry.Enewbusinessdcgp = this.getView().byId("input_Enewbusinessdcgp").getValue();
+			oEntry.Enewbusinesstnp = this.getView().byId("input_Enewbusinesstnp").getValue();
+			oEntry.Enewbusinesstgp = this.getView().byId("input_Enewbusinesstgp").getValue();
+			oEntry.Ereccuringbnp = this.getView().byId("input_Ereccuringbnp").getValue();
+			oEntry.Ereccuringbgp = this.getView().byId("input_Ereccuringbgp").getValue();
+			oEntry.Ereccuringanp = this.getView().byId("input_Ereccuringanp").getValue();
+			oEntry.Ereccuringagp = this.getView().byId("input_Ereccuringagp").getValue();
+			oEntry.Ereccuringdcnp = this.getView().byId("input_Ereccuringdcnp").getValue();
+			oEntry.Ereccuringdcgp = this.getView().byId("input_Ereccuringdcgp").getValue();
+			oEntry.Ereccuringtnp = this.getView().byId("input_Ereccuringtnp").getValue();
+			oEntry.Ereccuringtgp = this.getView().byId("input_Ereccuringtgp").getValue();
+			oEntry.Esubtotalbnp = this.getView().byId("input_Esubtotalbnp").getValue();
+			oEntry.Esubtotalbgp = this.getView().byId("input_Esubtotalbgp").getValue();
+			oEntry.Esubtotalanp = this.getView().byId("input_Esubtotalanp").getValue();
+			oEntry.Esubtotalagp = this.getView().byId("input_Esubtotalagp").getValue();
+			oEntry.Esubtotaldcnp = this.getView().byId("input_Esubtotaldcnp").getValue();
+			oEntry.Esubtotaldcgp = this.getView().byId("input_Esubtotaldcgp").getValue();
+			oEntry.Esubtotaltnp = this.getView().byId("input_Esubtotaltnp").getValue();
+			oEntry.Esubtotaltgp = this.getView().byId("input_Esubtotaltgp").getValue();
+			
+			// Bind data array to form fields
+			// Breakdown by Class of Business (Breakdown by Insurance Type)
+			oEntry.Annuitiesbnp = this.getView().byId("input_Bannuitiesbnp").getValue();
+			oEntry.Annuitiesbgp = this.getView().byId("input_Bannuitiesbgp").getValue();
+			oEntry.Annuitiesanp = this.getView().byId("input_Bannuitiesanp").getValue();
+			oEntry.Annuitiesagp = this.getView().byId("input_Bannuitiesagp").getValue();
+			oEntry.Annuitiesdcnp = this.getView().byId("input_Bannuitiesdcnp").getValue();
+			oEntry.Annuitiesdcgp = this.getView().byId("input_Bannuitiesdcgp").getValue();
+			oEntry.Annuitiestnp = this.getView().byId("input_Bannuitiestnp").getValue();
+			oEntry.Annuitiestgp = this.getView().byId("input_Bannuitiestgp").getValue();
+			oEntry.Terminsurancebnp = this.getView().byId("input_Bterminsurancebnp").getValue();
+			oEntry.Terminsurancebgp = this.getView().byId("input_Bterminsurancebgp").getValue();
+			oEntry.Terminsuranceanp = this.getView().byId("input_Bterminsuranceanp").getValue();
+			oEntry.Terminsuranceagp = this.getView().byId("input_Bterminsuranceagp").getValue();
+			oEntry.Terminsurancedcnp = this.getView().byId("input_Bterminsurancedcnp").getValue();
+			oEntry.Terminsurancedcgp = this.getView().byId("input_Bterminsurancedcgp").getValue();
+			oEntry.Terminsurancetnp = this.getView().byId("input_Bterminsurancetnp").getValue();
+			oEntry.Terminsurancetgp = this.getView().byId("input_Bterminsurancetgp").getValue();
+			oEntry.Endowementbnp = this.getView().byId("input_Bendowementbnp").getValue();
+			oEntry.Endowementbgp = this.getView().byId("input_Bendowementbgp").getValue();
+			oEntry.Endowementanp = this.getView().byId("input_Bendowementanp").getValue();
+			oEntry.Endowementagp = this.getView().byId("input_Bendowementagp").getValue();
+			oEntry.Endowementdcnp = this.getView().byId("input_Bendowementdcnp").getValue();
+			oEntry.Endowementdcgp = this.getView().byId("input_Bendowementdcgp").getValue();
+			oEntry.Endowementtnp = this.getView().byId("input_Bendowementtnp").getValue();
+			oEntry.Endowementtgp = this.getView().byId("input_Bendowementtgp").getValue();
+			oEntry.Pendowementbnp = this.getView().byId("input_Bpureendowementbnp").getValue();
+			oEntry.Pendowementbgp = this.getView().byId("input_Bpureendowementbgp").getValue();
+			oEntry.Pendowementanp = this.getView().byId("input_Bpureendowementanp").getValue();
+			oEntry.Pendowementagp = this.getView().byId("input_Bpureendowementagp").getValue();
+			oEntry.Pendowementdcnp = this.getView().byId("input_Bpureendowementdcnp").getValue();
+			oEntry.Pendowementdcgp = this.getView().byId("input_Bpureendowementdcgp").getValue();
+			oEntry.Pendowementtnp = this.getView().byId("input_Bpureendowementtnp").getValue();
+			oEntry.Pendowementtgp = this.getView().byId("input_Bpureendowementtgp").getValue();
+			oEntry.Wholebnp = this.getView().byId("input_Bwholebnp").getValue();
+			oEntry.Wholebgp = this.getView().byId("input_Bwholebgp").getValue();
+			oEntry.Wholeanp = this.getView().byId("input_Bwholeanp").getValue();
+			oEntry.Wholeagp = this.getView().byId("input_Bwholeagp").getValue();
+			oEntry.Wholedcnp = this.getView().byId("input_Bwholedcnp").getValue();
+			oEntry.Wholedcgp = this.getView().byId("input_Bwholedcgp").getValue();
+			oEntry.Wholetnp = this.getView().byId("input_Bwholetnp").getValue();
+			oEntry.Wholetgp = this.getView().byId("input_Bwholetgp").getValue();
+			oEntry.Funeralbnp = this.getView().byId("input_Bfuneralbnp").getValue();
+			oEntry.Funeralbgp = this.getView().byId("input_Bfuneralbgp").getValue();
+			oEntry.Funeralanp = this.getView().byId("input_Bfuneralanp").getValue();
+			oEntry.Funeralagp = this.getView().byId("input_Bfuneralagp").getValue();
+			oEntry.Funeraldcnp = this.getView().byId("input_Bfuneraldcnp").getValue();
+			oEntry.Funeraldcgp = this.getView().byId("input_Bfuneraldcgp").getValue();
+			oEntry.Funeraltnp = this.getView().byId("input_Bfuneraltnp").getValue();
+			oEntry.Funeraltgp = this.getView().byId("input_Bfuneraltgp").getValue();
+			oEntry.Otherbnp = this.getView().byId("input_Btotalbnp").getValue();
+			oEntry.Otherbgp = this.getView().byId("input_Btotalbgp").getValue();
+			oEntry.Otheranp = this.getView().byId("input_Btotalanp").getValue();
+			oEntry.Otheragp = this.getView().byId("input_Btotalagp").getValue();
+			oEntry.Otherdcnp = this.getView().byId("input_Btotaldcnp").getValue();
+			oEntry.Otherdcgp = this.getView().byId("input_Btotaldcgp").getValue();
+			oEntry.Othertnp = this.getView().byId("input_Btotaltnp").getValue();
+			oEntry.Othertgp = this.getView().byId("input_Btotaltgp").getValue();
+			
+			// Bind data array to form fields
+			oEntry.Zimgovsecurities = this.getView().byId("input_Nameinstizgd").getValue();
+			oEntry.Municipal = this.getView().byId("input_Nameinstimos").getValue();
+			oEntry.Amabonds = this.getView().byId("input_Nameinstiamabonds").getValue();
+			oEntry.Nationalhousing = this.getView().byId("input_Nameinstinhf").getValue();
+			oEntry.Otherprescribed = this.getView().byId("input_Nameinstiopa").getValue();
+			oEntry.Totalassets = this.getView().byId("input_Nameinstitpa").getValue();
+			oEntry.Mortgages = this.getView().byId("input_Nameinstimop").getValue();
+			oEntry.Loanonpolicies = this.getView().byId("input_Nameinstilop").getValue();
+			oEntry.Fixedproperty = this.getView().byId("input_Nameinstifp").getValue();
+			oEntry.Moneymarket = this.getView().byId("input_Nameinstiequities").getValue();
+			oEntry.Cashbank = this.getView().byId("input_Nameinstimoneym").getValue();
+			oEntry.Otherinvestments = this.getView().byId("input_Nameinsticbbalances").getValue();
+			oEntry.Subtotal = this.getView().byId("input_Nameinstiotherinvest").getValue();
+			oEntry.Totalassets111 = this.getView().byId("input_Nameinstisubtotal").getValue();
+			oEntry.Prescribed = this.getView().byId("input_Nameinstitotalassets").getValue();
+			oEntry.Minratio = this.getView().byId("input_Nameinstipata").getValue();
+			oEntry.Requiredinvest = this.getView().byId("input_Nameinstimrpar").getValue();
+			oEntry.Bydeathi = this.getView().byId("input_Nameinstiripa").getValue();
+			oEntry.Bydeathg = this.getView().byId("input_Nameinstizgd1").getValue();
+			oEntry.Bymaturityi = this.getView().byId("input_Nameinstimos1").getValue();
+			oEntry.Bymaturityg = this.getView().byId("input_Nameinstiamabonds1").getValue();
+			oEntry.Bydisabilityi = this.getView().byId("input_Nameinstinhf1").getValue();
+			oEntry.Bydisabilityg = this.getView().byId("input_Nameinstiopa1").getValue();
+			oEntry.Surrendersg = this.getView().byId("input_Nameinstitpa1").getValue();
+			oEntry.Cashbonusi = this.getView().byId("input_Nameinstimop1").getValue();
+			oEntry.Cashbonusg = this.getView().byId("input_Nameinstilop1").getValue();
+			oEntry.Totalgrossclaimi = this.getView().byId("input_Nameinstifp1").getValue();
+			oEntry.Totalgrossclaimg = this.getView().byId("input_Nameinstiequities1").getValue();
+			oEntry.Netrclaimsi = this.getView().byId("input_Nameinstimoneym1").getValue();
+			oEntry.Netrclaimsg = this.getView().byId("input_Nameinsticbbalances1").getValue();
+			oEntry.Netclaimsi = this.getView().byId("input_Nameinstiotherinvest1").getValue();
+			oEntry.Netclaimsg = this.getView().byId("input_Nameinstisubtotal1").getValue();
+			oEntry.Toptenclaimsi = this.getView().byId("input_Nameinstitotalassets1").getValue();
+			oEntry.Toptenclaimsg = this.getView().byId("input_Nameinstipata1").getValue();
+			oEntry.Nameofinnsured = this.getView().byId("input_Nameinstimrpar1").getValue();
+			oEntry.Amountofclaim = this.getView().byId("input_Nameinstiripa11").getValue();
+			
+			//Bind data array to form fields
+			oEntry.Typeofpolicy = this.getView().byId("input_Claimsbydeathindiv").getValue();
+			oEntry.Settledrepulated = this.getView().byId("input_Claimsbydeathgroup").getValue();
+			oEntry.Totalamountclaim = this.getView().byId("input_Claimsbymaturityindiv").getValue();
+			oEntry.Totalypepolicy = this.getView().byId("input_Claimsbymaturitygroup").getValue();
+			oEntry.Totalsettled = this.getView().byId("input_Claimssurrenderindiv").getValue();
+			oEntry.Caindividual30 = this.getView().byId("input_Claimssurrendergroup").getValue();
+			oEntry.Caindividual60 = this.getView().byId("input_Claimscashbonusindiv").getValue();
+			oEntry.Caindividual90 = this.getView().byId("input_Claimscashbonusgroup").getValue();
+			oEntry.Caindividual120 = this.getView().byId("input_Claimsgrossindiv").getValue();
+			oEntry.Caindividual121 = this.getView().byId("input_Claimsgrossgroup").getValue();
+			oEntry.Cagroup30 = this.getView().byId("input_Claimsnetreinsuranceindiv").getValue();
+			oEntry.Cagroup60 = this.getView().byId("input_Claimsnetreinsurancegroup").getValue();
+			oEntry.Cagroup90 = this.getView().byId("input_Netclaimsindiv").getValue();
+			oEntry.Cagroup120 = this.getView().byId("input_Netclaimsgroup").getValue();
+			oEntry.Cagroup121 = this.getView().byId("input_Toptenclaimsindiv").getValue();
+			oEntry.Catotal30 = this.getView().byId("input_Toptenclaimsgroup").getValue();
+			oEntry.Catotal60 = this.getView().byId("input_Nameinsured").getValue();
+			oEntry.Catotal90 = this.getView().byId("input_Amountclaim").getValue();
+			oEntry.Catotal120 = this.getView().byId("input_Typepolicy").getValue();
+			oEntry.Catotal121 = this.getView().byId("input_Settledrepudiated").getValue();
+			oEntry.Totalindividual = this.getView().byId("input_Nameinsured1").getValue();
+			oEntry.Totalgroup = this.getView().byId("input_Amountclaim1").getValue();
+			oEntry.Total = this.getView().byId("input_Typepolicy1").getValue();
+			oEntry.Nameshareholder = this.getView().byId("input_Settledrepudiated1").getValue();
+			oEntry.Beneficiaries = this.getView().byId("input_Nameinsured2").getValue();
+			oEntry.Percshareholding = this.getView().byId("input_Amountclaim2").getValue();
+			oEntry.Name = this.getView().byId("input_Typepolicy2").getValue();
+			oEntry.Executive = this.getView().byId("input_Settledrepudiated2").getValue();
+			oEntry.Qualifications = this.getView().byId("input_Claimage30ip").getValue();
+			oEntry.Experience = this.getView().byId("input_Claimage30group").getValue();
+			oEntry.Directorships = this.getView().byId("input_Claimage30total").getValue();
+			oEntry.Nameofboard = this.getView().byId("input_Claimage60ip").getValue();
+			oEntry.Nameofmembers = this.getView().byId("input_Claimage60group").getValue();
+			oEntry.Numberofbranches = this.getView().byId("input_Claimage60total").getValue();
+			oEntry.Numberofsubbranch = this.getView().byId("input_Claimage90ip").getValue();
+			oEntry.Staffmanagement = this.getView().byId("input_Claimage90group").getValue();
+			oEntry.Staffnonmanagerial = this.getView().byId("input_Claimage90total").getValue();
+			oEntry.Individual = this.getView().byId("input_Claimage120ip").getValue();
+			oEntry.Corpotate = this.getView().byId("input_Claimage120group").getValue();
+			oEntry.Total123 = this.getView().byId("input_Claimage120total").getValue();
+			oEntry.Individualnp = this.getView().byId("input_Claimage121ip").getValue();
+			oEntry.Individualsa = this.getView().byId("input_Claimage121group").getValue();
+			oEntry.Individualp = this.getView().byId("input_Claimage121total").getValue();
+			oEntry.Groupnp = this.getView().byId("input_Claimagetotalip").getValue();
+			oEntry.Groupsa = this.getView().byId("input_Claimagetotalgroup").getValue();
+			oEntry.Groupp = this.getView().byId("input_Claimagetotalt").getValue();
+			oEntry.Totalnp = this.getView().byId("input_Claimage30total").getValue();
+			oEntry.Totalsa = this.getView().byId("input_Claimage60ip").getValue();
+			oEntry.Totalp = this.getView().byId("input_Claimage60group").getValue();
+			
+			oEntry.Namepolicy = this.getView().byId("input_Claimage60total").getValue();
+			oEntry.Sumassured = this.getView().byId("input_Claimage90ip").getValue();
+			oEntry.Typeproduct = this.getView().byId("input_Claimage90group").getValue();
+			oEntry.Premiumpaid = this.getView().byId("input_Claimage90total").getValue();
+			oEntry.Namepolicy1 = this.getView().byId("input_Claimage120ip").getValue();
+			oEntry.Sumassured1 = this.getView().byId("input_Claimage90ip").getValue();
+			oEntry.Typeproduct1 = this.getView().byId("input_Claimage90group").getValue();
+			oEntry.Premiumpaid1 = this.getView().byId("input_Claimage90total").getValue();
+			oEntry.Namepolicy2 = this.getView().byId("input_Claimage60total").getValue();
+			oEntry.Sumassured2 = this.getView().byId("input_Claimage90ip").getValue();
+			oEntry.Typeproduct2 = this.getView().byId("input_Claimage90group").getValue();
+			oEntry.Premiumpaid2 = this.getView().byId("input_Claimage90total").getValue();
+			oEntry.Namepolicy3 = this.getView().byId("input_Claimage60total").getValue();
+			oEntry.Sumassured3 = this.getView().byId("input_Claimage90ip").getValue();
+			oEntry.Typeproduct3 = this.getView().byId("input_Claimage90group").getValue();
+			oEntry.Premiumpaid3 = this.getView().byId("input_Claimage90total").getValue();
+			
+			oEntry.Debtage30ip = this.getView().byId("input_Claimage121group").getValue();
+			oEntry.Debtage30group = this.getView().byId("input_Claimage121total").getValue();
+			oEntry.Debtage30total = this.getView().byId("input_Claimagetotalip").getValue();
+			oEntry.Debtage60ip = this.getView().byId("input_Claimage121group").getValue();
+			oEntry.Debtage60group = this.getView().byId("input_Claimage121total").getValue();
+			oEntry.Debtage60total = this.getView().byId("input_Claimagetotalip").getValue();
+			oEntry.Debtage90ip = this.getView().byId("input_Claimage121group").getValue();
+			oEntry.Debtage90group = this.getView().byId("input_Claimage121total").getValue();
+			oEntry.Debtage90total = this.getView().byId("input_Claimagetotalip").getValue();
+			oEntry.Debtage120ip = this.getView().byId("input_Claimage121group").getValue();
+			oEntry.Debtage120group = this.getView().byId("input_Claimage121total").getValue();
+			oEntry.Debtage120total = this.getView().byId("input_Claimagetotalip").getValue();
+			oEntry.Debtage121ip = this.getView().byId("input_Claimage121group").getValue();
+			oEntry.Debtage121group = this.getView().byId("input_Claimage121total").getValue();
+			oEntry.Debtage121total = this.getView().byId("input_Claimagetotalip").getValue();
+			
+			oEntry.Totalip = this.getView().byId("input_Claimagetotalgroup").getValue();
+			oEntry.Totalgroup1 = this.getView().byId("input_Claimagetotalt").getValue();
+			oEntry.Total1234 = this.getView().byId("input_Nameofshareholder").getValue();
+			
+			this.oModel.setUseBatch(true);
+
+			this.oModel.create("/ZLFO_RETURNSSet", oEntry, {
+				success: function(data) {
+					sap.ui.core.BusyIndicator.hide();
+					MessageBox.show(
+						that._oResourceBundle.getText("saveSuccess") + "" + data.ReturnNo, {
+							icon: MessageBox.Icon.SUCCESS,
+							title: "Success",
+							actions: [MessageBox.Action.OK],
+							id: "msgBox2",
+							styleClass: bCompact ? "sapUiSizeCompact" : ""
+						}
+					);
+
+					that._afterSave();
+				},
+				error: function(err) {
+					sap.ui.core.BusyIndicator.hide();
+					MessageBox.show(
+
+						that._oResourceBundle.getText("saveFailed"), {
+							icon: MessageBox.Icon.ERROR,
+							title: "Error",
+							actions: [MessageBox.Action.OK],
+							id: "msgBox3",
+							details: err,
+							styleClass: bCompact ? "sapUiSizeCompact" : ""
+						}
+					);
+
+				}
+			});
+
+		},
 	});
 },true);

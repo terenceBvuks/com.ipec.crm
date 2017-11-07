@@ -12,12 +12,12 @@ sap.ui.define([
 			this._Page = this.getView().byId("page2");
 			this._Page.setBackgroundDesign("Solid");
 			this._oResourceBundle = this.getResourceBundle();
-			this.calcGrossPremiumReceivable();
-			this.calcBrokerageCommission();
-			this.calcGrossPremiumPayable();
-			this.calcNetBrokerageCommission();
-			this.calcProfitBeforeTax();
-			this.calcProfitAfterTax();
+			// this.calcGrossPremiumReceivable();
+			// this.calcBrokerageCommission();
+			// this.calcGrossPremiumPayable();
+			// this.calcNetBrokerageCommission();
+			// this.calcProfitBeforeTax();
+			// this.calcProfitAfterTax();
 		},
 		handleNav: function(evt) {
 			var navCon = this.getView().byId("navConBrokers");
@@ -1534,10 +1534,10 @@ sap.ui.define([
 		// ********************************START Formulars For Income Statement PAGE 5*********************
 		
 		// Method to calculate Gross Premium Receivable
-		calcGrossPremiumReceivable: function(){
-			// Gross Premium Receivable ='Summary of Business within Zim'->With Insurers within Zimbabwe -> Total Premium
-		this.getView().byId("input_GROSS_PREM_REC").setValue(this.getView().byId("input_TOTAL_TOT_POL").getValue());
-		},
+		// calcGrossPremiumReceivable: function(){
+		// 	// Gross Premium Receivable ='Summary of Business within Zim'->With Insurers within Zimbabwe -> Total Premium
+		// this.getView().byId("input_GROSS_PREM_REC").setValue(this.getView().byId("input_TOTAL_TOT_POL").getValue());
+		// },
 		
 		// Method to calculate Gross Premium Payable
 		calcGrossPremiumPayable: function(){
@@ -1580,8 +1580,8 @@ sap.ui.define([
 		// ********************************START SUMMARY BY CLASS OF BUSINESS PLACED BY BROKER WITHIN ZIMBABWE (PERSONAL LINES) PAGE 1*********************
 		
 		// Method to calculate Total Sum Insured
-		calcBWZPTotalSumInsured: function(){
-			var hseowners,hseholders,health,rta,ftp,compr,othr1,bWZPTotalSumInsured;
+		calctotalSum: function(){
+			var hseowners,hseholders,health,rta,ftp,compr,othr1,totalSum;
 			hseowners = this.getView().byId("input_PER_OWNERS_TOT_INS").getValue();
 			hseholders = this.getView().byId("input_PER_HOLDER_TOT_INS").getValue();
 			health = this.getView().byId("input_PER_HEALTH_TOT_INS").getValue();
@@ -1589,32 +1589,616 @@ sap.ui.define([
 			ftp = this.getView().byId("input_PER_FTP_TOT_INS").getValue();
 			compr = this.getView().byId("input_PER_COMPRE_TOT_INS").getValue();
 			othr1 = this.getView().byId("input_PER_OTHER_TOT_INS").getValue();
-			bWZPTotalSumInsured = Number(hseowners)+Number(hseholders)+Number(health)+Number(rta)+Number(ftp)+Number(compr)+Number(othr1);
-			this.getView().byId("input_PER_SUBTOT_TOT_INS").setValue(bWZPTotalSumInsured);
+			totalSum = Number(hseowners)+Number(hseholders)+Number(health)+Number(rta)+Number(ftp)+Number(compr)+Number(othr1);
+			this.getView().byId("input_PER_SUBTOT_TOT_INS").setValue(totalSum);
 		},
 		
 		// Method to calculate Total Premium
 		calcBWZPTotalPremium: function(){
-			// Profit After Tax = Profit Before Tax - Taxation
-			this.getView().byId("input_PROFIT_AFTER").setValue(this.getView().byId("input_PROFIT_BEFORE").getValue() - this.getView().byId("input_TAXATION").getValue());
+			var hseowners,hseholders,health,rta,ftp,compr,othr1,totalSum;
+			hseowners = this.getView().byId("input_PER_OWNERS_TOT_PRE").getValue();
+			hseholders = this.getView().byId("input_PER_HOLDER_TOT_PRE").getValue();
+			health = this.getView().byId("input_PER_HEALTH_TOT_PRE").getValue();
+			rta = this.getView().byId("input_PER_RTA_TOT_PRE").getValue();
+			ftp = this.getView().byId("input_PER_FTP_TOT_PRE").getValue();
+			compr = this.getView().byId("input_PER_COMPRE_TOT_PRE").getValue();
+			othr1 = this.getView().byId("input_PER_OTHER_TOT_PRE").getValue();
+			totalSum = Number(hseowners)+Number(hseholders)+Number(health)+Number(rta)+Number(ftp)+Number(compr)+Number(othr1);
+			this.getView().byId("input_PER_SUBTOT_TOT_PRE").setValue(totalSum);
 		},
 		
 		// Method to calculate Total Number Of Policies
 		calcBWZPTotalNumberOfPolicies: function(){
-			// Profit After Tax = Profit Before Tax - Taxation
-			this.getView().byId("input_PROFIT_AFTER").setValue(this.getView().byId("input_PROFIT_BEFORE").getValue() - this.getView().byId("input_TAXATION").getValue());
+			var hseowners,hseholders,health,rta,ftp,compr,othr1,totalSum;
+			hseowners = this.getView().byId("input_PER_OWNERS_TOT_POL").getValue();
+			hseholders = this.getView().byId("input_PER_HOLDER_TOT_POL").getValue();
+			health = this.getView().byId("input_PER_HEALTH_TOT_POL").getValue();
+			rta = this.getView().byId("input_PER_RTA_TOT_POL").getValue();
+			ftp = this.getView().byId("input_PER_FTP_TOT_POL").getValue();
+			compr = this.getView().byId("input_PER_COMPRE_TOT_POL").getValue();
+			othr1 = this.getView().byId("input_PER_OTHER_TOT_POL").getValue();
+			totalSum = Number(hseowners)+Number(hseholders)+Number(health)+Number(rta)+Number(ftp)+Number(compr)+Number(othr1);
+			this.getView().byId("input_PER_SUBTOT_TOT_POL").setValue(totalSum);
 		},
 		
 		// Method to calculate Total Commission Received
 		calcBWZPTotalCommissionReceived: function(){
-			// Profit After Tax = Profit Before Tax - Taxation
-			this.getView().byId("input_PROFIT_AFTER").setValue(this.getView().byId("input_PROFIT_BEFORE").getValue() - this.getView().byId("input_TAXATION").getValue());
+			var hseowners,hseholders,health,rta,ftp,compr,othr1,totalSum;
+			hseowners = this.getView().byId("input_PER_OWNERS_COM_REC").getValue();
+			hseholders = this.getView().byId("input_PER_HOLDER_COM_REC").getValue();
+			health = this.getView().byId("input_PER_HEALTH_COM_REC").getValue();
+			rta = this.getView().byId("input_PER_RTA_COM_REC").getValue();
+			ftp = this.getView().byId("input_PER_FTP_COM_REC").getValue();
+			compr = this.getView().byId("input_PER_COMPRE_COM_REC").getValue();
+			othr1 = this.getView().byId("input_PER_OTHER_COM_REC").getValue();
+			totalSum = Number(hseowners)+Number(hseholders)+Number(health)+Number(rta)+Number(ftp)+Number(compr)+Number(othr1);
+			this.getView().byId("input_PER_SUBTOT_COM_REC").setValue(totalSum);
 		},
 		
 		// Method to calculate Total Received Acquisition Cost
 		calcBWZPTotalReceivedAcquisitionCost: function(){
-			// Profit After Tax = Profit Before Tax - Taxation
-			this.getView().byId("input_PROFIT_AFTER").setValue(this.getView().byId("input_PROFIT_BEFORE").getValue() - this.getView().byId("input_TAXATION").getValue());
+			var hseowners,hseholders,health,rta,ftp,compr,othr1,totalSum;
+			hseowners = this.getView().byId("input_PER_OWNERS_OTH_COS").getValue();
+			hseholders = this.getView().byId("input_PER_HOLDER_OTH_COS").getValue();
+			health = this.getView().byId("input_PER_HEALTH_OTH_COS").getValue();
+			rta = this.getView().byId("input_PER_RTA_OTH_COS").getValue();
+			ftp = this.getView().byId("input_PER_FTP_OTH_COS").getValue();
+			compr = this.getView().byId("input_PER_COMPRE_OTH_COS").getValue();
+			othr1 = this.getView().byId("input_PER_OTHER_OTH_COS").getValue();
+			totalSum = Number(hseowners)+Number(hseholders)+Number(health)+Number(rta)+Number(ftp)+Number(compr)+Number(othr1);
+			this.getView().byId("input_PER_SUBTOT_OTH_COS").setValue(totalSum);
 		},
+		
+		// ********************************END SUMMARY BY CLASS OF BUSINESS PLACED BY BROKER WITHIN ZIMBABWE (PERSONAL LINES) PAGE 1*********************
+		// ********************************START SUMMARY BY CLASS OF BUSINESS PLACED BY BROKER WITHIN ZIMBABWE (COMMERCIAL LINES) PAGE 1*********************
+		
+		// Method to calculate Total Sum Insured
+		calctotalSum2: function(){
+			var fire,engine,rta,ftp,compre,marine,aviati,p_acci,m_acci,bonds,farm,hail,health,other,totalSum2;
+			fire = this.getView().byId("input_COM_FIRE_TOT_INS").getValue();
+			engine = this.getView().byId("input_COM_ENGINE_TOT_INS").getValue();
+			rta = this.getView().byId("input_COM_RTA_TOT_INS").getValue();
+			ftp = this.getView().byId("input_COM_FTP_TOT_INS").getValue();
+			compre = this.getView().byId("input_COM_COMPRE_TOT_INS").getValue();
+			marine = this.getView().byId("input_COM_MARINE_TOT_INS").getValue();
+			aviati = this.getView().byId("input_COM_AVIATI_TOT_INS").getValue();
+			p_acci = this.getView().byId("input_COM_P_ACCI_TOT_INS").getValue();
+			m_acci = this.getView().byId("input_COM_M_ACCI_TOT_INS").getValue();
+			bonds = this.getView().byId("input_COM_BONDS_TOT_INS").getValue();
+			farm = this.getView().byId("input_COM_FARM_TOT_INS").getValue();
+			hail = this.getView().byId("input_COM_HAIL_TOT_INS").getValue();
+			health = this.getView().byId("input_COM_HEALTH_TOT_INS").getValue();
+			other = this.getView().byId("input_COM_OTHER_TOT_INS").getValue();
+			totalSum2 = Number(fire)+Number(engine)+Number(rta)+Number(ftp)+Number(compre)+Number(marine)
+			+Number(aviati)+Number(p_acci)+Number(m_acci)+Number(bonds)+Number(farm)+Number(hail)+Number(health)+Number(other);
+			this.getView().byId("input_COM_SUBTOT_TOT_INS").setValue(totalSum2);
+			this.getView().byId("input_AGGREGATE_TOT_INS").setValue(totalSum2+Number(this.getView().byId("input_PER_SUBTOT_TOT_INS").getValue()));
+		},
+		
+		// Method to calculate Total Premium
+		calcBWZPTotalPremium2: function(){
+			var fire,engine,rta,ftp,compre,marine,aviati,p_acci,m_acci,bonds,farm,hail,health,other,totalSum2;
+			fire = this.getView().byId("input_COM_FIRE_TOT_PRE").getValue();
+			engine = this.getView().byId("input_COM_ENGINE_TOT_PRE").getValue();
+			rta = this.getView().byId("input_COM_RTA_TOT_PRE").getValue();
+			ftp = this.getView().byId("input_COM_FTP_TOT_PRE").getValue();
+			compre = this.getView().byId("input_COM_COMPRE_TOT_PRE").getValue();
+			marine = this.getView().byId("input_COM_MARINE_TOT_PRE").getValue();
+			aviati = this.getView().byId("input_COM_AVIATI_TOT_PRE").getValue();
+			p_acci = this.getView().byId("input_COM_P_ACCI_TOT_PRE").getValue();
+			m_acci = this.getView().byId("input_COM_M_ACCI_TOT_PRE").getValue();
+			bonds = this.getView().byId("input_COM_BONDS_TOT_PRE").getValue();
+			farm = this.getView().byId("input_COM_FARM_TOT_PRE").getValue();
+			hail = this.getView().byId("input_COM_HAIL_TOT_PRE").getValue();
+			health = this.getView().byId("input_COM_HEALTH_TOT_PRE").getValue();
+			other = this.getView().byId("input_COM_OTHER_TOT_PRE").getValue();
+			totalSum2 = Number(fire)+Number(engine)+Number(rta)+Number(ftp)+Number(compre)+Number(marine)
+			+Number(aviati)+Number(p_acci)+Number(m_acci)+Number(bonds)+Number(farm)+Number(hail)+Number(health)+Number(other);
+			this.getView().byId("input_COM_SUBTOT_TOT_PRE").setValue(totalSum2);
+			this.getView().byId("input_AGGREGATE_TOT_PRE").setValue(totalSum2+Number(this.getView().byId("input_PER_SUBTOT_TOT_PRE").getValue()));
+		},
+		
+		// Method to calculate Total Number Of Policies
+		calcBWZPTotalNumberOfPolicies2: function(){
+			var fire,engine,rta,ftp,compre,marine,aviati,p_acci,m_acci,bonds,farm,hail,health,other,totalSum2;
+			fire = this.getView().byId("input_COM_FIRE_TOT_POL").getValue();
+			engine = this.getView().byId("input_COM_ENGINE_TOT_POL").getValue();
+			rta = this.getView().byId("input_COM_RTA_TOT_POL").getValue();
+			ftp = this.getView().byId("input_COM_FTP_TOT_POL").getValue();
+			compre = this.getView().byId("input_COM_COMPRE_TOT_POL").getValue();
+			marine = this.getView().byId("input_COM_MARINE_TOT_POL").getValue();
+			aviati = this.getView().byId("input_COM_AVIATI_TOT_POL").getValue();
+			p_acci = this.getView().byId("input_COM_P_ACCI_TOT_POL").getValue();
+			m_acci = this.getView().byId("input_COM_M_ACCI_TOT_POL").getValue();
+			bonds = this.getView().byId("input_COM_BONDS_TOT_POL").getValue();
+			farm = this.getView().byId("input_COM_FARM_TOT_POL").getValue();
+			hail = this.getView().byId("input_COM_HAIL_TOT_POL").getValue();
+			health = this.getView().byId("input_COM_HEALTH_TOT_POL").getValue();
+			other = this.getView().byId("input_COM_OTHER_TOT_POL").getValue();
+			totalSum2 = Number(fire)+Number(engine)+Number(rta)+Number(ftp)+Number(compre)+Number(marine)
+			+Number(aviati)+Number(p_acci)+Number(m_acci)+Number(bonds)+Number(farm)+Number(hail)+Number(health)+Number(other);
+			this.getView().byId("input_COM_SUBTOT_TOT_POL").setValue(totalSum2);
+			this.getView().byId("input_AGGREGATE_TOT_POL").setValue(totalSum2+Number(this.getView().byId("input_PER_SUBTOT_TOT_POL").getValue()));
+		},
+		
+		// Method to calculate Total Commission Received
+		calcBWZPTotalCommissionReceived2: function(){
+			var fire,engine,rta,ftp,compre,marine,aviati,p_acci,m_acci,bonds,farm,hail,health,other,totalSum2;
+			fire = this.getView().byId("input_COM_FIRE_COM_REC").getValue();
+			engine = this.getView().byId("input_COM_ENGINE_COM_REC").getValue();
+			rta = this.getView().byId("input_COM_RTA_COM_REC").getValue();
+			ftp = this.getView().byId("input_COM_FTP_COM_REC").getValue();
+			compre = this.getView().byId("input_COM_COMPRE_COM_REC").getValue();
+			marine = this.getView().byId("input_COM_MARINE_COM_REC").getValue();
+			aviati = this.getView().byId("input_COM_AVIATI_COM_REC").getValue();
+			p_acci = this.getView().byId("input_COM_P_ACCI_COM_REC").getValue();
+			m_acci = this.getView().byId("input_COM_M_ACCI_COM_REC").getValue();
+			bonds = this.getView().byId("input_COM_BONDS_COM_REC").getValue();
+			farm = this.getView().byId("input_COM_FARM_COM_REC").getValue();
+			hail = this.getView().byId("input_COM_HAIL_COM_REC").getValue();
+			health = this.getView().byId("input_COM_HEALTH_COM_REC").getValue();
+			other = this.getView().byId("input_COM_OTHER_COM_REC").getValue();
+			totalSum2 = Number(fire)+Number(engine)+Number(rta)+Number(ftp)+Number(compre)+Number(marine)
+			+Number(aviati)+Number(p_acci)+Number(m_acci)+Number(bonds)+Number(farm)+Number(hail)+Number(health)+Number(other);
+			this.getView().byId("input_COM_SUBTOT_COM_REC").setValue(totalSum2);
+			this.getView().byId("input_AGGREGATE_COM_REC").setValue(totalSum2+Number(this.getView().byId("input_PER_SUBTOT_COM_REC").getValue()));
+		},
+		
+		// Method to calculate Total Received Acquisition Cost
+		calcBWZPTotalReceivedAcquisitionCost2: function(){
+			var fire,engine,rta,ftp,compre,marine,aviati,p_acci,m_acci,bonds,farm,hail,health,other,totalSum2;
+			fire = this.getView().byId("input_COM_FIRE_OTH_COS").getValue();
+			engine = this.getView().byId("input_COM_ENGINE_OTH_COS").getValue();
+			rta = this.getView().byId("input_COM_RTA_OTH_COS").getValue();
+			ftp = this.getView().byId("input_COM_FTP_OTH_COS").getValue();
+			compre = this.getView().byId("input_COM_COMPRE_OTH_COS").getValue();
+			marine = this.getView().byId("input_COM_MARINE_OTH_COS").getValue();
+			aviati = this.getView().byId("input_COM_AVIATI_OTH_COS").getValue();
+			p_acci = this.getView().byId("input_COM_P_ACCI_OTH_COS").getValue();
+			m_acci = this.getView().byId("input_COM_M_ACCI_OTH_COS").getValue();
+			bonds = this.getView().byId("input_COM_BONDS_OTH_COS").getValue();
+			farm = this.getView().byId("input_COM_FARM_OTH_COS").getValue();
+			hail = this.getView().byId("input_COM_HAIL_OTH_COS").getValue();
+			health = this.getView().byId("input_COM_HEALTH_OTH_COS").getValue();
+			other = this.getView().byId("input_COM_OTHER_OTH_COS").getValue();
+			totalSum2 = Number(fire)+Number(engine)+Number(rta)+Number(ftp)+Number(compre)+Number(marine)
+			+Number(aviati)+Number(p_acci)+Number(m_acci)+Number(bonds)+Number(farm)+Number(hail)+Number(health)+Number(other);
+			this.getView().byId("input_COM_SUBTOT_OTH_COS").setValue(totalSum2);
+			this.getView().byId("input_AGGREGATE_OTH_COS").setValue(totalSum2+Number(this.getView().byId("input_PER_SUBTOT_OTH_COS").getValue()));
+		},
+		
+		// ********************************END SUMMARY BY CLASS OF BUSINESS PLACED BY BROKER WITHIN ZIMBABWE (COMMERCIAL LINES) PAGE 1*********************
+		// ********************************START SUMMARY OF BUSINESS PLACED WITH INSURERS WITHIN ZIMBABWE (COMMERCIAL LINES) PAGE 1*********************
+		
+		// Method to calculate Total Premium
+		calcBWZPTotalPremium3: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS01_TOT_PRE").getValue();
+			ins02 = this.getView().byId("input_INS02_TOT_PRE").getValue();
+			ins03 = this.getView().byId("input_INS03_TOT_PRE").getValue();
+			ins04 = this.getView().byId("input_INS04_TOT_PRE").getValue();
+			ins05 = this.getView().byId("input_INS05_TOT_PRE").getValue();
+			ins06 = this.getView().byId("input_INS06_TOT_PRE").getValue();
+			ins07 = this.getView().byId("input_INS07_TOT_PRE").getValue();
+			ins08 = this.getView().byId("input_INS08_TOT_PRE").getValue();
+			ins09 = this.getView().byId("input_INS09_TOT_PRE").getValue();
+			ins10 = this.getView().byId("input_INS10_TOT_PRE").getValue();
+			ins11 = this.getView().byId("input_INS11_TOT_PRE").getValue();
+			ins12 = this.getView().byId("input_INS12_TOT_PRE").getValue();
+			ins13 = this.getView().byId("input_INS13_TOT_PRE").getValue();
+			ins14 = this.getView().byId("input_INS14_TOT_PRE").getValue();
+			ins15 = this.getView().byId("input_INS15_TOT_PRE").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13)+Number(ins14)+Number(ins15);
+			this.getView().byId("input_TOTAL_TOT_PRE").setValue(totalSum);
+		},
+		
+		// Method to calculate Total Number Of Policies
+		calcBWZPTotalNumberOfPolicies3: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS01_TOT_POL").getValue();
+			ins02 = this.getView().byId("input_INS02_TOT_POL").getValue();
+			ins03 = this.getView().byId("input_INS03_TOT_POL").getValue();
+			ins04 = this.getView().byId("input_INS04_TOT_POL").getValue();
+			ins05 = this.getView().byId("input_INS05_TOT_POL").getValue();
+			ins06 = this.getView().byId("input_INS06_TOT_POL").getValue();
+			ins07 = this.getView().byId("input_INS07_TOT_POL").getValue();
+			ins08 = this.getView().byId("input_INS08_TOT_POL").getValue();
+			ins09 = this.getView().byId("input_INS09_TOT_POL").getValue();
+			ins10 = this.getView().byId("input_INS10_TOT_POL").getValue();
+			ins11 = this.getView().byId("input_INS11_TOT_POL").getValue();
+			ins12 = this.getView().byId("input_INS12_TOT_POL").getValue();
+			ins13 = this.getView().byId("input_INS13_TOT_POL").getValue();
+			ins14 = this.getView().byId("input_INS14_TOT_POL").getValue();
+			ins15 = this.getView().byId("input_INS15_TOT_POL").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13)+Number(ins14)+Number(ins15);
+			this.getView().byId("input_TOTAL_COM_POL").setValue(totalSum);
+		},
+		
+		// Method to calculate Total Commission Received
+		calcBWZPTotalCommissionReceived3: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS01_TOT_COM_REC").getValue();
+			ins02 = this.getView().byId("input_INS02_TOT_COM_REC").getValue();
+			ins03 = this.getView().byId("input_INS03_TOT_COM_REC").getValue();
+			ins04 = this.getView().byId("input_INS04_TOT_COM_REC").getValue();
+			ins05 = this.getView().byId("input_INS05_TOT_COM_REC").getValue();
+			ins06 = this.getView().byId("input_INS06_TOT_COM_REC").getValue();
+			ins07 = this.getView().byId("input_INS07_TOT_COM_REC").getValue();
+			ins08 = this.getView().byId("input_INS08_TOT_COM_REC").getValue();
+			ins09 = this.getView().byId("input_INS09_TOT_COM_REC").getValue();
+			ins10 = this.getView().byId("input_INS10_TOT_COM_REC").getValue();
+			ins11 = this.getView().byId("input_INS11_TOT_COM_REC").getValue();
+			ins12 = this.getView().byId("input_INS12_TOT_COM_REC").getValue();
+			ins13 = this.getView().byId("input_INS13_TOT_COM_REC").getValue();
+			ins14 = this.getView().byId("input_INS14_TOT_COM_REC").getValue();
+			ins15 = this.getView().byId("input_INS15_TOT_COM_REC").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13)+Number(ins14)+Number(ins15);
+			this.getView().byId("input_TOTAL_COM_REC").setValue(totalSum);
+		},
+		
+		// Method to calculate Total Received Acquisition Cost
+		calcBWZPTotalReceivedAcquisitionCost3  : function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS01_TOT_OTH_COS").getValue();
+			ins02 = this.getView().byId("input_INS02_TOT_OTH_COS").getValue();
+			ins03 = this.getView().byId("input_INS03_TOT_OTH_COS").getValue();
+			ins04 = this.getView().byId("input_INS04_TOT_OTH_COS").getValue();
+			ins05 = this.getView().byId("input_INS05_TOT_OTH_COS").getValue();
+			ins06 = this.getView().byId("input_INS06_TOT_OTH_COS").getValue();
+			ins07 = this.getView().byId("input_INS07_TOT_OTH_COS").getValue();
+			ins08 = this.getView().byId("input_INS08_TOT_OTH_COS").getValue();
+			ins09 = this.getView().byId("input_INS09_TOT_OTH_COS").getValue();
+			ins10 = this.getView().byId("input_INS10_TOT_OTH_COS").getValue();
+			ins11 = this.getView().byId("input_INS11_TOT_OTH_COS").getValue();
+			ins12 = this.getView().byId("input_INS12_TOT_OTH_COS").getValue();
+			ins13 = this.getView().byId("input_INS13_TOT_OTH_COS").getValue();
+			ins14 = this.getView().byId("input_INS14_TOT_OTH_COS").getValue();
+			ins15 = this.getView().byId("input_INS15_TOT_OTH_COS").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13)+Number(ins14)+Number(ins15);
+			this.getView().byId("input_TOTAL_OTH_COS").setValue(totalSum);
+		},
+		
+			// ********************************END SUMMARY OF BUSINESS PLACED WITH INSURERS WITHIN ZIMBABWE (COMMERCIAL LINES) PAGE 1*********************
+		// ********************************START SUMMARY OF CLAIMS THROUGH BROKER PAGE 4*********************
+		
+		// Method to calculate Total Number Of Claims
+		calcTotalNumberOfClaims: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS08_TOT_CLM").getValue();
+			ins02 = this.getView().byId("input_INS09_TOT_CLM").getValue();
+			ins03 = this.getView().byId("input_INS10_TOT_CLM").getValue();
+			ins04 = this.getView().byId("input_INS11_TOT_CLM").getValue();
+			ins05 = this.getView().byId("input_INS12_TOT_CLM").getValue();
+			ins06 = this.getView().byId("input_INS13_TOT_CLM").getValue();
+			ins07 = this.getView().byId("input_INS14_TOT_CLM").getValue();
+			ins08 = this.getView().byId("input_INS15_TOT_CLM").getValue();
+			ins09 = this.getView().byId("input_INS16_TOT_CLM").getValue();
+			ins10 = this.getView().byId("input_INS17_TOT_CLM").getValue();
+			ins11 = this.getView().byId("input_INS18_TOT_CLM").getValue();
+			ins12 = this.getView().byId("input_INS19_TOT_CLM").getValue();
+			ins13 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins14 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins15 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13);
+			this.getView().byId("input_TOTAL_TOT_CLM").setValue(totalSum);
+		},
+		
+		// Method to calculate Total Value Of Claims
+		calcTotalValueOfClaims: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS08_TOT_VAL").getValue();
+			ins02 = this.getView().byId("input_INS09_TOT_VAL").getValue();
+			ins03 = this.getView().byId("input_INS10_TOT_VAL").getValue();
+			ins04 = this.getView().byId("input_INS11_TOT_VAL").getValue();
+			ins05 = this.getView().byId("input_INS12_TOT_VAL").getValue();
+			ins06 = this.getView().byId("input_INS13_TOT_VAL").getValue();
+			ins07 = this.getView().byId("input_INS14_TOT_VAL").getValue();
+			ins08 = this.getView().byId("input_INS15_TOT_VAL").getValue();
+			ins09 = this.getView().byId("input_INS16_TOT_VAL").getValue();
+			ins10 = this.getView().byId("input_INS17_TOT_VAL").getValue();
+			ins11 = this.getView().byId("input_INS18_TOT_VAL").getValue();
+			ins12 = this.getView().byId("input_INS19_TOT_VAL").getValue();
+			ins13 = this.getView().byId("input_INS20_TOT_VAL").getValue();
+			// ins14 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins15 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13);
+			this.getView().byId("input_TOTAL_TOT_VAL").setValue(totalSum);
+		},
+		
+		// Method to calculate Total Number Of Settled Claims
+		calcTotalNumberOfSettledClaims: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS08_TOT_SET").getValue();
+			ins02 = this.getView().byId("input_INS09_TOT_SET").getValue();
+			ins03 = this.getView().byId("input_INS10_TOT_SET").getValue();
+			ins04 = this.getView().byId("input_INS11_TOT_SET").getValue();
+			ins05 = this.getView().byId("input_INS12_TOT_SET").getValue();
+			ins06 = this.getView().byId("input_INS13_TOT_SET").getValue();
+			ins07 = this.getView().byId("input_INS14_TOT_SET").getValue();
+			ins08 = this.getView().byId("input_INS15_TOT_SET").getValue();
+			ins09 = this.getView().byId("input_INS16_TOT_SET").getValue();
+			ins10 = this.getView().byId("input_INS17_TOT_SET").getValue();
+			ins11 = this.getView().byId("input_INS18_TOT_SET").getValue();
+			ins12 = this.getView().byId("input_INS19_TOT_SET").getValue();
+			ins13 = this.getView().byId("input_INS20_TOT_SET").getValue();
+			// ins14 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins15 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13);
+			this.getView().byId("input_TOTAL_TOT_SET").setValue(totalSum);
+		},
+		
+		// Method to calculate Value Of Settled Claims (current month)
+		calcValueOfSettledClaims: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS08_SET_VAL").getValue();
+			ins02 = this.getView().byId("input_INS09_SET_VAL").getValue();
+			ins03 = this.getView().byId("input_INS10_SET_VAL").getValue();
+			ins04 = this.getView().byId("input_INS11_SET_VAL").getValue();
+			ins05 = this.getView().byId("input_INS12_SET_VAL").getValue();
+			ins06 = this.getView().byId("input_INS13_SET_VAL").getValue();
+			ins07 = this.getView().byId("input_INS14_SET_VAL").getValue();
+			ins08 = this.getView().byId("input_INS15_SET_VAL").getValue();
+			ins09 = this.getView().byId("input_INS16_SET_VAL").getValue();
+			ins10 = this.getView().byId("input_INS17_SET_VAL").getValue();
+			ins11 = this.getView().byId("input_INS18_SET_VAL").getValue();
+			ins12 = this.getView().byId("input_INS19_SET_VAL").getValue();
+			ins13 = this.getView().byId("input_INS20_SET_VAL").getValue();
+			// ins14 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins15 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13);
+			this.getView().byId("input_TOTAL_SET_VAL").setValue(totalSum);
+		},
+		
+		// Method to calculate Number Of Unsettled Claims (cummulative figure)
+		calcNumberOfUnSettledClaims: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS08_TOT_UNS").getValue();
+			ins02 = this.getView().byId("input_INS09_TOT_UNS").getValue();
+			ins03 = this.getView().byId("input_INS10_TOT_UNS").getValue();
+			ins04 = this.getView().byId("input_INS11_TOT_UNS").getValue();
+			ins05 = this.getView().byId("input_INS12_TOT_UNS").getValue();
+			ins06 = this.getView().byId("input_INS13_TOT_UNS").getValue();
+			ins07 = this.getView().byId("input_INS14_TOT_UNS").getValue();
+			ins08 = this.getView().byId("input_INS15_TOT_UNS").getValue();
+			ins09 = this.getView().byId("input_INS16_TOT_UNS").getValue();
+			ins10 = this.getView().byId("input_INS17_TOT_UNS").getValue();
+			ins11 = this.getView().byId("input_INS18_TOT_UNS").getValue();
+			ins12 = this.getView().byId("input_INS19_TOT_UNS").getValue();
+			ins13 = this.getView().byId("input_INS20_TOT_UNS").getValue();
+			// ins14 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins15 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13);
+			this.getView().byId("input_TOTAL_TOT_UNS").setValue(totalSum);
+		},
+		
+		// Method to calculate Value Of Outstanding Claims (cummulative)
+		calcValueOfOutstandingClaims: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS08_OUT_VAL").getValue();
+			ins02 = this.getView().byId("input_INS09_OUT_VAL").getValue();
+			ins03 = this.getView().byId("input_INS10_OUT_VAL").getValue();
+			ins04 = this.getView().byId("input_INS11_OUT_VAL").getValue();
+			ins05 = this.getView().byId("input_INS12_OUT_VAL").getValue();
+			ins06 = this.getView().byId("input_INS13_OUT_VAL").getValue();
+			ins07 = this.getView().byId("input_INS14_OUT_VAL").getValue();
+			ins08 = this.getView().byId("input_INS15_OUT_VAL").getValue();
+			ins09 = this.getView().byId("input_INS16_OUT_VAL").getValue();
+			ins10 = this.getView().byId("input_INS17_OUT_VAL").getValue();
+			ins11 = this.getView().byId("input_INS18_OUT_VAL").getValue();
+			ins12 = this.getView().byId("input_INS19_OUT_VAL").getValue();
+			ins13 = this.getView().byId("input_INS20_OUT_VAL").getValue();
+			// ins14 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins15 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13);
+			this.getView().byId("input_TOTAL_OUT_VAL").setValue(totalSum);
+		},
+		
+		// Method to calculate Value Of Outstanding Claims In Arrears Of 60 Days
+		calcValueOfOutstandingClaimsInArrears: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS08_OUT_ARR").getValue();
+			ins02 = this.getView().byId("input_INS09_OUT_ARR").getValue();
+			ins03 = this.getView().byId("input_INS10_OUT_ARR").getValue();
+			ins04 = this.getView().byId("input_INS11_OUT_ARR").getValue();
+			ins05 = this.getView().byId("input_INS12_OUT_ARR").getValue();
+			ins06 = this.getView().byId("input_INS13_OUT_ARR").getValue();
+			ins07 = this.getView().byId("input_INS14_OUT_ARR").getValue();
+			ins08 = this.getView().byId("input_INS15_OUT_ARR").getValue();
+			ins09 = this.getView().byId("input_INS16_OUT_ARR").getValue();
+			ins10 = this.getView().byId("input_INS17_OUT_ARR").getValue();
+			ins11 = this.getView().byId("input_INS18_OUT_ARR").getValue();
+			ins12 = this.getView().byId("input_INS19_OUT_ARR").getValue();
+			ins13 = this.getView().byId("input_INS20_OUT_ARR").getValue();
+			// ins14 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins15 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13);
+			this.getView().byId("input_TOTAL_OUT_ARR").setValue(totalSum);
+		},
+		
+		// ********************************END SUMMARY OF CLAIMS THROUGH BROKER PAGE 4*********************
+		// ********************************START SUMMARY OF REPUDIATIONS THROUGH BROKER 4*********************
+		
+		// Method to calculate Number Of Repudations
+		calcNumberOfRepudations: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS08_NUM_REP").getValue();
+			ins02 = this.getView().byId("input_INS09_NUM_REP").getValue();
+			ins03 = this.getView().byId("input_INS10_NUM_REP").getValue();
+			ins04 = this.getView().byId("input_INS11_NUM_REP").getValue();
+			ins05 = this.getView().byId("input_INS12_NUM_REP").getValue();
+			ins06 = this.getView().byId("input_INS13_NUM_REP").getValue();
+			ins07 = this.getView().byId("input_INS14_NUM_REP").getValue();
+			ins08 = this.getView().byId("input_INS15_NUM_REP").getValue();
+			ins09 = this.getView().byId("input_INS16_NUM_REP").getValue();
+			ins10 = this.getView().byId("input_INS17_NUM_REP").getValue();
+			ins11 = this.getView().byId("input_INS18_NUM_REP").getValue();
+			ins12 = this.getView().byId("input_INS19_NUM_REP").getValue();
+			ins13 = this.getView().byId("input_INS20_NUM_REP").getValue();
+			// ins14 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins15 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13);
+			this.getView().byId("input_TOTAL_NUM_REP").setValue(totalSum);
+		},
+		
+		// Method to calculate Value Of Repudations (current month)
+		calcValueOfRepudations: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS08_VAL_REP").getValue();
+			ins02 = this.getView().byId("input_INS09_VAL_REP").getValue();
+			ins03 = this.getView().byId("input_INS10_VAL_REP").getValue();
+			ins04 = this.getView().byId("input_INS11_VAL_REP").getValue();
+			ins05 = this.getView().byId("input_INS12_VAL_REP").getValue();
+			ins06 = this.getView().byId("input_INS13_VAL_REP").getValue();
+			ins07 = this.getView().byId("input_INS14_VAL_REP").getValue();
+			ins08 = this.getView().byId("input_INS15_VAL_REP").getValue();
+			ins09 = this.getView().byId("input_INS16_VAL_REP").getValue();
+			ins10 = this.getView().byId("input_INS17_VAL_REP").getValue();
+			ins11 = this.getView().byId("input_INS18_VAL_REP").getValue();
+			ins12 = this.getView().byId("input_INS19_VAL_REP").getValue();
+			ins13 = this.getView().byId("input_INS20_VAL_REP").getValue();
+			// ins14 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins15 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13);
+			this.getView().byId("input_TOTAL_VAL_REP").setValue(totalSum);
+		},
+		
+		// Method to calculate Cummulative Number Of Repudations
+		calcCummulativeNumberOfRepudations: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS08_CUM_REP").getValue();
+			ins02 = this.getView().byId("input_INS09_CUM_REP").getValue();
+			ins03 = this.getView().byId("input_INS10_CUM_REP").getValue();
+			ins04 = this.getView().byId("input_INS11_CUM_REP").getValue();
+			ins05 = this.getView().byId("input_INS12_CUM_REP").getValue();
+			ins06 = this.getView().byId("input_INS13_CUM_REP").getValue();
+			ins07 = this.getView().byId("input_INS14_CUM_REP").getValue();
+			ins08 = this.getView().byId("input_INS15_CUM_REP").getValue();
+			ins09 = this.getView().byId("input_INS16_CUM_REP").getValue();
+			ins10 = this.getView().byId("input_INS17_CUM_REP").getValue();
+			ins11 = this.getView().byId("input_INS18_CUM_REP").getValue();
+			ins12 = this.getView().byId("input_INS19_CUM_REP").getValue();
+			ins13 = this.getView().byId("input_INS20_CUM_REP").getValue();
+			// ins14 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins15 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13);
+			this.getView().byId("input_TOTAL_CUM_REP").setValue(totalSum);
+		},
+		
+		// Method to calculate Cummulative Value Of Repudations
+		calcCummulativeValueOfRepudations: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,ins09,ins10,ins11,ins12,ins13,ins14,ins15,totalSum;
+			ins01 = this.getView().byId("input_INS08_CUM_VAL").getValue();
+			ins02 = this.getView().byId("input_INS09_CUM_VAL").getValue();
+			ins03 = this.getView().byId("input_INS10_CUM_VAL").getValue();
+			ins04 = this.getView().byId("input_INS11_CUM_VAL").getValue();
+			ins05 = this.getView().byId("input_INS12_CUM_VAL").getValue();
+			ins06 = this.getView().byId("input_INS13_CUM_VAL").getValue();
+			ins07 = this.getView().byId("input_INS14_CUM_VAL").getValue();
+			ins08 = this.getView().byId("input_INS15_CUM_VAL").getValue();
+			ins09 = this.getView().byId("input_INS16_CUM_VAL").getValue();
+			ins10 = this.getView().byId("input_INS17_CUM_VAL").getValue();
+			ins11 = this.getView().byId("input_INS18_CUM_VAL").getValue();
+			ins12 = this.getView().byId("input_INS19_CUM_VAL").getValue();
+			ins13 = this.getView().byId("input_INS20_CUM_VAL").getValue();
+			// ins14 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			// ins15 = this.getView().byId("input_INS20_TOT_CLM").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08)+Number(ins09)+Number(ins10)+Number(ins11)+Number(ins12)+Number(ins13);
+			this.getView().byId("input_TOTAL_CUM_VAL").setValue(totalSum);
+		},
+		// ********************************END SUMMARY OF REPUDIATIONS THROUGH BROKER 4*********************
+		// ********************************START STATEMENT OF FINANCIAL POSITION (BALANCE SHEET) 6*********************
+		
+		// Method to calculate Current Liabilities
+		calcCurrentLiabilities: function(){
+			this.getView().byId("input_CUR_LIAB").setValue(this.getView().byId("input_GROSS_PREM_PAY").getValue());
+		},
+		
+		// Method to calculate Other Liabilities
+		calcOtherLiabilities: function(){
+			this.getView().byId("input_OTHER_LIAB").setValue(this.getView().byId("input_TAXATION").getValue());
+		},
+		
+		// Method to calculate Total Current Liabilities
+		calcTotalCurrentLiabilities: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,totalSum;
+			ins01 = this.getView().byId("input_PAY_PREMIUM").getValue();
+			ins02 = this.getView().byId("input_TAXATION_BS").getValue();
+			ins03 = this.getView().byId("input_provisions").getValue();
+			ins04 = this.getView().byId("input_accrued_expenses").getValue();
+			ins05 = this.getView().byId("input_prepayments").getValue();
+			ins06 = this.getView().byId("input_OTHER_LIAB").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06);
+			this.getView().byId("input_TOT_CUR_ASSET").setValue(totalSum);
+		},
+		
+		// Method to calculate Total Non-Current Liabilities
+		calcTotalNonCurrentLiabilities: function(){
+			var ins01,ins02,ins03,totalSum;
+			ins01 = this.getView().byId("input_NON_CUR_AMOUNT2").getValue();
+			ins02 = this.getView().byId("input_bank_overdraft").getValue();
+			ins03 = this.getView().byId("input_shareholder_loan").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03);
+			this.getView().byId("input_total_non_current_liabilities").setValue(totalSum);
+		},
+		
+		// Method to calculate Total Equity And Liabilities
+		calcTotalEquityAndLiabilities: function(){
+			// Total Equity And Liabilities = Total Current Liabilities + Total Non Current Liabilities + Total Owners Equity
+			this.getView().byId("input_OTHER_LIAB").setValue(Number(this.getView().byId("input_TOTAL_CUR_LIAB").getValue())+
+			Number(this.getView().byId("input_total_non_current_liabilities").getValue())+Number(this.getView().byId("input_OWNWER_EQUITY").getValue()));
+		},
+		
+		// Method to calculate Total Non-Current Assets
+		calcTotalNonCurrentAssets: function(){
+			var ins01,ins02,ins03,ins04,ins05,ins06,ins07,ins08,totalSum;
+			ins01 = this.getView().byId("input_plant_equipment").getValue();
+			ins02 = this.getView().byId("input_LAND_BUILD").getValue();
+			ins03 = this.getView().byId("input_FURNISH_FIT").getValue();
+			ins04 = this.getView().byId("input_MOTOR_VEHICLE").getValue();
+			ins05 = this.getView().byId("input_COMP_EQUIP").getValue();
+			ins06 = this.getView().byId("input_COMP_SOFT").getValue();
+			ins07 = this.getView().byId("input_INVESTMENTS").getValue();
+			ins08 = this.getView().byId("input_OTHER_ASSETS").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04)+Number(ins05)+Number(ins06)+Number(ins07)
+			+Number(ins08);
+			this.getView().byId("input_TOT_NON_CUR").setValue(totalSum);
+		},
+		
+		// Method to calculate Total Current Assets
+		calcTotalCurrentAssets: function(){
+			var ins01,ins02,ins03,ins04,totalSum;
+			ins01 = this.getView().byId("input_COMM_RECEIVE").getValue();
+			ins02 = this.getView().byId("input_ACCURE_INVEST").getValue();
+			ins03 = this.getView().byId("input_OTHER_DEBT").getValue();
+			ins04 = this.getView().byId("input_CASH_EQUIV").getValue();
+			totalSum = Number(ins01)+Number(ins02)+Number(ins03)+Number(ins04);
+			this.getView().byId("input_TOT_CUR_ASSET").setValue(totalSum);
+		},
+		
+		// Method to calculate Total Assets
+		calcTotalAssets: function(){
+			// Total Assets = Total Non-Current Assets + Total Current Assets
+			var ins01,ins02,totalSum;
+			ins01 = this.getView().byId("input_TOT_NON_CUR").getValue();
+			ins02 = this.getView().byId("input_TOT_CUR_ASSET").getValue();
+			totalSum = Number(ins01)+Number(ins02);
+			this.getView().byId("input_TOT_ASSET").setValue(totalSum);
+		},
+		// ********************************END STATEMENT OF FINANCIAL POSITION (BALANCE SHEET) 6*********************
 	});
 });

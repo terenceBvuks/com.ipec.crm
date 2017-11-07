@@ -12,21 +12,21 @@
 				<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4"
 					labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
 					singleContainerFullSize="false">
-					<Label text="Name of Broker"/>
-					<Input value="{SupplierName}" id="brokername" type="Text" placeholder="Name of Broker" showSuggestion="true"
+					<Label text="Name of Insurance Company"/>
+					<Input value="{SupplierName}" id="brokername" type="Text" placeholder="Name of Insurance Company" showSuggestion="true"
 						valueHelpRequest="handleValueHelp" showValueHelp="true"/>
 					<Label text="Name of Official Completing Form"/>
 					<Input value="{OfficialName}" id="officialname" type="Text" placeholder="Name of Official Completing Form" showSuggestion="true"
 						valueHelpRequest="handleValueHelp" showValueHelp="true"/>
 					<Label text="Date of submission"/>
-					<DatePicker placeholder="Enter date" value="{Date}" change="handleChange"/>
+					<DatePicker placeholder="Enter date" id="date_of_submission" value="{Date}" change="handleChange"/>
 					<Label text="Declaration"/><MessageStrip class="sapUiSmallMarginBottom" text="I declare that the information provided here is true and accurate" showIcon="false"
 						type="Success"/>
 					<CheckBox text="" id="declaration"/>
 				</f:SimpleForm>
 			</content>
-				<FlexBox backgroundDesign ="Solid"
-					height="50px"
+				<FlexBox
+					height="100px"
 					alignItems="End"
 					justifyContent="Center">
 					<items>
@@ -39,13 +39,13 @@
 						</Button>
 					</items>
 				</FlexBox>
-			<!--<footer>-->
-			<!--	<Bar id="__bar1">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button1" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>				-->
+			<footer>
+				<Bar id="__bar1">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button1" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>				
 			</Page>
 			<Page
 				id="pT2"
@@ -112,155 +112,155 @@
 										singleContainerFullSize="false" >
 										<sap.ui.layout.form:content>
 											<Label text="Fire" tooltip="Fire"/>
-											<Input value="" placeholder="Local $" tooltip="Local $">
+											<Input value="" id="fire1pT2" placeholder="Local $" tooltip="Local $">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+											<Input value="" id="fire2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Motor" tooltip="Motor"/>
-											<Input value="" placeholder="Local $" tooltip="Local $">
+											<Input value="" id="Motor1pT2" placeholder="Local $" tooltip="Local $">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+											<Input value="" id="Motor2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Engineering" tooltip="Engineering"/>
-											<Input value="" placeholder="Local $" tooltip="Local $">
+											<Input value="" id="Engineering1pT2" placeholder="Local $" tooltip="Local $">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+											<Input value="" id="Engineering2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Marine" tooltip="Marine"/>
-											<Input value="" placeholder="Local $" tooltip="Local $">
+											<Input value="" id="Marine1pT2" placeholder="Local $" tooltip="Local $">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+											<Input value="" id="Marine2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Aviation" tooltip="Aviation"/>
-											<Input value="" placeholder="Local $" tooltip="Local $">
+											<Input value="" id="Aviation1pT2" placeholder="Local $" tooltip="Local $">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+											<Input value="" id="Aviation2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="P/Accident" tooltip="P/Accident"/>
-											<Input value="" placeholder="Local $" tooltip="Local $">
+											<Input value="" id="P_Accident1pT2" placeholder="Local $" tooltip="Local $">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+											<Input value="" id="P_Accident2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Bonds/Guarantee" tooltip="Bonds/Guarantee"/>
-											<Input value="" placeholder="Local $" tooltip="Local $">
+											<Input value="" id="Bonds_Guarantee1pT2" placeholder="Local $" tooltip="Local $">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+											<Input value="" id="Bonds_Guarantee2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Credit" tooltip="Credit"/>
-											<Input value="" placeholder="Local $" tooltip="Local $">
+											<Input value="" id="Credit1pT2" placeholder="Local $" tooltip="Local $">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+											<Input value="" id="Credit2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Farming" tooltip="Farming"/>
-											<Input value="" placeholder="Local" tooltip="Local">
+											<Input value="" id="Farming1pT2" placeholder="Local" tooltip="Local">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+											<Input value="" id="Farming2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Current Totals" tooltip="Current Totals"/>
-											<Input value="" placeholder="Local $" tooltip="Local $" editable="false">
+											<Input value="" id="CurrentTotals1pT2" placeholder="Local $" tooltip="Local $" editable="false">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
+											<Input value="" id="CurrentTotals2pT2"  placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Previous Totals" tooltip="Previous Totals"/>
-											<Input value="" placeholder="Local $" tooltip="Local $">
+											<Input value="" id="PreviousTotals1pT2" placeholder="Local $" tooltip="Local $">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number">
+											<Input value="" id="PreviousTotals2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Change" tooltip="Change"/>
-											<Input value="" placeholder="Local" tooltip="Local" editable="false">
+											<Input value="" id="change1pT2" placeholder="Local" tooltip="Local" editable="false">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
+											<Input value="" id="change2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="% Change" tooltip="% Change"/>
-											<Input value="" placeholder="Local $" tooltip="Local $" editable="false">
+											<Input value="" id="pT2Change1pT2" placeholder="Local $" tooltip="Local $" editable="false">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
+											<Input value="" id="pT2Change2pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="U11" tooltip="U11"/>
-											<Input value="" placeholder="Local $" tooltip="Local $" editable="false">
+											<Input value="" id="U111pT2" placeholder="Local $" tooltip="Local $" editable="false">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
+											<Input value="" id="U112pT2" placeholder="Foreign $" tooltip="Foreign $" type="Number" editable="false">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
@@ -2583,8 +2583,8 @@
 				</l:PaneContainer>
 			</l:ResponsiveSplitter>
 			</content>
-				<FlexBox backgroundDesign ="Solid"
-					height="50px"
+				<FlexBox
+					height="100px"
 					alignItems="End"
 					justifyContent="Center">
 					<items>
@@ -2604,13 +2604,13 @@
 						</Button>
 					</items>
 				</FlexBox>
-			<!--<footer>-->
-			<!--	<Bar id="__bar2">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button2" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>				-->
+			<footer>
+				<Bar id="__bar2">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button2" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>				
 		</Page>
 			<Page
 				id="pT3"
@@ -2637,29 +2637,29 @@
 										singleContainerFullSize="false" >
 										<sap.ui.layout.form:content>
 											<Label text="Shareholders Equity" tooltip="Shareholders Equity"/>
-											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+											<Input value="" id="ShareholdersEquity1pT3" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+											<Input value="" id="ShareholdersEquity2pT3" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Share Capital" tooltip="Share Capital"/>
-											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+											<Input value="" id="ShareCapital1pT3" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
-											<Input value="" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
+											<Input value="" id="ShareCapital2pT3" placeholder="Current Year Market Value" tooltip="Current Year Market Value" type="Number">
 												<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
 											</Input>
 											<Label text="Share  Premium" tooltip="Share  Premium"/>
-											<Input value="" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
+											<Input value="" id="SharePremium1pT3" placeholder="Previous Year Market Value" tooltip="Previous Year Market Value">
 													<layoutData>
 													<l:GridData span="XL2 L4 M12 S4" />
 												</layoutData>
@@ -2716,8 +2716,8 @@
 										</sap.ui.layout.form:content>
 									</sap.ui.layout.form:SimpleForm>
 								</content>
-									<FlexBox backgroundDesign ="Solid"
-										height="50px"
+									<FlexBox
+										height="100px"
 										alignItems="End"
 										justifyContent="Center">
 										<items>
@@ -2737,13 +2737,13 @@
 											</Button>
 										</items>
 									</FlexBox>
-			<!--<footer>-->
-			<!--	<Bar id="__bar3">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button3" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>-->
+			<footer>
+				<Bar id="__bar3">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button3" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>
 			</Page>
 			<Page
 				id="pT4"
@@ -2849,8 +2849,8 @@
 										</sap.ui.layout.form:content>
 									</sap.ui.layout.form:SimpleForm>
 				</content>
-									<FlexBox backgroundDesign ="Solid"
-										height="50px"
+									<FlexBox
+										height="100px"
 										alignItems="End"
 										justifyContent="Center">
 										<items>
@@ -2870,13 +2870,13 @@
 											</Button>
 										</items>
 									</FlexBox>
-			<!--<footer>-->
-			<!--	<Bar id="__bar4">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button4" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>									-->
+			<footer>
+				<Bar id="__bar4">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button4" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>									
 			</Page>
 			<Page
 				id="pT5"
@@ -2982,8 +2982,8 @@
 										</sap.ui.layout.form:content>
 									</sap.ui.layout.form:SimpleForm>
 				</content>
-									<FlexBox backgroundDesign ="Solid"
-										height="50px"
+									<FlexBox
+										height="100px"
 										alignItems="End"
 										justifyContent="Center">
 										<items>
@@ -3003,13 +3003,13 @@
 											</Button>
 										</items>
 									</FlexBox>
-			<!--<footer>-->
-			<!--	<Bar id="__bar5">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button5" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>									-->
+			<footer>
+				<Bar id="__bar5">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button5" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>									
 			</Page>
 			<Page
 				id="pT6"
@@ -3082,8 +3082,8 @@
 										</sap.ui.layout.form:content>
 									</sap.ui.layout.form:SimpleForm>
 				</content>
-									<FlexBox backgroundDesign ="Solid"
-										height="50px"
+									<FlexBox
+										height="100px"
 										alignItems="End"
 										justifyContent="Center">
 										<items>
@@ -3103,13 +3103,13 @@
 											</Button>
 										</items>
 									</FlexBox>	
-			<!--<footer>-->
-			<!--	<Bar id="__bar6">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button6" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>									-->
+			<footer>
+				<Bar id="__bar6">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button6" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>									
 			</Page>
 			<Page
 				id="pT7"
@@ -3215,8 +3215,8 @@
 										</sap.ui.layout.form:content>
 									</sap.ui.layout.form:SimpleForm>
 			</content>
-									<FlexBox backgroundDesign ="Solid"
-										height="50px"
+									<FlexBox
+										height="100px"
 										alignItems="End"
 										justifyContent="Center">
 										<items>
@@ -3236,13 +3236,13 @@
 											</Button>
 										</items>
 									</FlexBox>	
-			<!--<footer>-->
-			<!--	<Bar id="__bar7">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button7" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>									-->
+			<footer>
+				<Bar id="__bar7">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button7" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>									
 			</Page>
 			<Page
 				id="pT8"
@@ -3348,8 +3348,8 @@
 										</sap.ui.layout.form:content>
 									</sap.ui.layout.form:SimpleForm>
 			</content>
-									<FlexBox backgroundDesign ="Solid"
-										height="50px"
+									<FlexBox
+										height="100px"
 										alignItems="End"
 										justifyContent="Center">
 										<items>
@@ -3369,13 +3369,13 @@
 											</Button>
 										</items>
 									</FlexBox>	
-			<!--<footer>-->
-			<!--	<Bar id="__bar8">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button8" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>									-->
+			<footer>
+				<Bar id="__bar8">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button8" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>									
 			</Page>
 			<Page
 				id="pT9"
@@ -3503,8 +3503,8 @@
 										</sap.ui.layout.form:content>
 									</sap.ui.layout.form:SimpleForm>
 			</content>
-									<FlexBox backgroundDesign ="Solid"
-										height="50px"
+									<FlexBox
+										height="100px"
 										alignItems="End"
 										justifyContent="Center">
 										<items>
@@ -3524,13 +3524,13 @@
 											</Button>
 										</items>
 									</FlexBox>
-			<!--<footer>-->
-			<!--	<Bar id="__bar9">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button9" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>									-->
+			<footer>
+				<Bar id="__bar9">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button9" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>									
 			</Page>
 			<Page
 				id="pT10"
@@ -3714,8 +3714,8 @@
 										</sap.ui.layout.form:content>
 									</sap.ui.layout.form:SimpleForm>
 			</content>
-									<FlexBox backgroundDesign ="Solid"
-										height="50px"
+									<FlexBox
+										height="100px"
 										alignItems="End"
 										justifyContent="Center">
 										<items>
@@ -3735,13 +3735,13 @@
 											</Button>
 										</items>
 									</FlexBox>	
-			<!--<footer>-->
-			<!--	<Bar id="__bar10">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button10" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>									-->
+			<footer>
+				<Bar id="__bar10">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button10" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>									
 			</Page>
 			<Page
 				id="pT11"
@@ -3987,8 +3987,8 @@
 										</sap.ui.layout.form:content>
 									</sap.ui.layout.form:SimpleForm>
 			</content>
-									<FlexBox backgroundDesign ="Solid"
-										height="50px"
+									<FlexBox
+										height="100px"
 										alignItems="End"
 										justifyContent="Center">
 										<items>
@@ -4008,13 +4008,13 @@
 											</Button>
 										</items>
 									</FlexBox>
-			<!--<footer>-->
-			<!--	<Bar id="__bar11">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button11" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>									-->
+			<footer>
+				<Bar id="__bar11">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button11" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>									
 			</Page>
 			<Page
 				id="pT12"
@@ -4260,8 +4260,8 @@
 										</sap.ui.layout.form:content>
 									</sap.ui.layout.form:SimpleForm>
 			</content>
-									<FlexBox backgroundDesign ="Solid"
-										height="50px"
+									<FlexBox
+										height="100px"
 										alignItems="End"
 										justifyContent="Center">
 										<items>
@@ -4281,17 +4281,17 @@
 											</Button>
 										</items>
 									</FlexBox>	
-			<!--<footer>-->
-			<!--	<Bar id="__bar12">-->
-			<!--		<contentRight>-->
-			<!--			<Button text="Submit" width="100px" press="oHandleCheck" id="__button12" activeIcon="" type="Accept"/>-->
-			<!--		</contentRight>-->
-			<!--	</Bar>-->
-			<!--</footer>									-->
+			<footer>
+				<Bar id="__bar12">
+					<contentRight>
+						<Button text="Submit" width="100px" press="oHandleCheck" id="__button12" activeIcon="" type="Accept"/>
+					</contentRight>
+				</Bar>
+			</footer>									
 			</Page>
 			<Page
 				id="pT13"
-				title="{i18n>ntitle}"  floatingFooter="true">
+				title="{i18n>ntitle}" >
 				<content>
 				<MessageStrip class="sapUiSmallMarginBottom" text="Income Statement" showIcon="true"/>
 				
@@ -4533,8 +4533,8 @@
 										</sap.ui.layout.form:content>
 									</sap.ui.layout.form:SimpleForm>
 		</content>
-									<FlexBox backgroundDesign ="Solid"
-										height="50px"
+									<FlexBox
+										height="100px"
 										alignItems="End"
 										justifyContent="Center">
 										<items>
@@ -4550,7 +4550,7 @@
 			<footer>
 				<Bar id="__bar13">
 					<contentRight>
-						<Button text="{i18n>submit}" width="100px" press="onSave" id="__buttons6" activeIcon="" type="Accept" icon="sap-icon://complete"/>
+						<Button text="Submit" width="100px" press="onSave" id="__button13" activeIcon="" type="Accept"/>
 					</contentRight>
 				</Bar>
 			</footer>

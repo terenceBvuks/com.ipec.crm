@@ -60,7 +60,7 @@
 				<Label text="Designation"/>
 				<Input value="" id="PensionOfficialDesignation" placeholder="Designation" tooltip="Designation"/>
 				<Label text="Reporting Date"/>
-				<DatePicker placeholder="Reporting Date" value="" change="handleChange"/>
+				<DatePicker placeholder="Reporting Date" value="" id="ReportingDate" change="handleChange"/>
 				<Label text="Declaration"/><MessageStrip class="sapUiSmallMarginBottom" text="I declare that the information provided here is true and accurate" showIcon="false"
 					type="Success"/>
 				<CheckBox text="" id="declaration"/>
