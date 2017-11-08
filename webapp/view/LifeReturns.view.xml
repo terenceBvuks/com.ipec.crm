@@ -84,7 +84,7 @@
 																	
 																		<Input width="100%" id="input_Unearnedpremium" type="Number" tooltip="Unearned Premiums" placeholder="Unearned Premiums ($)" liveChange="_calNetEarnedPremium"/>
 																	
-																		<Label text="Net  Earned Premium" id="__label14" tooltip="Net  Earned Premium"/>
+																		<Label text="Net Earned Premium" id="__label14" tooltip="Net  Earned Premium"/>
 																	
 																		<Input width="100%" id="__inputNEP" type="Number" tooltip="Net  Earned Premium" placeholder="Net  Earned Premium ($)" editable="false"/>
 																		
@@ -1741,7 +1741,7 @@
 														<sap.ui.layout.form:content>
 															<!--core:Title text="CORPORATE STRUCTURE AND GOVERNANCE : Shareholder Structure" /-->
 															<Label text="1" />
-															<Input value="" placeholder="Name of Institution" tooltip="Name of Institution">
+															<Input id="input_NameOfInstitution" value="" placeholder="Name of Institution" tooltip="Name of Institution">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
@@ -1770,8 +1770,8 @@
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Zimbabwe Government Securities" tooltip="Zimbabwe Government Securities"/>
-															<Input value="" placeholder="Municipal and Other (Specify)" tooltip="Municipal and Other (Specify)" type="Number">
+															<Input id="zimgovsecurities" value="" placeholder="Zimbabwe Government Securities" tooltip="Zimbabwe Government Securities"/>
+															<Input id="municipal" value="" placeholder="Municipal and Other (Specify)" tooltip="Municipal and Other (Specify)" type="Number">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
@@ -2851,12 +2851,12 @@
 															</Input>
 															<Input id="input_Claimsbymaturitygroup" value="" placeholder="Group"/>
 															<Label text="By Disability" />
-															<Input value="" placeholder="Individual">
+															<Input id="input_ClaimsbyDisabilityindiv" value="" placeholder="Individual">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Group"/>
+															<Input id="input_ClaimsbyDisabilitygroup" value="" placeholder="Group"/>
 															<Label text="Surrenders" tooltip="Surrenders"/>
 															<Input id="input_Claimssurrenderindiv" value="" placeholder="Individual">
 																<layoutData>
@@ -3190,7 +3190,6 @@
 															<Input value="" placeholder="Type of Policy"/>
 															<Label text="Settled/Repudiated/Yet to be Settled" tooltip="Settled/Repudiated/Yet to be Settled"/>
 															<Input value="" placeholder="Settled/Repudiated/Yet to be Settled"/>
-															<Input value=""/>
 														</sap.ui.layout.form:content>
 													</sap.ui.layout.form:SimpleForm>
 												</content>
@@ -3551,7 +3550,7 @@
 														<sap.ui.layout.form:content>
 															<core:Title text="One" />
 															<Label text="Name" tooltip="Name"/>
-															<Input value="" placeholder="Name"/>
+															<Input id="name" value="" placeholder="Name"/>
 															<Label text="Designation" tooltip="Designation"/>
 															<Select id="desig1" selectedKey="">
 																<items>
@@ -3560,11 +3559,11 @@
 																</items>
 															</Select>
 															<Label text="Qualifications" tooltip="Qualifications"/>
-															<Input value="" placeholder="Qualifications"/>
+															<Input id="qualifications" value="" placeholder="Qualifications"/>
 															<Label text="Experience" tooltip="Experience"/>
-															<Input value="" placeholder="Experience"/>
+															<Input id="experience" value="" placeholder="Experience"/>
 															<Label text="Other Directorships" tooltip="Other Directorships"/>
-															<Input value="" placeholder="Other Directorships"/>
+															<Input id="directorships" value="" placeholder="Other Directorships"/>
 															<Label text="Name of Committee" id="__label160" tooltip="Name of Committee" />
 															<Input width="100%" id="__input160" type="Text" tooltip="Name of Committee" placeholder="Name of Committee"/>
 															<Label text="Names of Members" id="__label161" tooltip="Names of Members" />
@@ -3712,49 +3711,49 @@
 														<sap.ui.layout.form:content>
 															<core:Title text="Agents" />
 															<Label text="Provisionally Licenced" />
-															<Input value="" placeholder="Individual" tooltip="Individual">
+															<Input id="provisionallyLicencedi" value="" placeholder="Individual" tooltip="Individual">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Corporate" tooltip="Corporate">
+															<Input id="provisionallyLicencedc" value="" placeholder="Corporate" tooltip="Corporate">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Total" tooltip="Total">
+															<Input id="provisionallyLicencedt" value="" placeholder="Total" tooltip="Total">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
 															<Label text="Fully Registered" tooltip="Fully Registered"/>
-															<Input value="" placeholder="Individual" tooltip="Individual">
+															<Input id="fullyRegisteredi" value="" placeholder="Individual" tooltip="Individual">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Corporate" tooltip="Corporate">
+															<Input id="fullyRegisteredc" value="" placeholder="Corporate" tooltip="Corporate">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Total" tooltip="Total">
+															<Input id="fullyRegisteredt" value="" placeholder="Total" tooltip="Total">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
 															<Label text="Total" />
-															<Input value="" placeholder="Individual" tooltip="Individual">
+															<Input id="totali" value="" placeholder="Individual" tooltip="Individual">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Corporate" tooltip="Corporate">
+															<Input id="totalc" value="" placeholder="Corporate" tooltip="Corporate">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Total" tooltip="Total">
+															<Input id="totalt" value="" placeholder="Total" tooltip="Total">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
@@ -3906,7 +3905,7 @@
 											</IconTabFilter>
 											
 											<IconTabSeparator id="__separator19" icon="sap-icon://process" />
-											<IconTabFilter text="2" id="__filterform8c" icon="sap-icon://paging" iconColor="Positive" tooltip="BUSINESS MIX: Debtors Age Analysis">
+											<IconTabFilter text="3" id="__filterform8c" icon="sap-icon://paging" iconColor="Positive" tooltip="BUSINESS MIX: Debtors Age Analysis">
 												<content>	
 												<MessageStrip class="sapUiSmallMarginBottom" text="BUSINESS MIX: Debtors Age Analysis" showIcon="true"/>
 														<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="form8c"
@@ -3928,73 +3927,73 @@
 														<sap.ui.layout.form:content>
 															<core:Title text="Business Mix : Debtors Age Analysis" />
 															<Label text="Up to 30 Days" />
-															<Input value="" placeholder="Individual Policies">
+															<Input id="debtage30ip" value="" placeholder="Individual Policies">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Group"/>
-															<Input value="" placeholder="Total">
+															<Input id="debtage30group" value="" placeholder="Group"/>
+															<Input id="debtage30total" value="" placeholder="Total">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
 															<Label text="Between 31 and 60 Days" />
-															<Input value="" placeholder="Individual Policies">
+															<Input id="debtage60ip" value="" placeholder="Individual Policies">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Group"/>
-															<Input value="" placeholder="Total">
+															<Input id="debtage60group" value="" placeholder="Group"/>
+															<Input id="debtage60total" value="" placeholder="Total">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
 															<Label text="Between 61 and 90 Days" />
-															<Input value="" placeholder="Individual Policies">
+															<Input id="debtage90ip" value="" placeholder="Individual Policies">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Group"/>
-															<Input value="" placeholder="Total">
+															<Input id="debtage90group" value="" placeholder="Group"/>
+															<Input id="debtage90total" value="" placeholder="Total">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
 															<Label text="Between 91 and 120 Days" tooltip="Up to 30 Days"/>
-															<Input value="" placeholder="Individual Policies">
+															<Input id="debtage120ip" value="" placeholder="Individual Policies">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Group"/>
-															<Input value="" placeholder="Total">
+															<Input id="debtage120group" value="" placeholder="Group"/>
+															<Input id="debtage120total" value="" placeholder="Total">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
 															<Label text="121 Days plus" />
-															<Input value="" placeholder="Individual Policies">
+															<Input id="debtage121ip" value="" placeholder="Individual Policies">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Group"/>
-															<Input value="" placeholder="Total">
+															<Input id="debtage121group" value="" placeholder="Group"/>
+															<Input id="debtage121total" value="" placeholder="Total">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
 															<Label text="Total" />
-															<Input value="" placeholder="Individual Policies">
+															<Input id="totalip" value="" placeholder="Individual Policies">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
 															</Input>
-															<Input value="" placeholder="Group"/>
-															<Input value="" placeholder="Total">
+															<Input id="totalgroup1" value="" placeholder="Group"/>
+															<Input id="total1234" value="" placeholder="Total">
 																<layoutData>
 																	<l:GridData span="XL2 L3 M3 S4" />
 																</layoutData>
@@ -4004,7 +4003,7 @@
 												</content>
 											</IconTabFilter>
 											<IconTabSeparator id="__separator20" icon="sap-icon://process" />
-											<IconTabFilter text="3" id="__filter8d" icon="sap-icon://paging" iconColor="Positive" tooltip="BUSINESS MIX: Ten Largest Policies by Sum Assured">
+											<IconTabFilter text="4" id="__filter8d" icon="sap-icon://paging" iconColor="Positive" tooltip="BUSINESS MIX: Ten Largest Policies by Sum Assured">
 												<content>	
 												<MessageStrip class="sapUiSmallMarginBottom" text="BUSINESS MIX: Ten Largest Policies by Sum Assured" showIcon="true"/>
 													<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="SimpleFormChange480_Trial8d"
@@ -4026,43 +4025,43 @@
 														<sap.ui.layout.form:content>
 															<core:Title text="One" />
 															<Label text="Name Policy Holder" tooltip="Name Policy Holder"/>
-															<Input value="" placeholder="Name Policy Holder" tooltip="Name Policy Holder"/>
+															<Input id="namepolicy" value="" placeholder="Name Policy Holder" tooltip="Name Policy Holder"/>
 															<Label text="Sum Assured" tooltip="Sum Assured"/>
-															<Input value="" placeholder="Sum Assured" tooltip="Sum Assured"/>
+															<Input id="sumassured" value="" placeholder="Sum Assured" tooltip="Sum Assured"/>
 															<Label text="Type Of Product" tooltip="Type Of Product"/>
-															<Input value="" tooltip="Type Of Product" placeholder="Type Of Product"/>
+															<Input id="typeproduct" value="" tooltip="Type Of Product" placeholder="Type Of Product"/>
 															<Label text="Premium Paid" tooltip="Premium Paid"/>
-															<Input value="" tooltip="Premium Paid" placeholder="Premium Paid"/>
+															<Input id="premiumpaid" value="" tooltip="Premium Paid" placeholder="Premium Paid"/>
 															
 															<core:Title text="Two" />
 															<Label text="Name Policy Holder" tooltip="Name Policy Holder"/>
-															<Input value="" placeholder="Name Policy Holder" tooltip="Name Policy Holder"/>
+															<Input id="namepolicy1" value="" placeholder="Name Policy Holder" tooltip="Name Policy Holder"/>
 															<Label text="Sum Assured" tooltip="Sum Assured"/>
-															<Input value="" placeholder="Sum Assured" tooltip="Sum Assured"/>
+															<Input id="sumassured1" value="" placeholder="Sum Assured" tooltip="Sum Assured"/>
 															<Label text="Type Of Product" tooltip="Type Of Product"/>
-															<Input value="" tooltip="Type Of Product" placeholder="Type Of Product"/>
+															<Input id="typeproduct1" value="" tooltip="Type Of Product" placeholder="Type Of Product"/>
 															<Label text="Premium Paid" tooltip="Premium Paid"/>
-															<Input value="" tooltip="Premium Paid" placeholder="Premium Paid"/>
+															<Input id="premiumpaid1" value="" tooltip="Premium Paid" placeholder="Premium Paid"/>
 															
 															<core:Title text="Three" />
 															<Label text="Name Policy Holder" tooltip="Name Policy Holder"/>
-															<Input value="" placeholder="Name Policy Holder" tooltip="Name Policy Holder"/>
+															<Input id="namepolicy2" value="" placeholder="Name Policy Holder" tooltip="Name Policy Holder"/>
 															<Label text="Sum Assured" tooltip="Sum Assured"/>
-															<Input value="" placeholder="Sum Assured" tooltip="Sum Assured"/>
+															<Input id="sumassured2" value="" placeholder="Sum Assured" tooltip="Sum Assured"/>
 															<Label text="Type Of Product" tooltip="Type Of Product"/>
-															<Input value="" tooltip="Type Of Product" placeholder="Type Of Product"/>
+															<Input id="typeproduct2" value="" tooltip="Type Of Product" placeholder="Type Of Product"/>
 															<Label text="Premium Paid" tooltip="Premium Paid"/>
-															<Input value="" tooltip="Premium Paid" placeholder="Premium Paid"/>
+															<Input id="premiumpaid2" value="" tooltip="Premium Paid" placeholder="Premium Paid"/>
 															
 															<core:Title text="Four" />
 															<Label text="Name Policy Holder" tooltip="Name Policy Holder"/>
-															<Input value="" placeholder="Name Policy Holder" tooltip="Name Policy Holder"/>
+															<Input id="namepolicy3" value="" placeholder="Name Policy Holder" tooltip="Name Policy Holder"/>
 															<Label text="Sum Assured" tooltip="Sum Assured"/>
-															<Input value="" placeholder="Sum Assured" tooltip="Sum Assured"/>
+															<Input id="sumassured3" value="" placeholder="Sum Assured" tooltip="Sum Assured"/>
 															<Label text="Type Of Product" tooltip="Type Of Product"/>
-															<Input value="" tooltip="Type Of Product" placeholder="Type Of Product"/>
+															<Input id="typeproduct3" value="" tooltip="Type Of Product" placeholder="Type Of Product"/>
 															<Label text="Premium Paid" tooltip="Premium Paid"/>
-															<Input value="" tooltip="Premium Paid" placeholder="Premium Paid"/>
+															<Input id="premiumpaid3" value="" tooltip="Premium Paid" placeholder="Premium Paid"/>
 															
 															<core:Title text="Five" />
 															<Label text="Name Policy Holder" tooltip="Name Policy Holder"/>
