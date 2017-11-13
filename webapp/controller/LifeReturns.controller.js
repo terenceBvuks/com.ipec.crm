@@ -1,14 +1,16 @@
 sap.ui.define([
+	"com/ipec/crm/controller/BaseController",
 	"sap/ui/core/mvc/Controller",
 	"sap/m/MessageToast",
 	"sap/m/MessageBox",
 	"jquery.sap.global",
 	"sap/ui/model/json/JSONModel"
-], function(Controller,MessageToast,MessageBox) {
+], function(BaseController,Controller,MessageToast,MessageBox) {
 	"use strict";
 
-	return Controller.extend("com.ipec.crm.controller.LifeReturns", {
+	return BaseController.extend("com.ipec.crm.controller.LifeReturns", {
 		onInit : function () {
+			this._oResourceBundle = this.getResourceBundle();
 			// var sUrl2 = "#" + this.getOwnerComponent().getRouter().getURL("page2");
 			// this.byId("link2").setHref(sUrl2);
 			// oModel = this.getView().getModel("ZIPEC_APP_SRV");
@@ -66,6 +68,16 @@ sap.ui.define([
 
 		},
 		
+		handleDateChange : function(oEvent){
+		   var bValid   = oEvent.getParameter("valid");
+		
+		   if(!bValid){             
+		      sap.m.MessageToast.show("Please input a valid date");
+		      this.getView().byId("input_Periodended").setValueState(sap.ui.core.ValueState.Error);
+		      return;
+		   }
+		   this.getView().byId("input_Periodended").setValueState(sap.ui.core.ValueState.Success);
+		},
 			//Method to send odata post request to backend server (save order)
 	// 	_saveOrder: function() {
 	// 		var that = this;
@@ -1991,10 +2003,10 @@ sap.ui.define([
     	
     	// Method to send odata post request to backend server (save order)
     	_saveOrder: function() {
-			var that = this;
-			var 	oEntry = {};
-	///		var 	oModel = this.getView().getModel("ZIPEC_APP_SRV");
-			var 	bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
+			var that = this,
+				oEntry = {},
+				oModel = this.getModel(),
+				bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
 
 		//Bind data array to form fields
 			//Identifying details
@@ -2006,10 +2018,17 @@ sap.ui.define([
 
 		//Bind data array to form fields
 			// Statement of Comprehensive Income for the Year
+<<<<<<< HEAD
+			oEntry.Grosspremuim = this.getView().byId("input_Grosspremium").getValue();
+			oEntry.Netpremuim = this.getView().byId("input_Netpremium").getValue();
+			oEntry.Unearnedpremuim1 = this.getView().byId("input_Unearnedpremium").getValue();
+			oEntry.Netearnedpremuim = this.getView().byId("__inputNEP").getValue();
+=======
 			oEntry.Grosspremium = this.getView().byId("input_Grosspremium").getValue();
 			oEntry.Netpremium = this.getView().byId("input_Netpremium").getValue();
 			oEntry.Unearnedpremium1 = this.getView().byId("input_Unearnedpremium").getValue();
 			oEntry.Netearnedpremium = this.getView().byId("__inputNEP").getValue();
+>>>>>>> branch 'master' of https://github.com/terenceBvuks/com.ipec.crm.git
 			oEntry.Claimspaid = this.getView().byId("input_Claimspaid").getValue();
 			oEntry.Claimsoutstandin = this.getView().byId("input_Claimsoutstanding").getValue();
 			// input_Outwardpremium missing ODATA field
@@ -2056,7 +2075,11 @@ sap.ui.define([
 			oEntry.Outstandclaims = this.getView().byId("input_Outstandingclaims").getValue();
 			// input_Claimsibnr missing ODATA field
 			oEntry.Futurepolicyhold = this.getView().byId("input_Futurepd").getValue();
+<<<<<<< HEAD
+			oEntry.Unearnedpremuim = this.getView().byId("input_Unearnedpr").getValue();
+=======
 			oEntry.Unearnedpremium = this.getView().byId("input_Unearnedpr").getValue();
+>>>>>>> branch 'master' of https://github.com/terenceBvuks/com.ipec.crm.git
 			oEntry.Amountsdue = this.getView().byId("input_Amountsdtr").getValue();
 			oEntry.Payablesarising = this.getView().byId("input_Payablesafra").getValue();
 			oEntry.Deferedtaxation = this.getView().byId("input_Deferredtaxation").getValue();
@@ -2066,7 +2089,11 @@ sap.ui.define([
 			// input_Totalliabilities missing ODATA field
 			
 			oEntry.Sharecapital = this.getView().byId("input_Sharecapital").getValue();
+<<<<<<< HEAD
+			oEntry.Sharepremuim = this.getView().byId("input_Sharepremium").getValue();
+=======
 			oEntry.Sharepremium = this.getView().byId("input_Sharepremium").getValue();
+>>>>>>> branch 'master' of https://github.com/terenceBvuks/com.ipec.crm.git
 			oEntry.Investreserve = this.getView().byId("input_Investmentreserve").getValue();
 			oEntry.Revaluationreser = this.getView().byId("input_Revaluationreserve").getValue();
 			oEntry.Nondistributable = this.getView().byId("input_Nondistreserve").getValue();
@@ -2087,10 +2114,17 @@ sap.ui.define([
 			oEntry.Netadjustedasset = this.getView().byId("input_Netadjustedassets").getValue();
 			oEntry.Totalliabilities = this.getView().byId("input_Totalliabilities1").getValue();
 			oEntry.Excessassets = this.getView().byId("input_Excessaoliabilities").getValue();
+<<<<<<< HEAD
+			oEntry.Grosspremuim1 = this.getView().byId("input_Grosspw").getValue();
+			oEntry.Reassurance = this.getView().byId("input_Reassurance").getValue();
+			oEntry.Netpremuim1 = this.getView().byId("input_Netpincome").getValue();
+			oEntry.Netpremuim25 = this.getView().byId("__inputNPI025").getValue();
+=======
 			oEntry.Grosspremium1 = this.getView().byId("input_Grosspw").getValue();
 			oEntry.Reassurance = this.getView().byId("input_Reassurance").getValue();
 			oEntry.Netpremium1 = this.getView().byId("input_Netpincome").getValue();
 			oEntry.Netpremium25 = this.getView().byId("__inputNPI025").getValue();
+>>>>>>> branch 'master' of https://github.com/terenceBvuks/com.ipec.crm.git
 			oEntry.Shareholderfund = this.getView().byId("input_Shareholderfund").getValue();
 			oEntry.Safetymargin = this.getView().byId("input_Safetymargin").getValue();
 			oEntry.Solvencymargin = this.getView().byId("input_Solvencymargin").getValue();
@@ -2130,14 +2164,14 @@ sap.ui.define([
 			oEntry.Enewbusinessdcgp = this.getView().byId("input_Enewbusinessdcgp").getValue();
 			oEntry.Enewbusinesstnp = this.getView().byId("input_Enewbusinesstnp").getValue();
 			oEntry.Enewbusinesstgp = this.getView().byId("input_Enewbusinesstgp").getValue();
-			oEntry.Ereccuringbnp = this.getView().byId("input_Ereccuringbnp").getValue();
-			oEntry.Ereccuringbgp = this.getView().byId("input_Ereccuringbgp").getValue();
-			oEntry.Ereccuringanp = this.getView().byId("input_Ereccuringanp").getValue();
-			oEntry.Ereccuringagp = this.getView().byId("input_Ereccuringagp").getValue();
-			oEntry.Ereccuringdcnp = this.getView().byId("input_Ereccuringdcnp").getValue();
-			oEntry.Ereccuringdcgp = this.getView().byId("input_Ereccuringdcgp").getValue();
-			oEntry.Ereccuringtnp = this.getView().byId("input_Ereccuringtnp").getValue();
-			oEntry.Ereccuringtgp = this.getView().byId("input_Ereccuringtgp").getValue();
+			oEntry.Erecurringbnp = this.getView().byId("input_Ereccuringbnp").getValue();
+			oEntry.Erecurringbgp = this.getView().byId("input_Ereccuringbgp").getValue();
+			oEntry.Erecurringanp = this.getView().byId("input_Ereccuringanp").getValue();
+			oEntry.Erecurringagp = this.getView().byId("input_Ereccuringagp").getValue();
+			oEntry.Erecurringdcnp = this.getView().byId("input_Ereccuringdcnp").getValue();
+			oEntry.Erecurringdcgp = this.getView().byId("input_Ereccuringdcgp").getValue();
+			oEntry.Erecurringtnp = this.getView().byId("input_Ereccuringtnp").getValue();
+			oEntry.Erecurringtgp = this.getView().byId("input_Ereccuringtgp").getValue();
 			oEntry.Esubtotalbnp = this.getView().byId("input_Esubtotalbnp").getValue();
 			oEntry.Esubtotalbgp = this.getView().byId("input_Esubtotalbgp").getValue();
 			oEntry.Esubtotalanp = this.getView().byId("input_Esubtotalanp").getValue();
@@ -2159,14 +2193,14 @@ sap.ui.define([
 			oEntry.Annuitiesdcgp = this.getView().byId("input_Bannuitiesdcgp").getValue();
 			oEntry.Annuitiestnp = this.getView().byId("input_Bannuitiestnp").getValue();
 			oEntry.Annuitiestgp = this.getView().byId("input_Bannuitiestgp").getValue();
-			oEntry.Terminsurancebnp = this.getView().byId("input_Bterminsurancebnp").getValue();
-			oEntry.Terminsurancebgp = this.getView().byId("input_Bterminsurancebgp").getValue();
-			oEntry.Terminsuranceanp = this.getView().byId("input_Bterminsuranceanp").getValue();
-			oEntry.Terminsuranceagp = this.getView().byId("input_Bterminsuranceagp").getValue();
-			oEntry.Terminsurancedcnp = this.getView().byId("input_Bterminsurancedcnp").getValue();
-			oEntry.Terminsurancedcgp = this.getView().byId("input_Bterminsurancedcgp").getValue();
-			oEntry.Terminsurancetnp = this.getView().byId("input_Bterminsurancetnp").getValue();
-			oEntry.Terminsurancetgp = this.getView().byId("input_Bterminsurancetgp").getValue();
+			oEntry.Terminsuranbnp = this.getView().byId("input_Bterminsurancebnp").getValue();
+			oEntry.Terminsuranbgp = this.getView().byId("input_Bterminsurancebgp").getValue();
+			oEntry.Terminsurananp = this.getView().byId("input_Bterminsuranceanp").getValue();
+			oEntry.Terminsuranagp = this.getView().byId("input_Bterminsuranceagp").getValue();
+			oEntry.Terminsurandcnp = this.getView().byId("input_Bterminsurancedcnp").getValue();
+			oEntry.Terminsurandcgp = this.getView().byId("input_Bterminsurancedcgp").getValue();
+			oEntry.Terminsurantnp = this.getView().byId("input_Bterminsurancetnp").getValue();
+			oEntry.Terminsurantgp = this.getView().byId("input_Bterminsurancetgp").getValue();
 			oEntry.Endowementbnp = this.getView().byId("input_Bendowementbnp").getValue();
 			oEntry.Endowementbgp = this.getView().byId("input_Bendowementbgp").getValue();
 			oEntry.Endowementanp = this.getView().byId("input_Bendowementanp").getValue();
@@ -2183,14 +2217,14 @@ sap.ui.define([
 			oEntry.Pendowementdcgp = this.getView().byId("input_Bpureendowementdcgp").getValue();
 			oEntry.Pendowementtnp = this.getView().byId("input_Bpureendowementtnp").getValue();
 			oEntry.Pendowementtgp = this.getView().byId("input_Bpureendowementtgp").getValue();
-			oEntry.Wholebnp = this.getView().byId("input_Bwholebnp").getValue();
-			oEntry.Wholebgp = this.getView().byId("input_Bwholebgp").getValue();
-			oEntry.Wholeanp = this.getView().byId("input_Bwholeanp").getValue();
-			oEntry.Wholeagp = this.getView().byId("input_Bwholeagp").getValue();
-			oEntry.Wholedcnp = this.getView().byId("input_Bwholedcnp").getValue();
-			oEntry.Wholedcgp = this.getView().byId("input_Bwholedcgp").getValue();
-			oEntry.Wholetnp = this.getView().byId("input_Bwholetnp").getValue();
-			oEntry.Wholetgp = this.getView().byId("input_Bwholetgp").getValue();
+			oEntry.Wholelifebnp = this.getView().byId("input_Bwholebnp").getValue();
+			oEntry.Wholelifebgp = this.getView().byId("input_Bwholebgp").getValue();
+			oEntry.Wholelifeanp = this.getView().byId("input_Bwholeanp").getValue();
+			oEntry.Wholelifeagp = this.getView().byId("input_Bwholeagp").getValue();
+			oEntry.Wholelifedcnp = this.getView().byId("input_Bwholedcnp").getValue();
+			oEntry.Wholelifedcgp = this.getView().byId("input_Bwholedcgp").getValue();
+			oEntry.Wholelifetnp = this.getView().byId("input_Bwholetnp").getValue();
+			oEntry.Wholelifetgp = this.getView().byId("input_Bwholetgp").getValue();
 			oEntry.Funeralbnp = this.getView().byId("input_Bfuneralbnp").getValue();
 			oEntry.Funeralbgp = this.getView().byId("input_Bfuneralbgp").getValue();
 			oEntry.Funeralanp = this.getView().byId("input_Bfuneralanp").getValue();
@@ -2261,7 +2295,11 @@ sap.ui.define([
 			oEntry.Netclaimsi = this.getView().byId("input_Netclaimsindiv").getValue();
 			oEntry.Netclaimsg = this.getView().byId("input_Netclaimsgroup").getValue();
 			// CLAIMS REPORT : TOP TEN CLAIMS
+<<<<<<< HEAD
+			oEntry.Nameofinsured = this.getView().byId("input_Nameinsured").getValue();
+=======
 			oEntry.Nameofinnsured = this.getView().byId("input_Nameinsured").getValue();
+>>>>>>> branch 'master' of https://github.com/terenceBvuks/com.ipec.crm.git
 			oEntry.Amountofclaim = this.getView().byId("input_Amountclaim").getValue();
 			oEntry.Typeofpolicy = this.getView().byId("input_Typepolicy").getValue();
 			oEntry.Settledrepulated = this.getView().byId("input_Settledrepudiated").getValue();
@@ -2291,7 +2329,11 @@ sap.ui.define([
 			oEntry.Percshareholding = this.getView().byId("input_Percentageshare").getValue();
 			// CORPORATE STRUCTURE AND GOVERNANCE : Details of Board Directors
 			oEntry.Name = this.getView().byId("name").getValue();
+<<<<<<< HEAD
+			oEntry.Executive = this.getView().byId("desig1").getSelectedKey();
+=======
 			oEntry.Executive = this.getView().byId("desig1").getValue();
+>>>>>>> branch 'master' of https://github.com/terenceBvuks/com.ipec.crm.git
 			oEntry.Qualifications = this.getView().byId("qualifications").getValue();
 			oEntry.Experience = this.getView().byId("experience").getValue();
 			oEntry.Directorships = this.getView().byId("directorships").getValue();
@@ -2322,6 +2364,8 @@ sap.ui.define([
 			oEntry.Groupnp = this.getView().byId("__input174b").getValue();
 			oEntry.Groupsa = this.getView().byId("__input175b").getValue();
 			oEntry.Groupp = this.getView().byId("__input176b").getValue();
+<<<<<<< HEAD
+=======
 			
 			// Current Reporting Period (Totals)
 			oEntry.Totalnp = this.getView().byId("__input174b1").getValue();
@@ -2388,10 +2432,77 @@ sap.ui.define([
 			oEntry.Totalamountclaim = this.getView().byId("input_Institutionname").getValue();
 			oEntry.Totalypepolicy = this.getView().byId("input_Institutionname").getValue();
 			oEntry.Totalsettled = this.getView().byId("input_Institutionname").getValue();
+>>>>>>> branch 'master' of https://github.com/terenceBvuks/com.ipec.crm.git
 			
-			this.oModel.setUseBatch(true);
+			// Current Reporting Period (Totals)
+			oEntry.Totalnp = this.getView().byId("__input174b1").getValue();
+			oEntry.Totalsa = this.getView().byId("__input175b1").getValue();
+			oEntry.Totalp = this.getView().byId("__input176b1").getValue();
+			
+			// BUSINESS MIX: Ten Largest Policies by Sum Assured
+			oEntry.Namepolicy = this.getView().byId("namepolicy").getValue();
+			oEntry.Sumassured = this.getView().byId("sumassured").getValue();
+			oEntry.Typeproduct = this.getView().byId("typeproduct").getValue();
+			oEntry.Premuimpaid = this.getView().byId("premiumpaid").getValue();
+			oEntry.Namepolicy1 = this.getView().byId("namepolicy1").getValue();
+			oEntry.Sumassured1 = this.getView().byId("sumassured1").getValue();
+			oEntry.Typeproduct1 = this.getView().byId("typeproduct1").getValue();
+			oEntry.Premuimpaid1 = this.getView().byId("premiumpaid1").getValue();
+			oEntry.Namepolicy2 = this.getView().byId("namepolicy2").getValue();
+			oEntry.Sumassured2 = this.getView().byId("sumassured2").getValue();
+			oEntry.Typeproduct2 = this.getView().byId("typeproduct2").getValue();
+			oEntry.Premuimpaid2 = this.getView().byId("premiumpaid2").getValue();
+			oEntry.Namepolicy3 = this.getView().byId("namepolicy3").getValue();
+			oEntry.Sumassured3 = this.getView().byId("sumassured3").getValue();
+			oEntry.Typeproduct3 = this.getView().byId("typeproduct3").getValue();
+			oEntry.Premuimpaid3 = this.getView().byId("premiumpaid3").getValue();
+			
+			// Business Mix : Debtors Age Analysis
+			oEntry.Debtage30ip = this.getView().byId("debtage30ip").getValue();
+			oEntry.Debtage30group = this.getView().byId("debtage30group").getValue();
+			oEntry.Debtage30total = this.getView().byId("debtage30total").getValue();
+			oEntry.Debtage60ip = this.getView().byId("debtage60ip").getValue();
+			oEntry.Debtage60group = this.getView().byId("debtage60group").getValue();
+			oEntry.Debtage60total = this.getView().byId("debtage60total").getValue();
+			oEntry.Debtage90ip = this.getView().byId("debtage90ip").getValue();
+			oEntry.Debtage90group = this.getView().byId("debtage90group").getValue();
+			oEntry.Debtage90total = this.getView().byId("debtage90total").getValue();
+			oEntry.Debtage120ip = this.getView().byId("debtage120ip").getValue();
+			oEntry.Debtage120group = this.getView().byId("debtage120group").getValue();
+			oEntry.Debtage120total = this.getView().byId("debtage120total").getValue();
+			oEntry.Debtage121ip = this.getView().byId("debtage121ip").getValue();
+			oEntry.Debtage121group = this.getView().byId("debtage121group").getValue();
+			oEntry.Debtage121total = this.getView().byId("debtage121total").getValue();
+			oEntry.Totalip = this.getView().byId("totalip").getValue();
+			oEntry.Totalgroup1 = this.getView().byId("totalgroup1").getValue();
+			oEntry.Total1234 = this.getView().byId("total1234").getValue();
+			
+			// Fields below have not been bound to any xml control, no respective control exists
+			oEntry.Namedirector = this.getView().byId("input_Institutionname").getValue();
+			oEntry.Reassurancepremu = this.getView().byId("input_Institutionname").getValue();
+			oEntry.Otherincome3= this.getView().byId("input_Institutionname").getValue();
+			// Bind data array to form fields
+			oEntry.Eatincome = this.getView().byId("input_Institutionname").getValue();
+			oEntry.Eatprofitloss = this.getView().byId("input_Institutionname").getValue();
+			
+			oEntry.Ncintagibleasset = this.getView().byId("input_Institutionname").getValue();
+			
+			
+			oEntry.Totalassets = this.getView().byId("input_Institutionname").getValue();
+			
+			
+			oEntry.Nonpermisassets = this.getView().byId("input_Institutionname").getValue();
+			
+			oEntry.Toptenclaimsi = this.getView().byId("input_Institutionname").getValue();
+			oEntry.Toptenclaimsg = this.getView().byId("input_Institutionname").getValue();
+			
+			oEntry.Totalamountclaim = this.getView().byId("input_Institutionname").getValue();
+			oEntry.Totaltypepolicy = this.getView().byId("input_Institutionname").getValue();
+			oEntry.Totalsettled = this.getView().byId("input_Institutionname").getValue();
+			
+			oModel.setUseBatch(true);
 
-			this.oModel.create("/ZLFO_RETURNSSet", oEntry, {
+			oModel.create("/ZLFO_RETURNSSet", oEntry, {
 				success: function(data) {
 					sap.ui.core.BusyIndicator.hide();
 					MessageBox.show(

@@ -16,7 +16,11 @@
         "runnerId": "webapprunner",
         "id": 9762684,
         "displayName": "Run index.html",
+<<<<<<< HEAD
+        "lastRunTimeStamp": 1510575463359
+=======
         "lastRunTimeStamp": 1510142093795
+>>>>>>> branch 'master' of https://github.com/terenceBvuks/com.ipec.crm.git
       }
     }
   ]
